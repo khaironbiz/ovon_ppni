@@ -1,0 +1,9 @@
+<Patient xmlns="http://hl7.org/fhir"> 
+ <identifier>Khairon.Khairon</identifier>
+ <name>Khairon Khairon</name>
+ <telecom>(03) 5555 6789</telecom>
+ <gender value="male"/>
+ <birthDate value="1984-09-06"/>
+ <address></address>
+ 
+</Patient>

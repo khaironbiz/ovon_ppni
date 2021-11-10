@@ -1,0 +1,19 @@
+{
+  "resourceType" : "Patient",
+  "identifier" : "Khairon.Khairon", 
+  "name" : {
+      "first_name" : "Khairon",
+      "last_name"  : "Khairon"
+  }, 
+  "telecom" : "(03) 5555 6789", 
+  "gender" : "male", 
+  "birthDate" : "1984-09-06",
+  "address" : {
+      "Line": "3300 Washtenaw",
+      "City" : "Ann Harbor",
+      "State": "MI",
+      "Postal Code": "48104",
+      "Country": "US",
+      "District": "Washtenaw"
+  }
+}
