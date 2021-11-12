@@ -3,6 +3,11 @@ if(isset($_POST['forgot_password'])){
     $email          = $_POST['username'];
     $kode_aktifasi  = uniqid();
     $time           = date("Y-m-d H:i:s");
+    $pinjam         = date("Y-m-d");
+    $satu_hari      = mktime(0,0,0,date("n"),date("j")+1,date("Y"));
+    $besok          = date("Y-m-d", $satu_hari);
+
+    $exp_key        = $besok;
     $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email'");
     $count_email    = mysqli_num_rows($sql_email);
     $url_reset      = $site_url."/login/reset-password.php?id=".$kode_aktifasi;
@@ -10,6 +15,7 @@ if(isset($_POST['forgot_password'])){
     if($count_email>0){
     $update_user    = mysqli_query($host, "UPDATE users SET
                         kode_aktifasi   = '$kode_aktifasi',
+                        berlaku_key     = '$exp_key',
                         updated_at      = '$time' WHERE
                         email           = '$email'");
         $subject        = "Reset Password";
