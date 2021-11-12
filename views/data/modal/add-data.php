@@ -101,11 +101,15 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Fasilitas</label>
                         <div class="col-sm-9">
-                            <input type="checkbox"value="1"> Listrik, 
-                            <input type="checkbox"value="2"> Radio, 
-                            <input type="checkbox"value="3"> Televisi, 
-                            <input type="checkbox"value="4"> Handphone, 
-                            <input type="checkbox"value="5"> Tidak Ada
+                             
+                            <?php
+                                $sql_fas    = mysqli_query($host,"SELECT * from master_fasilitas ");
+                                while($data_fas= mysqli_fetch_array($sql_fas)){
+                            ?>
+                                <input type="checkbox"value="<?= $data_fas['id_master_fasilitas']?>"> <?= $data_fas['master_fasilitas']?> <span> </span>
+                            <?php
+                                }
+                            ?>
                             
                         </div>
                         

@@ -172,6 +172,12 @@
                   <p>Key</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/fasilitas-keluarga.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fasilitas</p>
+                </a>
+              </li>
             </ul>
           </li>
           <?php
