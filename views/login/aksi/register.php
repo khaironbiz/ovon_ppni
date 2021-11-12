@@ -46,7 +46,7 @@ if(isset($_POST['add_user'])){
                     $url            = $site_url."?id=".$has_user;
                     $htmlContent    = ' 
                         <h3>Aktifasi akun '.$user_nama.'</h3> 
-                        <p>Terimakasih sudah registrasi, mohon klik tautan berikut untuk aktifasi akun '.$url.', jika ada hal yang perlu dikonfirmasi silahkan hubungi Khairon 081213798746.</p> 
+                        <p>Terimakasih sudah registrasi, mohon klik tautan berikut untuk aktifasi akun <a href="'.$url.'">Aktifasi disini</a>, jika ada hal yang perlu dikonfirmasi silahkan hubungi Khairon 081213798746.</p> 
                         <p>DPK PPNI RSPON</p>
                         <p>Ini adalah email server mohon tidak membalas email ini</p>
                     '; 
@@ -63,26 +63,27 @@ if(isset($_POST['add_user'])){
                     $mail   = @mail($to, $subject, $message, $headers, $returnpath);  
                     $_SESSION['status']="Data berhasil disimpan";
                     $_SESSION['status_info']="success";
-                    echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+                    header("location: $site_url/login/");
+                    
                 }else{
                 $_SESSION['status']="User gagal ditambah";
                 $_SESSION['status_info']="danger";
-                echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+                header("location: $site_url/login/register.php"); 
             }
             }else{
                 $_SESSION['status']="Email sudah terdaftar";
                 $_SESSION['status_info']="danger";
-                echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+                header("location: $site_url/login/register.php"); 
             }
         }else{
             $_SESSION['status']="Key tidak terdaftar";
             $_SESSION['status_info']="danger";
-            echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+            header("location: $site_url/login/register.php"); 
         }
     }else{
     $_SESSION['status']="Password tidak sama";
     $_SESSION['status_info']="danger";
-    echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+    header("location: $site_url/login/register.php"); 
     }
 }
 

@@ -11,21 +11,19 @@
       <p class="login-box-msg">Register a new membership</p>
 
       <?php
-      session_start(); // Memulai Session
-      $error = ''; // Variabel untuk menyimpan pesan error
-      include('aksi/register.php');
-            if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
-            ?>
-            <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
-              <strong>Hay</strong> <?= $_SESSION['status']?>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <?php
-            unset($_SESSION['status']);
-            }
-            ?>
+        include('aksi/register.php');
+        if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
+      ?>
+      <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
+        <strong>Hay</strong> <?= $_SESSION['status']?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <?php
+      unset($_SESSION['status']);
+      }
+      ?>
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="number" class="form-control" placeholder="Secret Key" name="key" required>
