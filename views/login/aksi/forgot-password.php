@@ -12,14 +12,25 @@ if(isset($_POST['forgot_password'])){
                         kode_aktifasi   = '$kode_aktifasi',
                         updated_at      = '$time' WHERE
                         email           = '$email'");
-        ini_set( 'display_errors', 1 );
-        error_reporting( E_ALL );
-        $from       = "admin@ppni.or.id";
-        $to         = $email;
-        $subject    = "Reset Password";
-        $message    = "Silahkan klik url berikut ".$url_reset;
-        $headers    = "From:" . $from;
-        $send_email = mail($to,$subject,$message, $headers);
+        $subject        = "Reset Password";
+        $htmlContent    = ' 
+            <h3>Aktifasi akun '.$user_nama.'</h3> 
+            <p>Berikut tautan untuk reset password <a href="'.$url_reset.'">Reset Password</a>,abaikan email ini jika anda tidak melakukan permohonan reset password, mungkin ada seseorang yang berusaha menggunakan email anda untuk mengakses aplikasi kami. jika ada hal yang perlu dikonfirmasi silahkan hubungi Khairon 081213798746.</p> 
+            <p>DPK PPNI RSPON</p>
+            <p>Ini adalah email server mohon tidak membalas email ini</p>
+        '; 
+        $to             = $email;
+        $from           = 'admin@ppni.or.id'; 
+        $fromName       = 'DPK PPNI RSPON'; 
+        $file           = $download['file']; 
+        $headers        = "From: $fromName"." <".$from.">"; 
+        $semi_rand      = md5(time());  
+        $mime_boundary  = "==Multipart_Boundary_x{$semi_rand}x";  
+        $headers        .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
+        $message        = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" . 
+        "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";  
+        $send_email     = @mail($to, $subject, $message, $headers, $returnpath); 
+
         if($send_email){
         $_SESSION['status']     ="Request success";
         $_SESSION['status_info']="success";

@@ -8,6 +8,9 @@
       <div class="input-group mb-3 col-md-12">
           <img src="<?= $site_url?>assets/images/ovon-logo1.png" width="295px">
       </div>
+      <?php
+      include("aksi/forgot-password.php");
+      ?>
       <p class="login-box-msg">Forgot Password</p>
       <form action="" method="post">
         <div class="input-group mb-3">
