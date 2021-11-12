@@ -42,16 +42,24 @@ if(isset($_POST['add_user'])){
                         wilayah_akses   = '$wilayah_akses',
                         has_user        = '$has_user'");
                 if($tambah_user){
-                    $subject    = "Aktifasi Akun";
-                    $url        = $site_url."?id=".$has_user;
-                    $htmlContent = ' 
+                    $subject        = "Aktifasi Akun";
+                    $url            = $site_url."?id=".$has_user;
+                    $htmlContent    = ' 
                         <h3>Aktifasi akun '.$user_nama.'</h3> 
                         <p>Terimakasih sudah registrasi, mohon klik tautan berikut untuk aktifasi akun '.$url.', jika ada hal yang perlu dikonfirmasi silahkan hubungi Khairon 081213798746.</p> 
                         <p>DPK PPNI RSPON</p>
                         <p>Ini adalah email server mohon tidak membalas email ini</p>
                     '; 
-                    include("../../core/send-email.php");
-                    $to     = $email;
+                    $to             = $email;
+                    $from           = 'admin@ppni.or.id'; 
+                    $fromName       = 'DPK PPNI RSPON'; 
+                    $file           = $download['file']; 
+                    $headers        = "From: $fromName"." <".$from.">"; 
+                    $semi_rand      = md5(time());  
+                    $mime_boundary  = "==Multipart_Boundary_x{$semi_rand}x";  
+                    $headers        .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
+                    $message        = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" . 
+                    "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";  
                     $mail   = @mail($to, $subject, $message, $headers, $returnpath);  
                     $_SESSION['status']="Data berhasil disimpan";
                     $_SESSION['status_info']="success";
