@@ -1,13 +1,19 @@
 <div class="register-box">
-  <div class="register-logo">
-    <a href="<?= $site_url ?>"><b><?= $nama_web;?></b></a><br>
+  <div class="register-logo mt-5 mb-5">
+    
   </div>
 
   <div class="card">
     <div class="card-body register-card-body">
+      <div class="input-group mb-3 col-md-12">
+          <img src="<?= $site_url?>assets/images/ovon-logo1.png" width="295px">
+      </div>
       <p class="login-box-msg">Register a new membership</p>
 
       <?php
+      session_start(); // Memulai Session
+      $error = ''; // Variabel untuk menyimpan pesan error
+      include('aksi/register.php');
             if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
             ?>
             <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
@@ -71,17 +77,17 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
-              <label for="agreeTerms">
-                I agree to the <a href="#">terms</a>
-              </label>
-            </div>
+        <div class="input-group mb-3">
+          <div class="icheck-primary">
+            <input type="checkbox" id="agreeTerms" name="terms" value="agree" required>
+            <label for="agreeTerms">
+              I agree to the <a href="#">terms</a>
+            </label>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
+        </div>
+        <div class="row">
+          
+          <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
@@ -90,7 +96,7 @@
 
       
 
-      <a href="<?= $site_url?>/login" class="text-center">I already have a membership</a>
+      <a href="<?= $site_url?>/login" class="text-center">Login</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

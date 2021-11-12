@@ -1,10 +1,13 @@
 <div class="login-box">
-  <div class="login-logo">
-    <a href="<?= $site_url ?>"><b><?= $nama_web;?></b></a>
+  <div class="login-logo mt-5 mb-5">
+    
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+      <div class="input-group mb-3 col-md-12">
+          <img src="<?= $site_url?>assets/images/ovon-logo1.png" width="295px">
+      </div>
       <p class="login-box-msg">Forgot Password</p>
       <form action="" method="post">
         <div class="input-group mb-3">
@@ -16,21 +19,22 @@
             </div>
           </div>
         </div>
-        
         <div class="row">
-          <div class="col-8">
+          <!-- /.col -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+          </div>
+          <!-- /.col -->
+        </div>
+        <div class="row">
+          <div class="col-12">
             <p class="mb-1">
               <a href="<?= $site_url;?>/login">Login</a>
             </p>
             <p class="mb-1">
-              <a href="<?= $site_url;?>/login/register.php">Be Contributor</a>
+              <a href="<?= $site_url;?>/login/register.php">Daftar</a>
             </p>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Reset</button>
-          </div>
-          <!-- /.col -->
+          </div>          
         </div>
       </form>
       <?php
