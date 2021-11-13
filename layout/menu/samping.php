@@ -178,6 +178,36 @@
                   <p>Fasilitas</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/jenis-keluarga.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jenis Keluarga</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/kendaraan.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kendaraan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/atap.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Atap</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/dinding.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dinding</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/bahan-bakar.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bahan Bakar</p>
+                </a>
+              </li>
             </ul>
           </li>
           <?php

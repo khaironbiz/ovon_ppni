@@ -5,7 +5,7 @@
 <!-- Modal -->
 <form action="" method="POST">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable .modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Pengkajian Keluarga</h5>
@@ -24,11 +24,15 @@
                         <div class="col-sm-4">
                             <select class="form-control" required name="jenis_keluarga">
                                 <option value="">---Jenis Keluarga----</option>
-                                <option value="1">Keluarga Inti</option>
-                                <option value="2">Keluarga Besar</option>
-                                <option value="3">Keluarga Duda / Janda</option>
-                                <option value="4">Keluarga Komposit</option>
-                                <option value="5">Keluarga Kabisat</option>
+                                <?php
+                                $sql_jen_kel    = mysqli_query($host,"SELECT * from master_jenis_keluarga ");
+                                while($data_jen_kel = mysqli_fetch_array($sql_jen_kel)){
+                                ?>
+                                <option value="<?= $data_jen_kel['id_master_jenis_keluarga'] ?>">
+                                <?= $data_jen_kel['master_jenis_keluarga'] ?></option>
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -47,15 +51,16 @@
                         <div class="col-sm-3">
                             <select class="form-control" required name="sumber_air_minum">
                                 <option value="">---Sumber Air Minum----</option>
-                                <option value="1">Air Kemasan</option>
-                                <option value="2">Air Isi Ulang</option>
-                                <option value="3">PDAM</option>
-                                <option value="4">Sumur</option>
-                                <option value="5">Mata Air</option>
-                                <option value="6">Danau</option>
-                                <option value="7">Bendungan</option>
-                                <option value="8">Air Hujan</option>
-                                <option value="9">Tanki Air</option>
+                                
+                                <?php
+                                $sql_jen_kel    = mysqli_query($host,"SELECT * from master_air_minum ");
+                                while($data_jen_kel = mysqli_fetch_array($sql_jen_kel)){
+                                ?>
+                                <option value="<?= $data_jen_kel['id_master_air_minum'] ?>">
+                                <?= $data_jen_kel['master_air_minum'] ?></option>
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </div>
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Penyediaan air minum</label>
@@ -82,11 +87,15 @@
                         <div class="col-sm-3">
                             <select class="form-control" required name="jenis_jamban">
                                 <option value="">---Jenis Jamban----</option>
-                                <option value="1">Kakus Tanki</option>
-                                <option value="2">Kakus Tanpa Tanki</option>
-                                <option value="3">Sungai</option>
-                                <option value="4">Cubluk</option>
-                                <option value="5">Halaman/semak/hutan/kebon</option>
+                                <?php
+                                $sql_jamban    = mysqli_query($host,"SELECT * from master_jenis_jamban ");
+                                while($data_jamban = mysqli_fetch_array($sql_jamban)){
+                                ?>
+                                <option value="<?= $data_jamban['id_master_jenis_jamban'] ?>">
+                                <?= $data_jamban['master_jenis_jamban'] ?></option>
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </div>
                         <label class="col-sm-2 col-form-label">Kepemilikan Jamban</label>
@@ -101,7 +110,6 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Fasilitas</label>
                         <div class="col-sm-9">
-                             
                             <?php
                                 $sql_fas    = mysqli_query($host,"SELECT * from master_fasilitas ");
                                 while($data_fas= mysqli_fetch_array($sql_fas)){
@@ -117,11 +125,18 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Kendaraan</label>
                         <div class="col-sm-9">
-                            <input type="checkbox"value="1"> Sepeda, 
-                            <input type="checkbox"value="2"> Sepeda Motor, 
-                            <input type="checkbox"value="3"> Mobil, 
-                            <input type="checkbox"value="4"> Tidak Ada
                             
+                            <?php
+                                $sql_kendaraan    = mysqli_query($host,"SELECT * from master_kendaraan ");
+                                while($data_kendaraan = mysqli_fetch_array($sql_kendaraan)){
+                            ?>
+                                <input type="checkbox" name="kendaraan" 
+                                value="<?= $data_kendaraan['id_master_kendaraan'] ?>"> 
+                                <?= $data_kendaraan['master_kendaraan'] ?>
+                                
+                            <?php
+                                }
+                            ?>
                         </div>
                         
                     </div>
@@ -130,11 +145,17 @@
                         <div class="col-sm-3">
                             <select class="form-control" required name="bahan_bakar">
                                 <option value="">---Bahan Bakar----</option>
-                                <option value="1">Listrik</option>
-                                <option value="2">Gas</option>
-                                <option value="3">Bio Gas</option>
-                                <option value="4">Minyak Tanah</option>
-                                <option value="5">Kayu Bakar</option>
+                                <?php
+                                $sql_bahan_bakar    = mysqli_query($host,"SELECT * from master_bahan_bakar ");
+                                while($data_bahan_bakar = mysqli_fetch_array($sql_bahan_bakar)){
+                                ?>
+                                
+                                <option value="<?= $data_bahan_bakar['id_master_bahan_bakar'] ?>">
+                                <?= $data_bahan_bakar['master_bahan_bakar'] ?></option>
+                                    
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </div>
                         <label class="col-sm-2 col-form-label">Kepemilikan BPJS</label>
@@ -162,20 +183,36 @@
                         <div class="col-sm-3">
                             <select class="form-control" required name="atap_rumah">
                                 <option value="">---Jenis Atap Rumah----</option>
-                                <option value="1">Genting</option>
-                                <option value="2">Beton</option>
-                                <option value="3">Kayu Sirap</option>
-                                <option value="4">Bahan Alami</option>
-                                <option value="5">Asbes</option>
+                                <?php
+                                $sql_atap    = mysqli_query($host,"SELECT * from master_atap ");
+                                while($data_atap = mysqli_fetch_array($sql_atap)){
+                                ?>
+                                
+                                <option value="<?= $data_atap['id_master_atap'] ?>">
+                                <?= $data_atap['master_atap'] ?></option>
+                                    
+                                <?php
+                                    }
+                                ?>
+                                
                             </select>
                         </div>
                         <label class="col-sm-2 col-form-label">Dinding Bangunan</label>
                         <div class="col-sm-4">
                             <select class="form-control" required name="dinding_rumah">
                                 <option value="">---Jenis Dinding----</option>
-                                <option value="1">Tembok</option>
-                                <option value="2">Kayu</option>
-                                <option value="3">Bambu</option>
+                                <?php
+                                $sql_dinding    = mysqli_query($host,"SELECT * from master_dinding ");
+                                while($data_dinding = mysqli_fetch_array($sql_dinding)){
+                                ?>
+                                
+                                <option value="<?= $data_dinding['id_master_dinding'] ?>">
+                                <?= $data_dinding['master_dinding'] ?></option>
+                                    
+                                <?php
+                                    }
+                                ?>
+                                
                             </select>
                         </div>
                     </div>

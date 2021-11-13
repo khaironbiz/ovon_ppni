@@ -1,5 +1,20 @@
 <?php
 if(isset($_POST['add_keluarga'])){
+
+    $N          = count($id_jabfung);
+    for($i=0; $i < $N; $i++){
+	$id_jab[$i]     = mysql_fetch_assoc(mysql_query("SELECT *FROM jabfung_ak where id='$id_jabfung[$i]'"));
+	$ak_ini[$i]     = $id_jab[$i]['ak'];
+	$level_ini[$i]  = $id_jab[$i]['jabatan'];
+	$id_a[$i]       = $id_jab[$i]['id_a'];
+	$id_b[$i]       = $id_jab[$i]['id_b'];
+	$id_c[$i]       = $id_jab[$i]['id_c'];
+	$id_d[$i]       = $id_jab[$i]['id_d'];
+    $coba[$i]       = "insert into jabfung_ak_detail values 
+    ('', '$user_check','$id_px','$id_komp', '$ruangan_px','$id_jabfung[$i]', '$ak_ini[$i]', '$level_ini[$i]','$id_a[$i]','$id_b[$i]','$id_c[$i]','$id_d[$i]','$time' ,'$time','')";
+    $cek            = mysql_query($coba[$i]);
+    }
+    
     $hari_ini               = date('Y-m-d H:i:s');
     $key_keluarga           = $_POST['add_keluarga'];
     $nama_keluarga          = $_POST['nama_keluarga'];
