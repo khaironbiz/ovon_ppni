@@ -2,6 +2,8 @@
 include("../auth/site.php");
 include("../auth/koneksi.php");
 
+session_start(); // Memulai Session
+$error = ''; // Variabel untuk menyimpan pesan error
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,30 +1,28 @@
 <div class="register-box">
   <div class="register-logo mt-5 mb-5">
-    
   </div>
-
   <div class="card">
     <div class="card-body register-card-body">
       <div class="input-group mb-3 col-md-12">
           <img src="<?= $site_url?>assets/images/ovon-logo1.png" width="295px">
       </div>
       <p class="login-box-msg">Register a new membership</p>
-
       <?php
-        include('aksi/register.php');
-        if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
+      
+      //include("aksi/session-flash.php");
+      if(isset($_SESSION['status']) && $_SESSION['status'] !=""){
       ?>
-      <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
-        <strong>Hay</strong> <?= $_SESSION['status']?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+        <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
+          <?= $_SESSION['status']?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
       <?php
-      unset($_SESSION['status']);
+        unset($_SESSION['status']);
       }
       ?>
-      <form action="" method="post">
+      <form action="<?= $site_url?>login/save-daftar.php" method="post">
         <div class="input-group mb-3">
           <input type="number" class="form-control" placeholder="Secret Key" name="key" required>
           <div class="input-group-append">
@@ -91,8 +89,9 @@
           <!-- /.col -->
         </div>
       </form>
-
-      
+      <?php
+      include("aksi/register.php");
+      ?>
 
       <a href="<?= $site_url?>/login" class="text-center">Login</a>
     </div>
