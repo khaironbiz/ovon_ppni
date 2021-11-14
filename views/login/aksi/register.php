@@ -1,4 +1,7 @@
 <?php
+
+session_start(); // Memulai Session
+$error = ''; // Variabel untuk menyimpan pesan error
 if(isset($_POST['add_user'])){
     $user_nama      = $_POST['user_nama'];
     $email          = $_POST['email'];
