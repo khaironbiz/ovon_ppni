@@ -37,18 +37,23 @@
                   <?php
                   if($data_pengguna['id_rw'] !=''){
                     include("../core/security/admin-akses.php");
+                    ?>
+                    <a href="<?= $site_url?>data/add-keluarga.php" class="btn btn-primary btn-sm mb-3">Add Keluarga</a>
+                    <?php
                     if($count_admin >0){
                       //include("modal/add-data.php");
                       include('aksi/add-data.php');
                       }
                   }
-                  if($data_pengguna['id_rw'] =""){
+                  if($data_pengguna['id_rw'] ==""){
                     include("modal/edit-rw.php");
                     include("aksi/edit-rw.php");
+                    
+                    
                   }
                   
                   ?>
-                  <a href="" class="btn btn-primary btn-sm mb-3">Add Keluarga</a>
+                  
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>

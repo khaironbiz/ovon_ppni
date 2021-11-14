@@ -5,8 +5,8 @@
                             <input type="text" class="form-control" placeholder="Nama Kepala Keluarga" name="nama_keluarga">
                             <input type="hidden" class="form-control" name="add_keluarga" value="<?= uniqid(); ?>">
                         </div>
-                        <label class="col-sm-2 col-form-label">Jenis Keluarga</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-3 col-form-label">Jenis Keluarga</label>
+                        <div class="col-sm-3">
                             <select class="form-control" required name="jenis_keluarga">
                                 <option value="">---Jenis Keluarga----</option>
                                 <?php
@@ -48,8 +48,8 @@
                                 ?>
                             </select>
                         </div>
-                        <label for="inputPassword3" class="col-sm-2 col-form-label">Penyediaan air minum</label>
-                        <div class="col-sm-4">
+                        <label for="inputPassword3" class="col-sm-3 col-form-label">Penyediaan air minum</label>
+                        <div class="col-sm-3">
                             <select class="form-control" required name="penyediaan_air_minum">
                                 <option value="">---Penyediaan Air Minum----</option>
                                 <option value="1">Tidak Dimasak</option>
@@ -83,8 +83,8 @@
                                 ?>
                             </select>
                         </div>
-                        <label class="col-sm-2 col-form-label">Kepemilikan Jamban</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-3 col-form-label">Kepemilikan Jamban</label>
+                        <div class="col-sm-3">
                             <select class="form-control" required name="kepemilikan_jamban">
                                 <option value="">---Kepemilikan jamban----</option>
                                 <option value="1">Milik Sendiri</option>
@@ -142,8 +142,8 @@
                                 ?>
                             </select>
                         </div>
-                        <label class="col-sm-2 col-form-label">Kepemilikan BPJS</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-3 col-form-label">Kepemilikan BPJS</label>
+                        <div class="col-sm-3">
                             <select class="form-control" required name="bpjs">
                                 <option value="">---BPJS----</option>
                                 <?php
@@ -166,8 +166,8 @@
                         <div class="col-sm-3">
                             <input type="number" class="form-control" placeholder="Nama Kepala Keluarga" name="luas_rumah">
                         </div>
-                        <label class="col-sm-2 col-form-label">Jumlah Keluarga</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-3 col-form-label">Jumlah Keluarga</label>
+                        <div class="col-sm-3">
                             <input type="number" class="form-control" placeholder="Nama Kepala Keluarga" name="jml_anggota_keluarga">
                         </div>
                     </div>
@@ -190,8 +190,8 @@
                                 
                             </select>
                         </div>
-                        <label class="col-sm-2 col-form-label">Dinding Bangunan</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-3 col-form-label">Dinding Bangunan</label>
+                        <div class="col-sm-3">
                             <select class="form-control" required name="dinding_rumah">
                                 <option value="">---Jenis Dinding----</option>
                                 <?php
@@ -214,8 +214,8 @@
                         <div class="col-sm-3">
                             <input type="text" class="form-control" placeholder="luas lahan pertanian" name="lahan_pertanian">
                         </div>
-                        <label class="col-sm-2 col-form-label">Lantai Rumah</label>
-                        <div class="col-sm-4">
+                        <label class="col-sm-3 col-form-label">Lantai Rumah</label>
+                        <div class="col-sm-3">
                             <select class="form-control" required name="lantai_rumah">
                                 <option value="">---Lantai Rumah----</option>
                                 <?php
