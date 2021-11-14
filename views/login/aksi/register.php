@@ -9,11 +9,12 @@ if(isset($_POST['add_user'])){
         $kode_aktifasi  = uniqid();
         $has_user       = md5($kode_aktifasi);
         $time           = date("Y-m-d H:i:s");
+        $date_ini       = date("Y-m-d");
         $secret_key     = $_POST['key'];
         $nik            = $_POST['nik'];
         $sql_key        = mysqli_query($host,"SELECT * FROM master_key WHERE 
                             master_key  ='$secret_key' AND 
-                            valid_until > '$time'");
+                            valid_until > '$date_ini'");
         $count_key      = mysqli_num_rows($sql_key);        
         if($count_key>0){
             $data_key       = mysqli_fetch_array($sql_key);

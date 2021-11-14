@@ -1,1 +1,1 @@
-var base_url = "https://ppni.or.id/ovon/";
+var base_url = "http://ners.my.id/";

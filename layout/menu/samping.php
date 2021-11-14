@@ -242,6 +242,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?= $site_url ?>user" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Users</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="<?= $site_url ?>/master/key.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Key</p>

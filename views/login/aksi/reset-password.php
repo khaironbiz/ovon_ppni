@@ -5,13 +5,14 @@ if(isset($_POST['reset_password'])){
     $time           = date("Y-m-d H:i:s");
     $pass1          = $_POST['password1'];
     $pass2          = $_POST['password2'];
+    $password       = md5($pass1);
     if($pass1 == $pass2){
     $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email' and kode_aktifasi='$kode_aktifasi'");
     $count_email    = mysqli_num_rows($sql_email);
     }
     if($count_email>0){
     $update_user    = mysqli_query($host, "UPDATE users SET
-                        pass            = '$kode_aktifasi',
+                        pass            = '$password',
                         updated_at      = '$time' WHERE
                         email           = '$email' AND 
                         kode_aktifasi   = '$kode_aktifasi'");
