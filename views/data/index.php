@@ -66,7 +66,10 @@
                     <tbody>
                       <?php
                       $no                   = 1;
-                      $sql_keluarga         = mysqli_query($host, "SELECT * FROM keluarga WHERE kelurahan = '$mydesa' ORDER BY id_keluarga DESC");
+                      $myrt                 = $data_pengguna['id_rt'];
+                      $myrw                 = $data_pengguna['id_rw'];
+                      $sql_keluarga         = mysqli_query($host, "SELECT * FROM keluarga WHERE 
+                                              kelurahan = '$mydesa' and rt ='$myrt' ORDER BY id_keluarga DESC");
                       while($data           = mysqli_fetch_array($sql_keluarga)){
                         $key_keluarga        = $data['key_keluarga'];
                         $sql_count          = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE

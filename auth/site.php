@@ -1,12 +1,12 @@
 <?php
 $site_server        = 2;
 if($site_server ==1){
-$site_url           = "http://localhost/ovon_ppni/";
+$site_url           = "http://localhost/ovon_ppni";
 ?>
 <script src="../assets/js/site_local.js"></script>
 <?php
 }if($site_server ==2){
-$site_url           = "http://ners.my.id/";
+$site_url           = "http://ners.my.id";
 ?>
 <script src="../assets/js/site_server.js"></script>
 <?php

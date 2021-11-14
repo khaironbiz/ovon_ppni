@@ -2,7 +2,7 @@ var ajaxku;
 
 function ajaxkota(id){
     ajaxku = buatajax();
-    var url=base_url+"ajax/select_rw.php";
+    var url=base_url+"/ajax/select_rw.php";
     url=url+"?q="+id;
     url=url+"&sid="+Math.random();
     ajaxku.onreadystatechange=stateChanged;
