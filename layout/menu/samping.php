@@ -61,10 +61,9 @@
             </a>
           </li>
           <li class="nav-header">Data Kesehatan</li>
-          
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
+              <i class="nav-icon fas fa-poll"></i>
               <p>
                 Survey
                 <i class="fas fa-angle-left right"></i>
@@ -96,12 +95,77 @@
           if($count_admin >0){
           ?>
           <li class="nav-header">MASTER</li>
-          
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Master
+                Keluarga
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/jenis-keluarga.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jenis Keluarga</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/air-minum.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Air Minum</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/fasilitas-keluarga.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Fasilitas</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/kendaraan.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kendaraan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/atap.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Atap</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/dinding.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dinding</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/lantai.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lantai</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/bahan-bakar.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bahan Bakar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/jenis-jamban.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jamban</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-cog"></i>
+              <p>
+                Anggota Keluarga
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -149,15 +213,26 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= $site_url ?>/master/rw.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>RW dan RT</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="<?= $site_url ?>/master/struktur-keluarga.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur Keluarga</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Organisasi
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/rw.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>RW dan RT</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -170,42 +245,6 @@
                 <a href="<?= $site_url ?>/master/key.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Key</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/fasilitas-keluarga.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fasilitas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/jenis-keluarga.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jenis Keluarga</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/kendaraan.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Kendaraan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/atap.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Atap</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/dinding.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dinding</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/bahan-bakar.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Bahan Bakar</p>
                 </a>
               </li>
             </ul>

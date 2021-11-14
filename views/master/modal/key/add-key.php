@@ -17,7 +17,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Akses Kepada</label>
                         <div class="col-sm-9">
-                            <select name="wilayah_akses" class="form-control"/ required>
+                            <select name="wilayah_akses" class="form-control" required>
 					            <option value="">---pilih level---</option>
 					            <?php 
                                 $myuser_akses   = $data_pengguna['wilayah_akses'];
@@ -73,7 +73,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Kelurahan</label>
                         <div class="col-sm-9">
-				            <select name="kel" id="kel" class="form-control"/ required  >
+				            <select name="kel" id="kel" class="form-control" required  >
                                 <option value="<? echo $data['kel']; ?>"><? echo $desa; ?></option>
                             </select>
                         </div>

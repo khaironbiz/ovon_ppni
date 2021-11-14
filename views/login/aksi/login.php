@@ -2,6 +2,10 @@
 
 session_start(); // Memulai Session
 $error = ''; // Variabel untuk menyimpan pesan error
+if(isset($_SESSION['login_user'])){
+    header("location: $site_url/dashboard/"); // Mengarahkan ke halaman profil
+}
+
 if (isset($_POST['key'])) {
     if (empty($_POST['username']) || empty($_POST['password'])) {
         $_SESSION['status']         = "Username or Password is invalid";

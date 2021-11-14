@@ -1,22 +1,9 @@
 <?php
 if(isset($_POST['add_keluarga'])){
-
-    $N          = count($id_jabfung);
-    for($i=0; $i < $N; $i++){
-	$id_jab[$i]     = mysql_fetch_assoc(mysql_query("SELECT *FROM jabfung_ak where id='$id_jabfung[$i]'"));
-	$ak_ini[$i]     = $id_jab[$i]['ak'];
-	$level_ini[$i]  = $id_jab[$i]['jabatan'];
-	$id_a[$i]       = $id_jab[$i]['id_a'];
-	$id_b[$i]       = $id_jab[$i]['id_b'];
-	$id_c[$i]       = $id_jab[$i]['id_c'];
-	$id_d[$i]       = $id_jab[$i]['id_d'];
-    $coba[$i]       = "insert into jabfung_ak_detail values 
-    ('', '$user_check','$id_px','$id_komp', '$ruangan_px','$id_jabfung[$i]', '$ak_ini[$i]', '$level_ini[$i]','$id_a[$i]','$id_b[$i]','$id_c[$i]','$id_d[$i]','$time' ,'$time','')";
-    $cek            = mysql_query($coba[$i]);
-    }
     
     $hari_ini               = date('Y-m-d H:i:s');
     $key_keluarga           = $_POST['add_keluarga'];
+    
     $nama_keluarga          = $_POST['nama_keluarga'];
     $jenis_keluarga         = $_POST['jenis_keluarga'];
     $penghasilan            = $_POST['penghasilan'];
@@ -81,6 +68,46 @@ if(isset($_POST['add_keluarga'])){
                             rw                      = '$rw',
                             rt                      = '$rt',
                             has_keluarga            = '$has_keluarga'");
+        $fasilitas              = $_POST['fasilitas'];
+        $N                      = count($fasilitas);
+        for($i=0; $i < $N; $i++){
+        $has_keluarga_fas[$i]   = md5(uniqid());
+        $sql_fasil[$i]          = mysqli_query($host, "SELECT * FROM keluarga_fasilitas WHERE key_keluarga='$key_keluarga' and id_fasilitas='$fasilitas[$i]'");
+        $count_fasilitas[$i]    = mysqli_num_rows($sql_fasil[$i]);
+        if($count_fasilitas[$i] <1){
+            $tambah_fasilitas[$i]= mysqli_query($host,"INSERT INTO keluarga_fasilitas SET
+                                    key_keluarga            = '$key_keluarga',
+                                    id_fasilitas            = '$fasilitas[$i]',
+                                    has_keluarga_fasilitas  = '$has_keluarga_fas[$i]'");
+            }
+        } 
+        $kendaraan              = $_POST['kendaraan'] ;
+        $x                      = count($kendaraan);
+        for($a=0; $a < $x; $a++){
+            $has_ini[$a]        = md5(uniqid());
+            $sql_kend[$a]  = mysqli_query($host, "SELECT * FROM keluarga_kendaraan WHERE key_keluarga='$key_keluarga' and id_kendaraan='$kendaraan[$a]'");
+            $count_kendaraan[$a]= mysqli_num_rows($sql_kend[$a]);
+            if($count_kendaraan[$a] <1){
+                $add_kendaraan[$a]= mysqli_query($host, "INSERT INTO keluarga_kendaraan SET
+                                    key_keluarga            ='$key_keluarga',
+                                    id_kendaraan            ='$kendaraan[$a]',
+                                    has_keluarga_kendaraan  ='$has_ini[$a]'");
+            }
+        }
+        $ternak                 = $_POST['ternak'];
+        $z                      = count($ternak);
+        for($b=0; $b < $z; $b++){
+            $has_ternak[$b]     = md5(uniqid());
+            $sql_ternak_kel[$b] = mysqli_query($host, "SELECT * FROM keluarga_ternak WHERE key_keluarga='$key_keluarga' and id_ternak='$ternak[$b]'");
+            $count_ternak_kel[$b]   = mysqli_num_rows($sql_ternak_kel[$b]);
+            if($count_ternak_kel[$b]<1){
+                $add_ternak     = mysqli_query($host,"INSERT INTO keluarga_ternak SET
+                                key_keluarga        = '$key_keluarga',
+                                id_ternak           = '$ternak[$b]',
+                                has_keluarga_ternak = '$has_ternak[$b]'");
+            }
+    
+        }
         if($input_data){
             $_SESSION['status']="Data berhasil disimpan";
             $_SESSION['status_info']="success";

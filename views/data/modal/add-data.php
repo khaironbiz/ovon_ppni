@@ -114,7 +114,7 @@
                                 $sql_fas    = mysqli_query($host,"SELECT * from master_fasilitas ");
                                 while($data_fas= mysqli_fetch_array($sql_fas)){
                             ?>
-                                <input type="checkbox"value="<?= $data_fas['id_master_fasilitas']?>"> <?= $data_fas['master_fasilitas']?> <span> </span>
+                                <input type="checkbox" name="fasilitas[]" value="<?= $data_fas['id_master_fasilitas']?>"> <?= $data_fas['master_fasilitas']?> <span> </span>
                             <?php
                                 }
                             ?>
@@ -130,8 +130,7 @@
                                 $sql_kendaraan    = mysqli_query($host,"SELECT * from master_kendaraan ");
                                 while($data_kendaraan = mysqli_fetch_array($sql_kendaraan)){
                             ?>
-                                <input type="checkbox" name="kendaraan" 
-                                value="<?= $data_kendaraan['id_master_kendaraan'] ?>"> 
+                                <input type="checkbox" name="kendaraan[]" value="<?= $data_kendaraan['id_master_kendaraan'] ?>"> 
                                 <?= $data_kendaraan['master_kendaraan'] ?>
                                 
                             <?php
@@ -162,9 +161,18 @@
                         <div class="col-sm-4">
                             <select class="form-control" required name="bpjs">
                                 <option value="">---BPJS----</option>
-                                <option value="1">Tidak Punya</option>
-                                <option value="2">Memiliki BPJS Tetapi Tidak Lengkap</option>
-                                <option value="3">BPJS Lengkap</option>
+                                <?php
+                                $sql_bpjs    = mysqli_query($host,"SELECT * from master_bpjs ");
+                                while($data_bpjs = mysqli_fetch_array($sql_bpjs)){
+                                ?>
+                                
+                                <option value="<?= $data_bpjs['id_master_bpjs'] ?>">
+                                <?= $data_bpjs['master_bpjs'] ?></option>
+                                    
+                                <?php
+                                    }
+                                ?>
+                                
                             </select>
                         </div>
                     </div>
@@ -225,11 +233,36 @@
                         <div class="col-sm-4">
                             <select class="form-control" required name="lantai_rumah">
                                 <option value="">---Lantai Rumah----</option>
-                                <option value="1">Tanah</option>
-                                <option value="2">Plester</option>
-                                <option value="3">Ubin</option>
+                                <?php
+                                $sql_lantai    = mysqli_query($host,"SELECT * from master_lantai ");
+                                while($data_lantai = mysqli_fetch_array($sql_lantai)){
+                                ?>
+                                
+                                <option value="<?= $data_lantai['id_master_lantai'] ?>">
+                                <?= $data_lantai['master_lantai'] ?></option>
+                                    
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Hewan Peliharaan</label>
+                        <div class="col-sm-9">
+                            
+                            <?php
+                                $sql_ternak    = mysqli_query($host,"SELECT * from master_ternak ");
+                                while($data_ternak = mysqli_fetch_array($sql_ternak)){
+                            ?>
+                                <input type="checkbox" name="ternak[]" value="<?= $data_ternak['id_master_ternak'] ?>"> 
+                                <?= $data_ternak['master_ternak'] ?>
+                                
+                            <?php
+                                }
+                            ?>
+                        </div>
+                        
                     </div>
                     
                 </div>
