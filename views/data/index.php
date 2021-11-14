@@ -38,14 +38,17 @@
                   if($data_pengguna['id_rw'] !=''){
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                      include("modal/add-data.php");
+                      //include("modal/add-data.php");
                       include('aksi/add-data.php');
                       }
                   }
-                  include("modal/edit-rw.php");
-                  include("aksi/edit-rw.php");
-                  ?>
+                  if($data_pengguna['id_rw'] =""){
+                    include("modal/edit-rw.php");
+                    include("aksi/edit-rw.php");
+                  }
                   
+                  ?>
+                  <a href="" class="btn btn-primary btn-sm mb-3">Add Keluarga</a>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -87,6 +90,10 @@
                       </tr>
                     </tfoot>
                   </table>
+                  <?php
+                  include("modal/edit-rw.php");
+                  include("aksi/edit-rw.php");
+                  ?>
                 </div>
                 <!-- /.card-body -->
             </div>

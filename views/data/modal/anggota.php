@@ -1,19 +1,4 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-    Add Anggota 
-</button>
-<!-- Modal -->
-<form action="" method="POST">
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Pengkajian Anggota Keluarga <?= $data_kel['nama_keluarga']; ?></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+                <div class="col-12">
                     
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Nama Anggota</label>
@@ -72,7 +57,7 @@
                                 ?>
                             </select>
                         </div>
-                        <label class="col-sm-2 col-form-label">Status Vaksin Covid-19</label>
+                        <label class="col-sm-2 col-form-label">Vaksin Covid-19</label>
                         <div class="col-sm-4">
                             <select class="form-control" required name="vaksin_covid19">
                                 <option value="">---Vaksin Covid-19---</option>
@@ -224,10 +209,4 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
+        

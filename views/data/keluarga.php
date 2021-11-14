@@ -36,11 +36,12 @@
                   if($data_pengguna['id_rw'] !=''){
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                      include("modal/add-data-anggota.php");
+                      
                       include('aksi/add-data-anggota.php');
                       }
                   }
                   ?>
+                  <a href="<?= $site_url?>data/anggota.php?id=<?= $_GET['id']?>" class="btn btn-primary btn-sm mb-3">Add Anggota</a>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -94,6 +95,7 @@
                       </tr>
                     </tfoot>
                   </table>
+                  <a href="#" class="btn btn-danger btn-sm mt-3">Back to family</a>
                 </div>
                 <!-- /.card-body -->
             </div>
