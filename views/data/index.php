@@ -28,12 +28,16 @@
             <?php
             unset($_SESSION['status']);
             }
+            $id_rw      = $data_pengguna['id_rw'];
+            $id_rt      = $data_pengguna['id_rt'];
+            $sql_rt_rw  = mysqli_query($host, "SELECT * FROM rt  JOIN rw on rw.id_rw = rt.rw WHERE id_rt='$id_rt'");
+            $data_rt_rw = mysqli_fetch_array($sql_rt_rw);
             ?>
             <div class="card">
               <div class="card-header">
                 <div class="card-body">
                   <h4>Desa : <?= $data_pengguna['nama_desa']?></h4>
-                  <h4>RW / RT: <?= $data_pengguna['id_rw']?> / <?= $data_pengguna['id_rt']?></h4>
+                  <h4>RW / RT: <?= $data_rt_rw['nama_rw']?> / <?= $data_rt_rw['nama_rt']?></h4>
                   <?php
                   if($data_pengguna['id_rw'] !=''){
                     include("../core/security/admin-akses.php");
@@ -82,7 +86,10 @@
                         <td width="10px"><?= $no++; ?></td>
                         <td><?= $data['nama_keluarga'];?></td>
                         <td><?= $count_data;?></td>
-                        <td><a href="keluarga.php?id=<?= $data['key_keluarga']?>" class="btn btn-success btn-sm">Detail</a></td>
+                        <td>
+                          <a href="keluarga.php?id=<?= $data['key_keluarga']?>" class="btn btn-info btn-sm">Detail</a>
+                          <a href="edit-keluarga.php?id=<?= $data['key_keluarga']?>" class="btn btn-success btn-sm">Edit</a>
+                        </td>
                       </tr>
                         
                       <?php

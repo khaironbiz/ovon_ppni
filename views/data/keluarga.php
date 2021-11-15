@@ -41,20 +41,21 @@
                       }
                   }
                   ?>
-                  <a href="<?= $site_url?>data/anggota.php?id=<?= $_GET['id']?>" class="btn btn-primary btn-sm mb-3">Add Anggota</a>
+                  <a href="<?= $site_url?>/data/anggota.php?id=<?= $_GET['id']?>" class="btn btn-primary btn-sm mb-3">Add Anggota</a>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>#</th>
                         <th>Anggota</th>
-                        <th>JK</th>
-                        <th>Usia</th>
+                        <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
                       $no                   = 1;
-                      $sql_keluarga         = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE key_keluarga = '$key' ORDER BY tgl_lahir DESC");
+                      $sql_keluarga         = mysqli_query($host, "SELECT * FROM keluarga_anggota 
+                                                JOIN master_sex on master_sex.id_master_sex = keluarga_anggota.jenis_kelamin 
+                                                WHERE keluarga_anggota.key_keluarga = '$key' ORDER BY keluarga_anggota.tgl_lahir DESC");
                       while($data           = mysqli_fetch_array($sql_keluarga)){
                           $tanggal_lahir    = $data['tgl_lahir'];
                         function hitung_umur($tanggal_lahir){
@@ -71,15 +72,14 @@
                       ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td><?= $data['nama_anggota'];?></td>
                         <td>
-                          <?php if($data['jenis_kelamin']==1){
-                            echo "Laki-laki";
-                          }else{
-                            echo "Perempuan";
-                          } ;?>
+                            <?= $data['nama_anggota'];?> <br>
+                            <?= $data['master_sex'];?>, <?= hitung_umur($tanggal_lahir); ?>
                         </td>
-                        <td><?= hitung_umur($tanggal_lahir); ?></td>
+                        <td>
+                          
+                          <a href="" class="btn btn-success btn-sm">Detail</a>
+                        </td>
                       </tr>
                         
                       <?php
@@ -90,12 +90,11 @@
                       <tr>
                         <th>#</th>
                         <th>Anggota</th>
-                        <th>JK</th>
-                        <th>Usia</th>
+                        <th>Aksi</th>
                       </tr>
                     </tfoot>
                   </table>
-                  <a href="#" class="btn btn-danger btn-sm mt-3">Back to family</a>
+                  <a href="<?= $site_url?>/data" class="btn btn-danger btn-sm mt-3">Back to family</a>
                 </div>
                 <!-- /.card-body -->
             </div>
