@@ -7,6 +7,9 @@ if(isset($_SESSION['login_user'])){
 $user_check     = $_SESSION['login_user'];
 $sql_pengguna   = mysqli_query($host,"SELECT * FROM users WHERE id_user = '$user_check'");
 $data_pengguna  = mysqli_fetch_array($sql_pengguna);
+//rw
+
+//desa
 $mydesa         = $data_pengguna['kel'];
 $sql_my_desa    = mysqli_query($host,"SELECT * FROM id_desa WHERE lokasi_kelurahan='$mydesa'");
 $data_desa      = mysqli_fetch_array($sql_my_desa);

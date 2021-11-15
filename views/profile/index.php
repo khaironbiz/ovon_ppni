@@ -18,34 +18,133 @@
                 <img class="img-circle elevation-2" src="<?= $site_url?>/assets/admin/dist/img/user1-128x128.jpg" alt="User Avatar">
               </div>
               <div class="card-footer">
+                
+                <hr>
                 <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <table class="table table-hover">
+                          <tr>
+                            <th colspan="3">Biodata</th>
+                          </tr>
+                          <tr>
+                            <td>Nama</td><td>:</td><td>Khairon</td>
+                          </tr>
+                          <tr>
+                            <td>NIK</td><td>:</td><td>123</td>
+                          </tr>
+                          <tr>
+                            <td>Email</td><td>:</td><td>email.com</td>
+                          </tr>
+                          <tr>
+                            <td>Handphone</td><td>:</td><td>email.com</td>
+                          </tr>
+                        </table>
+                      </div>
                     </div>
-                    <!-- /.description-block -->
                   </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <table class="table table-hover">
+                          <tr>
+                            <th colspan="3">Penempatan</th>
+                          </tr>
+                          <tr>
+                            <td>Provinsi</td><td>:</td><td>Khairon</td>
+                          </tr>
+                          <tr>
+                            <td>Kabupaten</td><td>:</td><td>123</td>
+                          </tr>
+                          <tr>
+                            <td>Kecamatan</td><td>:</td><td>email.com</td>
+                          </tr>
+                          <tr>
+                            <td>Desa</td><td>:</td><td>email.com</td>
+                          </tr>
+                        </table>
+                      </div>
                     </div>
-                    <!-- /.description-block -->
                   </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
                 </div>
-                <!-- /.row -->
+                <div class="row">
+                  
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Riwayat Pengkajian</h5>
+                        <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="align-middle">No</th>
+                                <th rowspan="2" class="align-middle">RW</th>
+                                <th rowspan="2" class="align-middle">RT</th>
+                                <th rowspan="2" class="align-middle">Keluarga</th>
+                                <td colspan="3" class="text-center"><b>Individu</b></td>
+                              </tr>
+                              <tr>
+                                <th>Laki-laki</th><th>Perempuan</th><th>Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php
+                              $no               = 1;
+                              $sql_rw           = mysqli_query($host,"SELECT DISTINCT(rw)as rw FROM keluarga WHERE kelurahan='$mydesa'");
+                              while($data_rw    = mysqli_fetch_array($sql_rw)){
+                                $id_rw          = $data_rw['rw'];
+                                $sql_nama_rw    = mysqli_query($host, "SELECT * FROM rw WHERE id_rw ='$id_rw' and created_by='$user_check'");
+                                $data_nama_rw   = mysqli_fetch_assoc($sql_nama_rw );
+                                //sql_rt
+                                $sql_rt         = mysqli_query($host, "SELECT DISTINCT(rt) as rt FROM keluarga WHERE rw='$id_rw' and created_by='$user_check'");
+                                $count_rt       = mysqli_num_rows($sql_rt);
+                                //sql_keluarga
+                                $sql_keluarga   = mysqli_query($host,"SELECT * FROM keluarga WHERE rw='$id_rw' and created_by='$user_check'");
+                                $count_keluarga = mysqli_num_rows($sql_keluarga);
+                                //sql_jenis_kelamin
+                                $sql_sex        = mysqli_query($host, "SELECT * FROM master_sex");
+                                //sql_keluarga_anggota
+                                $sql_keluarga_angota  = mysqli_query($host,"SELECT * FROM keluarga_anggota WHERE rw='$id_rw' and created_by='$user_check'");
+                                $count_keluarga_anggota = mysqli_num_rows($sql_keluarga_angota);
+                              ?>
+                              <tr>
+                                <td><?= $no++?></td>
+                                <td><?= $data_nama_rw['nama_rw']?></td>
+                                <td><?= $count_rt ?></td>
+                                <td><?= $count_keluarga ?></td>
+                                <?php
+                                while($data_sex   = mysqli_fetch_array($sql_sex)){
+                                  $jenis_kelamin  = $data_sex['id_master_sex'];
+                                  $sql_keluarga_sex = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw='$id_rw' and jenis_kelamin='$jenis_kelamin' and created_by='$user_check'");
+                                  $count_keluarga_sex  = mysqli_num_rows( $sql_keluarga_sex);
+                                ?>
+                                <td><?= $count_keluarga_sex ?></td>
+                                <?php
+                                $juml_total = count(array($count_keluarga_sex));
+                                }
+                                ?>
+                                <td><?= $count_keluarga_anggota ?></td>
+                              </tr>
+                              <?php
+                              }
+                              ?>
+                            </tbody>
+                            <tr>
+                              <td colspan="3">Jumlah</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+              
             </div>
             <!-- /.widget-user -->
           </div>

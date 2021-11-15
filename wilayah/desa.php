@@ -1,5 +1,5 @@
 <?php
-include("../koneksi.php");
+include("koneksi.php");
 ?>
 <table>
     <tr>
@@ -33,7 +33,7 @@ include("../koneksi.php");
     $id_kecamatan       = $data['lokasi_kecamatan'];
     $nama_kecamatan     = addslashes($data['lokasi_nama']);
 
-    $id_desa            = $data['lokasi_kecamatan'];
+    $id_desa            = $data['lokasi_kelurahan'];
     $nama_desa          = addslashes($data['lokasi_nama']);
     $has_wilayah        = md5(uniqid());
     $migrasi            = mysqli_query($host,"INSERT INTO desa SET 
@@ -47,7 +47,7 @@ include("../koneksi.php");
         $update = mysqli_query($host, "UPDATE id_desa SET has_wilayah = '$has_wilayah' WHERE id='$id'");
     }    
     if($update){
-        echo "<script>document.location=\"http://localhost/auth/wilayah/desa.php\"</script>";
+        echo "<script>document.location=\"http://localhost/ovon_ppni/wilayah/desa.php\"</script>";
         
     }
     }

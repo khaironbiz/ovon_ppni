@@ -1,6 +1,5 @@
 <?php
-include("../auth/koneksi.php");
-include("../auth/site.php");
+include("koneksi.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,6 +26,7 @@ include("../auth/site.php");
                             
                         </tr>
                             <?php
+                            $site_url   = "http://localhost/ovon_ppni";
                             $no=1;
                             $sql    = mysqli_query($host,"SELECT * FROM wilayah_2020 WHERE sinkron ='' LIMIT 1");
                             while($data= mysqli_fetch_array($sql)){
@@ -41,31 +41,13 @@ include("../auth/site.php");
                                             echo "<script>document.location=\"$site_url/wilayah/wilayah-2020.php\"</script>";
                                     }
                                     
-                                }if($kode_wilayah==5){
-                                    $nama_wilayah   = "kabupaten";
-                                    $update = mysqli_query($host, "UPDATE wilayah_2020 SET $nama_wilayah ='$kode_db', sinkron='Y' WHERE id='$id' " );
-                                    if($update){
-                                            echo "<script>document.location=\"$site_url/wilayah/wilayah-2020.php\"</script>";
-                                    }
-                                }if($kode_wilayah==8){
-                                    $nama_wilayah   = "kecamatan";
-                                    $update = mysqli_query($host, "UPDATE wilayah_2020 SET $nama_wilayah ='$kode_db', sinkron='Y' WHERE id='$id' " );
-                                    if($update){
-                                            echo "<script>document.location=\"$site_url/wilayah/wilayah-2020.php\"</script>";
-                                    }
-                                }if($kode_wilayah==13){
-                                    $nama_wilayah   = "kelurahan";
-                                    $update = mysqli_query($host, "UPDATE wilayah_2020 SET $nama_wilayah ='$kode_db', sinkron='Y' WHERE id='$id' " );
-                                    if($update){
-                                            echo "<script>document.location=\"$site_url/wilayah/wilayah-2020.php\"</script>";
-                                    }
                                 }
                             ?>
                                 <tr>
                                     <td><?= $no++?></td>
                                     <td><?= $data['kode']?></td>
                                     <td><?= $data['nama']?></td>
-                                    <td><?= $nama_wilayah; ?></td>
+                                    <td></td>
                                     
                                 </tr>
                         <?php

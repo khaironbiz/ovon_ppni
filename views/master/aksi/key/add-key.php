@@ -11,7 +11,7 @@ if(isset($_POST['add_key'])){
     }
     $prov               = substr($kelurahan, 0,2);
     $kota               = substr($kelurahan, 0,4);;
-    $kecamatan          = substr($kelurahan, 0,8);;
+    $kecamatan          = substr($kelurahan, 0,6);;
     $has_m_key          = md5(uniqid());
     $sql_m_key          = mysqli_query($host, "SELECT * FROM master_key WHERE master_key='$master_key'");
     $count              = mysqli_num_rows($sql_m_key);

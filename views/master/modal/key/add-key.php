@@ -33,25 +33,23 @@
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Expred Key</label>
                         <div class="col-sm-9">
                             <input type="date" class="form-control" name="valid_until">
+                            <input type="hidden" class="form-control" name="add_key" value="<?= uniqid(); ?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Provinsi</label>
                         <div class="col-sm-9">
 				            <script src="<?= $site_url?>/assets/js/ajax_kota.js"></script>
-				            <select name="prop" id="prop" onchange="ajaxkota(this.value)" class="form-control"/ required>
+				            <select name="prop" id="prop" onchange="ajaxkota(this.value)" class="form-control" required>
 					            <option value="<? echo $data['prop']; ?>"><? echo $kodeprovinsi; ?></option>
 					            <?php 
-					            $sql_prov       = mysqli_query($host, "SELECT * FROM id_desa WHERE 
-                                                    lokasi_kabupatenkota    = 0 and 
-                                                    lokasi_kecamatan        = 0 and 
-                                                    lokasi_kelurahan        = 0 order by lokasi_nama");
+					            $sql_prov       = mysqli_query($host, "SELECT * FROM 2020_provinsi order by nama_provinsi");
 					                while ($dataProvinsi=mysqli_fetch_array($sql_prov)){
-						                echo '<option value="'.$dataProvinsi['lokasi_propinsi'].'">'.$dataProvinsi['lokasi_nama'].'</option>';
+						                echo '<option value="'.$dataProvinsi['provinsi'].'">'.$dataProvinsi['nama_provinsi'].'</option>';
 					                }
 					            ?>
 				            <select>
-                            <input type="hidden" class="form-control" name="add_key" value="<?= uniqid(); ?>">
+                            
                         </div>
                     </div>
                     <div class="form-group row">

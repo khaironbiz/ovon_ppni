@@ -1,37 +1,33 @@
 <?php
 include('../auth/koneksi.php');
-if (!empty($_GET['q'])){
-	if (ctype_digit($_GET['q'])) {
-		$query = mysqli_query($host, "SELECT * FROM id_desa where lokasi_propinsi=$_GET[q] and lokasi_kecamatan=0 and lokasi_kelurahan=0 and lokasi_kabupatenkota!=0 order by lokasi_nama");
+if (!empty($_GET['provinsi'])){
+	if (ctype_digit($_GET['provinsi'])) {
+		$query = mysqli_query($host, "SELECT * FROM 2020_kabupaten where provinsi=$_GET[provinsi] order by nama_kabupaten");
 		echo"<option selected value=''>Pilih Kota/Kab</option>";
 		while($d = mysqli_fetch_array($query)){
-			echo "<option value='$d[lokasi_kabupatenkota]&prop=$_GET[q]'>$d[lokasi_nama]</option>";
+			echo "<option value='$d[kabupaten]'>$d[nama_kabupaten]</option>";
 		}
-
-
 	}
 }
 
-if (empty($_GET['kel'])){
-
-	if (!empty($_GET['kec']) and !empty($_GET['prop'])){
-		if (ctype_digit($_GET['kec']) and ctype_digit($_GET['prop'])) {
-			$query = mysqli_query($host, "SELECT * FROM id_desa where lokasi_propinsi=$_GET[prop] and lokasi_kecamatan!=0 and lokasi_kelurahan=0 and lokasi_kabupatenkota=$_GET[kec] order by lokasi_nama");
-			echo"<option selected value=''>Pilih Kecamatan</option>";
+if (empty($_GET['kec'])){
+	if (!empty($_GET['kabupaten'])){
+		if (ctype_digit($_GET['kabupaten'])) {
+			$query = mysqli_query($host, "SELECT * FROM 2020_kecamatan where kabupaten=$_GET[kabupaten] order by nama_kecamatan");
+			echo"<option selected value=''>Pilih Kecamatan baru</option>";
 			while($d = mysqli_fetch_array($query)){
-				echo "<option value='$d[lokasi_kecamatan]&kec=$d[lokasi_kabupatenkota]&prop=$d[lokasi_propinsi]''>$d[lokasi_nama]</option>";
+				echo "<option value='$d[kecamatan]'>$d[nama_kecamatan]</option>";
 			}
 		}
 	}
-} else {
-	if (!empty($_GET['kec']) and !empty($_GET['prop'])){
-		if (ctype_digit($_GET['kec']) and ctype_digit($_GET['prop'])) {
-			$query = mysqli_query($host, "SELECT * FROM id_desa where lokasi_propinsi=$_GET[prop] and lokasi_kecamatan=$_GET[kel] and lokasi_kelurahan!=0 and lokasi_kabupatenkota=$_GET[kec] order by lokasi_nama");
+} if (!empty($_GET['kec'])){
+		if (ctype_digit($_GET['kec'])) {
+			$query = mysqli_query($host, "SELECT * FROM 2020_desa where 
+			kecamatan =$_GET[kec] order by nama_desa");
 			echo"<option selected value=''>Pilih Kelurahan/Desa</option>";
 			while($d = mysqli_fetch_array($query)){
-				echo "<option value='$d[lokasi_kelurahan]'>$d[lokasi_nama]</option>";
+				echo "<option value='$d[desa]'>$d[nama_desa]</option>";
 			}
 		}
 	}
-}
 ?>
