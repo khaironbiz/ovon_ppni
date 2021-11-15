@@ -1,7 +1,5 @@
 <?php
 
-session_start(); // Memulai Session
-$error = ''; // Variabel untuk menyimpan pesan error
 if(isset($_POST['forgot_password'])){
     $email          = $_POST['username'];
     $kode_aktifasi  = uniqid();

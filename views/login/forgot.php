@@ -6,7 +6,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <div class="input-group mb-3 col-md-12">
-          <img src="<?= $site_url?>assets/images/ovon-logo1.png" width="295px">
+          <img src="<?= $site_url?>/assets/images/ovon-logo1.png" width="295px">
       </div>
       <?php
       include("aksi/forgot-password.php");

@@ -4,7 +4,7 @@
   <div class="card">
     <div class="card-body register-card-body">
       <div class="input-group mb-3 col-md-12">
-          <img src="<?= $site_url?>assets/images/ovon-logo1.png" width="295px">
+          <img src="<?= $site_url?>/assets/images/ovon-logo1.png" width="295px">
       </div>
       <p class="login-box-msg">Register a new membership</p>
       <?php
