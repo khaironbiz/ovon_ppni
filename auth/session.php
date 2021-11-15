@@ -5,33 +5,15 @@ include("site.php");
 session_start();
 if(isset($_SESSION['login_user'])){
 $user_check     = $_SESSION['login_user'];
-$sql_pengguna   = mysqli_query($host,"SELECT * FROM users WHERE id_user = '$user_check'");
+$sql_pengguna   = mysqli_query($host,"SELECT * FROM users 
+                    JOIN user_level on user_level.wilayah_akses = users.wilayah_akses 
+                    JOIN 2020_provinsi on 2020_provinsi.provinsi = users.prov
+                    JOIN 2020_kabupaten on 2020_kabupaten.kabupaten = users.kota
+                    JOIN 2020_kecamatan on 2020_kecamatan.kecamatan = users.kec
+                    JOIN 2020_desa on 2020_desa.desa = users.kel
+                    WHERE users.id_user = '$user_check'");
 $data_pengguna  = mysqli_fetch_array($sql_pengguna);
-//rw
 
-//desa
-$mydesa         = $data_pengguna['kel'];
-$sql_my_desa    = mysqli_query($host,"SELECT * FROM id_desa WHERE lokasi_kelurahan='$mydesa'");
-$data_desa      = mysqli_fetch_array($sql_my_desa);
-//kecamatan
-$mykecamatan    = $data_pengguna['kec'];
-$sql_my_kec     = mysqli_query($host,"SELECT * FROM id_desa WHERE lokasi_kecamatan='$mykecamatan' and lokasi_kelurahan='0'");
-$data_kec       = mysqli_fetch_array($sql_my_kec);
-//kota
-$mykota         = $data_pengguna['kota'];
-$sql_my_kota    = mysqli_query($host,"SELECT * FROM id_desa WHERE 
-                    lokasi_kabupatenkota    = '$mykota' and 
-                    lokasi_kecamatan        = '0' and 
-                    lokasi_kelurahan        = '0'");
-$data_kota      = mysqli_fetch_array($sql_my_kota);
-//prov
-$myprov         = $data_pengguna['prov'];
-$sql_my_prov    = mysqli_query($host,"SELECT * FROM id_desa WHERE 
-                    lokasi_propinsi         = '$myprov' and
-                    lokasi_kabupatenkota    = '0' and 
-                    lokasi_kecamatan        = '0' and 
-                    lokasi_kelurahan        = '0'");
-$data_prov      = mysqli_fetch_array($sql_my_prov);
 }else{
 echo "<script>document.location=\"$site_url/login\"</script>";
 }

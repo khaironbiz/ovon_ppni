@@ -11,8 +11,8 @@
             <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-info">
-                <h3 class="widget-user-username">Alexander Pierce</h3>
-                <h5 class="widget-user-desc">Founder & CEO</h5>
+                <h3 class="widget-user-username"><?= $data_pengguna['user_nama']?></h3>
+                <h5 class="widget-user-desc"><?= $data_pengguna['user_level']?></h5>
               </div>
               <div class="widget-user-image">
                 <img class="img-circle elevation-2" src="<?= $site_url?>/assets/admin/dist/img/user1-128x128.jpg" alt="User Avatar">
@@ -29,16 +29,16 @@
                             <th colspan="3">Biodata</th>
                           </tr>
                           <tr>
-                            <td>Nama</td><td>:</td><td>Khairon</td>
+                            <td>Nama</td><td>:</td><td><?= $data_pengguna['user_nama']?></td>
                           </tr>
                           <tr>
-                            <td>NIK</td><td>:</td><td>123</td>
+                            <td>NIK</td><td>:</td><td>1<?= $data_pengguna['nik']?>23</td>
                           </tr>
                           <tr>
-                            <td>Email</td><td>:</td><td>email.com</td>
+                            <td>Email</td><td>:</td><td><?= $data_pengguna['email']?></td>
                           </tr>
                           <tr>
-                            <td>Handphone</td><td>:</td><td>email.com</td>
+                            <td>Handphone</td><td>:</td><td><?= $data_pengguna['hp']?></td>
                           </tr>
                         </table>
                       </div>
@@ -52,16 +52,16 @@
                             <th colspan="3">Penempatan</th>
                           </tr>
                           <tr>
-                            <td>Provinsi</td><td>:</td><td>Khairon</td>
+                            <td>Provinsi</td><td>:</td><td><?= $data_pengguna['nama_provinsi']?></td>
                           </tr>
                           <tr>
-                            <td>Kabupaten</td><td>:</td><td>123</td>
+                            <td>Kabupaten</td><td>:</td><td><?= $data_pengguna['nama_kabupaten']?></td>
                           </tr>
                           <tr>
-                            <td>Kecamatan</td><td>:</td><td>email.com</td>
+                            <td>Kecamatan</td><td>:</td><td><?= $data_pengguna['nama_kecamatan']?></td>
                           </tr>
                           <tr>
-                            <td>Desa</td><td>:</td><td>email.com</td>
+                            <td>Desa</td><td>:</td><td><?= $data_pengguna['nama_desa']?></td>
                           </tr>
                         </table>
                       </div>
@@ -90,8 +90,9 @@
                             </thead>
                             <tbody>
                               <?php
+                              $mydesa           = $data_pengguna['kel'];
                               $no               = 1;
-                              $sql_rw           = mysqli_query($host,"SELECT DISTINCT(rw)as rw FROM keluarga WHERE kelurahan='$mydesa'");
+                              $sql_rw           = mysqli_query($host,"SELECT DISTINCT(rw)as rw FROM keluarga WHERE kelurahan='$mydesa' and created_by='$user_check'");
                               while($data_rw    = mysqli_fetch_array($sql_rw)){
                                 $id_rw          = $data_rw['rw'];
                                 $sql_nama_rw    = mysqli_query($host, "SELECT * FROM rw WHERE id_rw ='$id_rw' and created_by='$user_check'");

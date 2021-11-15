@@ -26,10 +26,10 @@ if(isset($_POST['add_anggota'])){
     $frekwensi_olah_raga    = $_POST['frekwensi_olah_raga'];
     $durasi_olah_raga       = $_POST['durasi_olah_raga'];
     $hari_ini               = date('Y-m-d H:i:s');
-    $provinsi               = $myprov;
-    $kabupaten              = $mykota;
-    $kecamatan              = $mykecamatan;
-    $kelurahan              = $mydesa;
+    $provinsi               = $data_pengguna['prov'];
+    $kabupaten              = $data_pengguna['kota'];
+    $kecamatan              = $data_pengguna['kec'];
+    $kelurahan              = $data_pengguna['kel'];
     $rw                     = $data_pengguna['id_rw'];
     $rt                     = $data_pengguna['id_rt'];
     $has_keluarga_anggota   = md5(uniqid());

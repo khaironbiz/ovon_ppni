@@ -32,7 +32,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="card-body">
-                  <h4>Desa : <?= $data_desa['lokasi_nama']?></h4>
+                  <h4>Desa : <?= $data_pengguna['nama_desa']?></h4>
                   <h4>RW / RT: <?= $data_pengguna['id_rw']?> / <?= $data_pengguna['id_rt']?></h4>
                   <?php
                   if($data_pengguna['id_rw'] !=''){
@@ -65,6 +65,7 @@
                     </thead>
                     <tbody>
                       <?php
+                      $mydesa               = $data_pengguna['kel'];
                       $no                   = 1;
                       $myrt                 = $data_pengguna['id_rt'];
                       $myrw                 = $data_pengguna['id_rw'];

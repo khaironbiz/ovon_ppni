@@ -29,10 +29,10 @@ if(isset($_POST['add_keluarga'])){
     $dinding_rumah          = $_POST['dinding_rumah'];
     $lahan_pertanian        = $_POST['lahan_pertanian'];
     $lantai_rumah           = $_POST['lantai_rumah'];
-    $provinsi               = $myprov;
-    $kabupaten              = $mykota;
-    $kecamatan              = $mykecamatan;
-    $kelurahan              = $mydesa;
+    $provinsi               = $data_pengguna['prov'];
+    $kabupaten              = $data_pengguna['kota'];
+    $kecamatan              = $data_pengguna['kec'];
+    $kelurahan              = $data_pengguna['kel'];
     $rw                     = $data_pengguna['id_rw'];
     $rt                     = $data_pengguna['id_rt'];
     $has_keluarga           = md5(uniqid());

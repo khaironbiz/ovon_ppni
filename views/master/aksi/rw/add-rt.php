@@ -3,7 +3,7 @@ if(isset($_POST['add_rt'])){
     $kelurahan  = $_SESSION['kel'];
     $prov       = substr($kelurahan, 0,2);
     $kota       = substr($kelurahan, 0,4);
-    $kecamatan  = substr($kelurahan, 0,8);
+    $kecamatan  = substr($kelurahan, 0,6);
     $hari_ini   = date('Y-m-d H:i:s');
     $nama_rt    = $_POST['nama_rt'];
     $id_rw      = $_POST['id_rw'];

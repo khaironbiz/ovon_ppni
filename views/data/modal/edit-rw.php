@@ -18,7 +18,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Kelurahan</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" value="<?= $data_desa['lokasi_nama']?>">
+                            <input type="text" class="form-control" value="<?= $data_pengguna['nama_desa']?>">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -40,7 +40,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">RT</label>
                         <div class="col-sm-9">
-				            <select name="kota" id="kota" onchange="ajaxkec(this.value)" class="form-control"/ required>
+				            <select name="kota" id="kota" onchange="ajaxkec(this.value)" class="form-control" required>
                                 <option value="<? echo $data['kota']; ?>"><? echo $kodekota11; ?></option>
                             </select>
                         </div>
