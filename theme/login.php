@@ -1,7 +1,6 @@
 <?php
 
 session_start(); // Memulai Session
-$error = ''; // Variabel untuk menyimpan pesan error
 include("../auth/site.php");
 include("../auth/koneksi.php");
 

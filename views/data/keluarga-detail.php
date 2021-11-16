@@ -43,7 +43,7 @@
                                 <td>Nama kepala</td><td>:</td><td colspan="5"><?= $data_kel['nama_keluarga']?></td>
                             </tr>
                             <tr>
-                                <td>Jenis keluarga</td><td>:</td><td><?= $data_kel['master_jenis_keluarga']?></td>
+                                <td width="15%">Jenis keluarga</td><td>:</td><td><?= $data_kel['master_jenis_keluarga']?></td>
                             </tr>
                             <tr>
                                 <td>Alamat</td><td>:</td><td><?= $data_kel['kelurahan']?></td>
@@ -80,7 +80,7 @@
                                                 <td><?= $c++?></td>
                                                 <td><?= $data_anggota_ini['nama_anggota']?></td>
                                                 <td><?= $data_anggota_ini['master_sex']?></td>
-                                                <td><?= $umur->y." Th ".$umur->m." Bulan";?></td>
+                                                <td><?= $umur->y." th ".$umur->m." bl";?></td>
                                                 <td><?= $data_anggota_ini['struktur_keluarga']?></td>
                                                 <td><?= $data_anggota_ini['master_imunisasi']?></td>
                                             </tr>
@@ -108,10 +108,10 @@
                                 <th colspan="7">Keluarga yang meninggal</th>
                             </tr>
                             <tr>
-                                <td>
+                                <td colspan="7">
                                     <table>
                                         <tr>
-                                            <th>No</th><th>Anggota</th><th>Penyebab Kematian</th>
+                                            <th>No</th><th>Anggota</th><th>Penyebab</th><th>Tanggal</th>
                                         </tr>
                                         <?php
                                         ?>
@@ -119,7 +119,7 @@
                                             $sql_meninggal  = mysqli_query($host,"SELECT * FROM keluarga_meninggal")
                                         ?>
                                         <tr>
-                                            <td></td><td></td><td></td>
+                                            <td></td><td></td><td></td><td></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -163,7 +163,18 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Kendaraan</td><td>:</td><td></td>
+                                <td>Kendaraan</td><td>:</td>
+                                <td>
+                                <?php
+                                
+                                $sql_kendaraan  = mysqli_query($host, "SELECT * FROM keluarga_kendaraan 
+                                                    JOIN master_kendaraan on master_kendaraan.id_master_kendaraan = keluarga_kendaraan.id_kendaraan
+                                                    WHERE keluarga_kendaraan.key_keluarga='$key'");
+                                while($data_fasil = mysqli_fetch_array($sql_kendaraan)){
+                                    echo $data_fasil['master_kendaraan'].", ";
+                                }
+                                ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Bahan bakar rumah tangga</td><td>:</td><td><?= $data_kel['master_bahan_bakar']?></td>
@@ -190,10 +201,18 @@
                                 <td>Lahan pertanian</td><td>:</td><td><?= $data_kel['lahan_pertanian']?> M2</td>
                             </tr>
                             <tr>
-                                <td>Kepemilikan hewan</td><td>:</td><td></td>
-                            </tr>
-                            <tr>
-                                <td>Keluarga yang meninggal</td><td>:</td><td></td>
+                                <td>Kepemilikan hewan</td><td>:</td>
+                                <td>
+                                <?php
+                                $key_ini        = $data_kel['key_keluarga'];
+                                $sql_ternak  = mysqli_query($host, "SELECT * FROM keluarga_ternak 
+                                                    JOIN master_ternak on master_ternak.id_master_ternak = keluarga_ternak.id_ternak
+                                                    WHERE keluarga_ternak.key_keluarga='$key'");
+                                while($data_fasil = mysqli_fetch_array($sql_ternak)){
+                                    echo $data_fasil['master_ternak'].", ";
+                                }
+                                ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Input data</th>
