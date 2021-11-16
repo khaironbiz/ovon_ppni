@@ -52,29 +52,25 @@
                     </thead>
                     <tbody>
                       <?php
-                      $no                   = 1;
-                      $sql_keluarga         = mysqli_query($host, "SELECT * FROM keluarga_anggota 
+                      $no               = 1;
+                      $sql_keluarga     = mysqli_query($host, "SELECT * FROM keluarga_anggota 
                                                 JOIN master_sex on master_sex.id_master_sex = keluarga_anggota.jenis_kelamin 
                                                 WHERE keluarga_anggota.key_keluarga = '$key' ORDER BY keluarga_anggota.tgl_lahir DESC");
-                      while($data           = mysqli_fetch_array($sql_keluarga)){
-                          $tanggal_lahir    = $data['tgl_lahir'];
-                        function hitung_umur($tanggal_lahir){
-                            $birthDate = new DateTime($tanggal_lahir);
-                            $today = new DateTime("today");
-                            if ($birthDate > $today) { 
-                                exit("0 tahun 0 bulan 0 hari");
-                            }
-                            $y = $today->diff($birthDate)->y;
-                            $m = $today->diff($birthDate)->m;
-                            $d = $today->diff($birthDate)->d;
-                            return $y." th ".$m." bl ".$d." hr";
-                        }
-                      ?>
+                      while($data       = mysqli_fetch_array($sql_keluarga)){
+                        $tanggal_lahir  = $data['tgl_lahir'];
+                        $time_lahir     = number_format((time()-strtotime($tanggal_lahir))/(60*60*24*365));
+                        $lahir          = new DateTime($data['tgl_lahir']);
+                        $today          = new DateTime();
+                        $umur           = $today->diff($lahir);
+                        
+                    ?>
+                </td>
+                      
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
                         <td>
-                            <?= $data['nama_anggota'];?> <br>
-                            <?= $data['master_sex'];?>, <?= hitung_umur($tanggal_lahir); ?>
+                            <?= $data['nama_anggota']." ".$umur->y." Th ".$umur->m." Bulan"; ?> <br>
+                            <?= $data['master_sex']?>
                         </td>
                         <td>
                           
