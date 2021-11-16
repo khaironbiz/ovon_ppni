@@ -1,9 +1,10 @@
 <?php
-include("../auth/site.php");
-include("../auth/koneksi.php");
 
 session_start(); // Memulai Session
 $error = ''; // Variabel untuk menyimpan pesan error
+include("../auth/site.php");
+include("../auth/koneksi.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,3 +37,6 @@ include($wrapp);
 <script src="<?= $site_url;?>/assets/admin/dist/js/adminlte.min.js"></script>
 </body>
 </html>
+<?php
+session_destroy();
+?>

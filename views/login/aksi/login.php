@@ -28,7 +28,7 @@ if (isset($_POST['key'])) {
                     $_SESSION['login_user'] = $data_user['id_user']; // Membuat Sesi/session
                     $_SESSION['email']      = $data_user['email']; // Membuat Sesi/session
                     $_SESSION['kel']        = $data_user['kel'];
-                    header("location: $site_url/dashboard/"); // Mengarahkan ke halaman profil
+                    header("location: $site_url/profile/"); // Mengarahkan ke halaman profil
                     }else{
                         $_SESSION['status']="Maaf kombinasi username dan pasword tidak sesuai";
                         $_SESSION['status_info']="danger";

@@ -1,5 +1,5 @@
 <?php
-$site_server        = 1;
+$site_server        = 2;
 if($site_server ==1){
 $site_url           = "http://localhost/ovon_ppni";
 ?>

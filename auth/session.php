@@ -13,6 +13,10 @@ $sql_pengguna   = mysqli_query($host,"SELECT * FROM users
                     JOIN 2020_desa on 2020_desa.desa = users.kel
                     WHERE users.id_user = '$user_check'");
 $data_pengguna  = mysqli_fetch_array($sql_pengguna);
+$mydesa         = $data_pengguna['kel'];
+$mykecamatan    = $data_pengguna['kec'];
+$mykabupaten    = $data_pengguna['kota'];
+$myprovinsi     = $data_pengguna['prov'];
 
 }else{
 echo "<script>document.location=\"$site_url/login\"</script>";

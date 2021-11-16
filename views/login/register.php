@@ -21,7 +21,9 @@
             </button>
         </div>
       <?php
+        
         unset($_SESSION['status']);
+        unset($_SESSION['status_info']);
       }
       ?>
       <form action="" method="post">

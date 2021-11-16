@@ -26,7 +26,8 @@
                       <div class="card-body">
                         <table class="table table-hover">
                           <tr>
-                            <th colspan="3">Biodata</th>
+                            <th colspan="2">Biodata</th>
+                            <th class="text-right"><a href="" class="btn btn-success btn-sm">Edit</a></th>
                           </tr>
                           <tr>
                             <td>Nama</td><td>:</td><td><?= $data_pengguna['user_nama']?></td>
@@ -49,7 +50,8 @@
                       <div class="card-body">
                         <table class="table table-hover">
                           <tr>
-                            <th colspan="3">Penempatan</th>
+                            <th colspan="2">Penempatan</th>
+                            <th class="text-right"><a href="" class="btn btn-success btn-sm">Edit</a></th>
                           </tr>
                           <tr>
                             <td>Provinsi</td><td>:</td><td><?= $data_pengguna['nama_provinsi']?></td>
@@ -73,6 +75,10 @@
                   <div class="col-md-12">
                     <div class="card">
                       <div class="card-body">
+                        
+                        
+                        <span class="float-center"><a href="<?= $site_url; ?>/data/" class="btn btn-primary btn-sm text-right">Mulai Pengkajian</a></span>
+                        <span class="float-right"><?php include('modal/edit-rw.php')?></span>
                         <h5>Riwayat Pengkajian</h5>
                         <div class="table-responsive">
                           <table class="table table-hover">
@@ -90,7 +96,6 @@
                             </thead>
                             <tbody>
                               <?php
-                              $mydesa           = $data_pengguna['kel'];
                               $no               = 1;
                               $sql_rw           = mysqli_query($host,"SELECT DISTINCT(rw)as rw FROM keluarga WHERE kelurahan='$mydesa' and created_by='$user_check'");
                               while($data_rw    = mysqli_fetch_array($sql_rw)){

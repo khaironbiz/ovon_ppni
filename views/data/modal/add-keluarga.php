@@ -164,11 +164,11 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Luas Rumah (M2)</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" placeholder="Nama Kepala Keluarga" name="luas_rumah">
+                            <input type="number" class="form-control" placeholder="Luas rumah (m2)" name="luas_rumah">
                         </div>
                         <label class="col-sm-3 col-form-label">Jumlah Keluarga</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" placeholder="Nama Kepala Keluarga" name="jml_anggota_keluarga">
+                            <input type="number" class="form-control" placeholder="Jumlah orang dalam keluarga" name="jml_anggota_keluarga">
                         </div>
                     </div>
                     <div class="form-group row">
