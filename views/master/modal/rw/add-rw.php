@@ -17,7 +17,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Kelurahan</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" value="<?= $data_desa['lokasi_nama']; ?>" readonly>
+                            <input type="text" class="form-control" value="<?= $data_pengguna['nama_desa']; ?>" readonly>
                             <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
                         </div>
                     </div>
