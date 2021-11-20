@@ -88,11 +88,17 @@
                   <p>Data All</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?= $site_url ?>/master/rw.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Master RT/RW</p>
+                </a>
+              </li>
             </ul>
           </li>
           <?php
           include("../core/security/admin-akses.php");
-          if($count_admin >0){
+          if($wilayah_akses_user >30){
           ?>
           <li class="nav-header">MASTER</li>
           <li class="nav-item">

@@ -138,7 +138,7 @@
                             </tbody>
                             <tr>
                               <td colspan="3">Jumlah</td>
-                              <td></td>
+                              <td><?= $wilayah_akses_user; ?></td>
                               <td></td>
                               <td></td>
                               <td></td>
