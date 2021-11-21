@@ -36,6 +36,7 @@ if(isset($_POST['add_user'])){
                         kec             = '$kecamatan',
                         kel             = '$kelurahan',
                         pass            = '$password',
+                        status          = '1',
                         kode_aktifasi   = '$kode_aktifasi',
                         created_at      = '$time',
                         secret_key      = '$secret_key',
@@ -44,7 +45,7 @@ if(isset($_POST['add_user'])){
                         has_user        = '$has_user'");
                 if($tambah_user){
                     $subject        = "Aktifasi Akun";
-                    $url            = $site_url."login/?key=".$has_user;
+                    $url            = $site_url."/login/?key=".$has_user;
                     $htmlContent    = ' 
                         <h3>Aktifasi akun '.$user_nama.'</h3> 
                         <p>Terimakasih sudah registrasi, mohon klik tautan berikut untuk aktifasi akun <a href="'.$url.'">Aktifasi disini</a>, jika ada hal yang perlu dikonfirmasi silahkan hubungi Khairon 081213798746.</p> 
