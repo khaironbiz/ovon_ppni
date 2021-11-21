@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-    Add Anggota 
+<button type="button" class="btn btn-danger btn-sm mt-2" data-toggle="modal" data-target="#exampleModal">
+    Keluarga Meninggal 
 </button>
 <!-- Modal -->
 <form action="" method="POST">

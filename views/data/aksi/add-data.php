@@ -28,6 +28,7 @@ if(isset($_POST['add_keluarga'])){
     $atap_rumah             = $_POST['atap_rumah'];
     $dinding_rumah          = $_POST['dinding_rumah'];
     $lahan_pertanian        = $_POST['lahan_pertanian'];
+    $status_lahan_pertanian = $_POST['status_lahan_pertanian'];
     $lantai_rumah           = $_POST['lantai_rumah'];
     $provinsi               = $data_pengguna['prov'];
     $kabupaten              = $data_pengguna['kota'];
@@ -58,6 +59,7 @@ if(isset($_POST['add_keluarga'])){
                             atap_rumah              = '$atap_rumah',
                             dinding_rumah           = '$dinding_rumah',
                             lahan_pertanian         = '$lahan_pertanian',
+                            status_lahan_pertanian  = '$status_lahan_pertanian',
                             lantai_rumah            = '$lantai_rumah',
                             created_at              = '$hari_ini',
                             created_by              = '$user_check',

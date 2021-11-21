@@ -1,13 +1,18 @@
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12">
+        <div class="row mb-2">
+          <div class="col-sm-6">
             <h1><?= $judul; ?></h1>
           </div>
-          
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active"><?= $judul; ?></li>
+            </ol>
+          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -33,50 +38,36 @@
               <div class="card-header">
                 <div class="card-body">
                   <?php
-                  if($data_pengguna['id_rw'] !=''){
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                      include('aksi/add-data-anggota.php');
+                      include("modal/sebab-kematian/add-sebab-kematian.php");
+                      include('aksi/sebab-kematian/add-sebab-kematian.php');
                       }
-                  }
                   ?>
-                  <a href="<?= $site_url?>/data/anggota.php?id=<?= $_GET['id']?>" class="btn btn-primary btn-sm mb-3">Add Anggota</a>
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example1" class="table table-bordered table-striped table-sm">
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Anggota</th>
+                        <th>Sebab Kematian</th>
+                        <th>Count</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
-                      $no               = 1;
-                      $sql_keluarga     = mysqli_query($host, "SELECT * FROM keluarga_anggota 
-                                                JOIN master_sex on master_sex.id_master_sex = keluarga_anggota.jenis_kelamin 
-                                                WHERE keluarga_anggota.key_keluarga = '$key' ORDER BY keluarga_anggota.tgl_lahir DESC");
-                      while($data       = mysqli_fetch_array($sql_keluarga)){
-                        $tanggal_lahir  = $data['tgl_lahir'];
-                        $time_lahir     = number_format((time()-strtotime($tanggal_lahir))/(60*60*24*365));
-                        $lahir          = new DateTime($data['tgl_lahir']);
-                        $today          = new DateTime();
-                        $umur           = $today->diff($lahir);
-                        
-                    ?>
-                </td>
-                      
+                      $no                   = 1;
+                      $sql_m_sebab_kematian  = mysqli_query($host, "SELECT * FROM master_sebab_kematian ORDER BY id_master_sebab_kematian");
+                      while($data       = mysqli_fetch_array($sql_m_sebab_kematian)){
+                        $id_m_sebab_kematian = $data['id_master_sebab_kematian'];
+                        $sql_count          = mysqli_query($host, "SELECT * FROM keluarga_meninggal WHERE sebab_kematian ='$id_m_sebab_kematian'");
+                        $count_data         = mysqli_num_rows($sql_count);
+                      ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td>
-                            <?= $data['nama_anggota']." ".$umur->y." Th ".$umur->m." Bulan"; ?> <br>
-                            <?= $data['master_sex']?>
-                        </td>
-                        <td>
-                          
-                          <a href="" class="btn btn-success btn-sm">Detail</a>
-                        </td>
+                        <td><?= $data['master_sebab_kematian'];?></td>
+                        <td><?= $count_data;?></td>
+                        <td><a href="<?= $site_url ?>" class="btn btn-primary btn-sm">Detail</a></td>
                       </tr>
-                        
                       <?php
                         }
                       ?>
@@ -84,15 +75,12 @@
                     <tfoot>
                       <tr>
                         <th>#</th>
-                        <th>Anggota</th>
+                        <th>Sebab Kematian</th>
+                        <th>Count</th>
                         <th>Aksi</th>
                       </tr>
                     </tfoot>
                   </table>
-                  <?php
-                  include('modal/add-anggota-meninggal.php');
-                  include('aksi/add-anggota-meninggal.php');
-                  ?>
                 </div>
                 <!-- /.card-body -->
             </div>

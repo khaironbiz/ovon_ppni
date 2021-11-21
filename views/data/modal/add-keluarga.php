@@ -233,8 +233,19 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Status Lahan Pertanian</label>
+                        <div class="col-sm-3">
+                            
+                            <select class="form-control" required name="status_lahan_pertanian">
+                                <option value="">---Status lahan pertanian----</option>
+                                <option value="0">Tidak Punya</option>
+                                <option value="1">Sewa</option>
+                                <option value="2">Milik sendiri</option>
+                                
+                            </select>
+                        </div>
                         <label class="col-sm-3 col-form-label">Hewan Peliharaan</label>
-                        <div class="col-sm-9">
+                        <div class="col-sm-3">
                             
                             <?php
                                 $sql_ternak    = mysqli_query($host,"SELECT * from master_ternak ");
@@ -247,7 +258,6 @@
                                 }
                             ?>
                         </div>
-                        
                     </div>
                     
                 </div>

@@ -45,7 +45,6 @@
                     <a href="<?= $site_url?>/data/add-keluarga.php" class="btn btn-primary btn-sm mb-3">Add Keluarga</a>
                     <?php
                     if($count_admin >0){
-                      //include("modal/add-data.php");
                       include('aksi/add-data.php');
                       }
                   }

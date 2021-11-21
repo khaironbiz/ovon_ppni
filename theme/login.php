@@ -36,6 +36,4 @@ include($wrapp);
 <script src="<?= $site_url;?>/assets/admin/dist/js/adminlte.min.js"></script>
 </body>
 </html>
-<?php
-session_destroy();
-?>
+
