@@ -69,19 +69,29 @@
                       $sql_m_rw         = mysqli_query($host, "SELECT * FROM rw WHERE kel='$mydesa' ORDER BY nama_rw ASC");
                       while($data       = mysqli_fetch_array($sql_m_rw)){
                         $id_rw          = $data['id_rw'];
-                        $sql_count      = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw'");
-                        $count_data     = mysqli_num_rows($sql_count);
+                        $sql_count_th_5 = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw' AND tgl_lahir BETWEEN '$th_5' and '$th_0'");
+                        $count_data_th_5    = mysqli_num_rows($sql_count_th_5);
+                        $sql_count_th_12 = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw' AND tgl_lahir BETWEEN '$th_12' and '$th_5'");
+                        $count_data_th_12    = mysqli_num_rows($sql_count_th_12);
+                        $sql_count_th_55 = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw' AND tgl_lahir BETWEEN '$th_55' and '$th_12'");
+                        $count_data_th_55    = mysqli_num_rows($sql_count_th_55);
+                        $sql_count_th_60 = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw' AND tgl_lahir BETWEEN '$th_60' and '$th_55'");
+                        $count_data_th_60    = mysqli_num_rows($sql_count_th_60);
+                        $sql_count_th_60_up = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw' AND tgl_lahir < '$th_60'");
+                        $count_data_th_60_up    = mysqli_num_rows($sql_count_th_60_up);
+                        $sql_count_total = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw ='$id_rw'");
+                        $count_data_total    = mysqli_num_rows($sql_count_total);
                       ?>
                       
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
                         <td><?= $data['nama_rw'];?></td>
-                        <td><?= $count_data;?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>                        
-                        <td></td>
-                        <td></td>
+                        <td><?= $count_data_th_5;?></td>
+                        <td><?= $count_data_th_12 ?></td>
+                        <td><?= $count_data_th_55 ?></td>
+                        <td><?= $count_data_th_60 ?></td>                        
+                        <td><?= $count_data_th_60_up ?></td>
+                        <td><?= $count_data_total ?></td>
                         <td>
                           <?php 
                           include('modal/rw/add-rt.php');
@@ -89,23 +99,32 @@
                         </td>
                       </tr>
                       <?php
-                        $id_rw      = $data['id_rw'];
-                        $sql_rt     = mysqli_query($host, "SELECT * FROM rt WHERE rw='$id_rw'");
-                        while($data_rt    = mysqli_fetch_array($sql_rt)){
-                        $id_rt      = $data_rt['id_rt'];
-                        $sql_count  = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt'");
-                        $count_data = mysqli_num_rows($sql_count);
-                        
+                        $id_rw              = $data['id_rw'];
+                        $sql_rt             = mysqli_query($host, "SELECT * FROM rt WHERE rw='$id_rw'");
+                        while($data_rt      = mysqli_fetch_array($sql_rt)){
+                        $id_rt              = $data_rt['id_rt'];
+                        $sql_count_rt       = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt'");
+                        $count_data_rt      = mysqli_num_rows($sql_count_rt);
+                        $sql_count_rt_th_5  = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt' AND tgl_lahir BETWEEN '$th_5' AND '$th_0'");
+                        $count_data_rt_th_5 = mysqli_num_rows($sql_count_rt_th_5);
+                        $sql_count_rt_th_12 = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt' AND tgl_lahir BETWEEN '$th_12' AND '$th_5'");
+                        $count_data_rt_th_12= mysqli_num_rows($sql_count_rt_th_12);
+                        $sql_count_rt_th_55 = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt' AND tgl_lahir BETWEEN '$th_55' AND '$th_12'");
+                        $count_data_rt_th_55= mysqli_num_rows($sql_count_rt_th_55);
+                        $sql_count_rt_th_60 = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt' AND tgl_lahir BETWEEN '$th_60' AND '$th_55'");
+                        $count_data_rt_th_60= mysqli_num_rows($sql_count_rt_th_60);
+                        $sql_count_rt_th_60_up = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rt ='$id_rt' AND tgl_lahir < '$th_60'");
+                        $count_data_rt_th_60_up= mysqli_num_rows($sql_count_rt_th_60_up);
                       ?>
                       <tr>
                           <td></td>
                           <td><?= $data_rt['nama_rt']?></td>
-                          <td><?= $th_5?></td>
-                          <td><?= $th_12?></td>
-                          <td><?= $th_55?></td>
-                          <td><?= $th_60?></td>
-                          <td><?= $th_61?></td>
-                          <td><?= $count_data ?></td>
+                          <td><?= $count_data_rt_th_5 ?></td>
+                          <td><?= $count_data_rt_th_12?></td>
+                          <td><?= $count_data_rt_th_55?></td>
+                          <td><?= $count_data_rt_th_60?></td>
+                          <td><?= $count_data_rt_th_60_up?></td>
+                          <td><?= $count_data_rt ?></td>
                           <td></td>
                         </tr>
                       <?php

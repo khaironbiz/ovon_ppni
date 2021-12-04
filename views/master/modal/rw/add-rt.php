@@ -33,7 +33,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">RT</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPassword3" name="nama_rt">
+                            <input type="number" class="form-control" id="inputPassword3" name="nama_rt">
                         </div>
                     </div>
                 </div>

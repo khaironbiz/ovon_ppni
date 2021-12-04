@@ -24,7 +24,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Rukun Warga</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="inputPassword3" name="nama_rw">
+                            <input type="number" class="form-control" id="inputPassword3" name="nama_rw">
                             <input type="hidden" class="form-control" name="add_rw" value="<?= uniqid(); ?>">
                         </div>
                     </div>

@@ -5,7 +5,8 @@ if(isset($_POST['add_rw'])){
     $kota       = substr($kelurahan, 0,4);
     $kecamatan  = substr($kelurahan, 0,6);
     $hari_ini   = date('Y-m-d H:i:s');
-    $nama_rw    = $_POST['nama_rw'];
+    $nama_rw    = sprintf("%03d", $_POST['nama_rw']);
+    $rw         = $kelurahan.$nama_rw;
     $has_m_rw   = md5(uniqid());
     if(isset($kelurahan) ){
         $input_data = mysqli_query($host, "INSERT INTO rw SET 
@@ -14,6 +15,7 @@ if(isset($_POST['add_rw'])){
                         kota        = '$kota',
                         prov        = '$prov',
                         nama_rw     = '$nama_rw',
+                        rw          = '$rw',
                         created_at  = '$hari_ini',
                         created_by  = '$user_check',
                         has_rw      = '$has_m_rw'");
