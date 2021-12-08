@@ -1,0 +1,252 @@
+{
+	"resourceType": "Bundle",
+	"type": "transaction",
+	"entry": [
+		{
+			"fullUrl": "urn:uuid:17C7D86E-664F-4FE2-91D7-AF9A8E47311E",
+			"resource": {
+				"resourceType": "Organization",
+				"identifier": [
+					{
+						"system": "http://fhirfun2021.org/ids",
+						"value": "nbc@cawang133"
+					}
+				],
+				"name": "National Brain Center",
+				"address": [
+					{
+						"line": [
+							"Jl. MT Haryono Kavling 11 Cawang"
+						],
+						"city": "Jakarta Timur",
+						"state": "DKI",
+						"country": "ID"
+					}
+				]
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Organization?identifier=http://fhirfun2021.org/ids|nbc@cawang133"
+			}
+		},
+		{
+			"fullUrl": "urn:uuid:0fc374a1-a226-4552-9683-55dd510e67c9",
+			"resource": {
+				"resourceType": "Patient",
+				"identifier": [
+					{
+						"system": "http://mypatientidentifier.com/ids",
+						"value": "Khairon.Khairon"
+					}
+				],
+				"name": [
+					{
+						"family": "Khairon",
+						"given": [
+							"Khairon"
+						]
+					}
+				],
+				"address": [
+					{
+						"line": [
+							"Pesona Cilebut 2 Blok CB6 No. 30"
+						],
+						"city": "Bogor",
+						"state": "Jawa Barat",
+						"country": "ID"
+					}
+				],
+				"managingOrganization": {
+					"reference": "urn:uuid:17C7D86E-664F-4FE2-91D7-AF9A8E47311E"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Patient?identifier=http://mypatientidentifier.com/ids|Khairon.Khairon"
+			}
+		},
+		{
+			"fullUrl": "urn:uuid:b405c692-54ea-4d0d-afb1-8f91880a3f24",
+			"resource": {
+				"resourceType": "Device",
+				"identifier": [
+					{
+						"system": "http://uwearme.com/dev",
+						"value": "Barang133"
+					}
+				],
+				"expirationDate": "2020-10-10",
+				"lotNumber": "22222",
+				"modelNumber": "u888800-1",
+				"type": {
+					"coding": [
+						{
+							"system": "http://snomed.info/sct",
+							"code": "33894003",
+							"display": "Experimental Device"
+						}
+					]
+				},
+				"patient": {
+					"reference": "urn:uuid:0fc374a1-a226-4552-9683-55dd510e67c9"
+				},
+				"owner": {
+					"reference": "urn:uuid:17C7D86E-664F-4FE2-91D7-AF9A8E47311E"
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"url": "Device?identifier=http://uwearme.com/dev|Barang133"
+			}
+		},
+		{
+			"fullUrl": "urn:uuid:9b3055be-bb9f-4fce-b5da-599286eb2841",
+			"resource": {
+				"resourceType": "Observation",
+				"identifier": [
+					{
+						"system": "http://uwearme.com/measures",
+						"value": "Khairon.Khairon-2016-12-05T11:00:00+07:00-resp133"
+					}
+				],
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://loinc.org",
+							"code": "resp133",
+							"display": "resp2016-12-05T11:00:00+07:00"
+						}
+					]
+				},
+				"subject": {
+					"reference": "urn:uuid:0fc374a1-a226-4552-9683-55dd510e67c9"
+				},
+				"effectiveDateTime": "2016-12-05",
+				"valueQuantity": {
+					"value": 18,
+					"unit": "bit/min"
+				},
+				"device": {
+					"reference": "urn:uuid:b405c692-54ea-4d0d-afb1-8f91880a3f24"
+				}
+			},
+			"request": {
+				"method": "POST",
+				"url": "Observation"
+			}
+		},
+		{
+			"fullUrl": "urn:uuid:bf551c01-8aa5-4ace-99d4-ae03a5bc89e7",
+			"resource": {
+				"resourceType": "Observation",
+				"identifier": [
+					{
+						"system": "http://uwearme.com/measures",
+						"value": "Khairon.Khairon-2016-12-05T11:00:00+07:00-Sys133"
+					}
+				],
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://loinc.org",
+							"code": "Sys133",
+							"display": "Sys2016-12-05T11:00:00+07:00"
+						}
+					]
+				},
+				"subject": {
+					"reference": "urn:uuid:0fc374a1-a226-4552-9683-55dd510e67c9"
+				},
+				"effectiveDateTime": "2016-02-05",
+				"valueQuantity": {
+                    		"value": 125,
+					"unit": "mmgHg"
+				},
+				"device": {
+					"reference": "urn:uuid:b405c692-54ea-4d0d-afb1-8f91880a3f24"
+				}
+			},
+			"request": {
+				"method": "POST",
+				"url": "Observation"
+			}
+		},
+		{
+			"fullUrl": "urn:uuid:54e8f280-8f5c-4d63-a174-29a091ecb06a",
+			"resource": {
+				"resourceType": "Observation",
+				"identifier": [
+					{
+						"system": "http://uwearme.com/measures",
+						"value": "Khairon.Khairon-2016-12-05T11:00:00+07:00-Dias133"
+					}
+				],
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://loinc.org",
+							"code": "Dias133",
+							"display": "Dias2016-12-05T11:00:00+07:00"
+						}
+					]
+				},
+				"subject": {
+					"reference": "urn:uuid:0fc374a1-a226-4552-9683-55dd510e67c9"
+				},
+				"effectiveDateTime": "2016-12-05",
+				"valueQuantity": {
+					"value": 85,
+					"unit": "mmHg"
+				},
+				"device": {
+					"reference": "urn:uuid:b405c692-54ea-4d0d-afb1-8f91880a3f24"
+				}
+			},
+			"request": {
+				"method": "POST",
+				"url": "Observation"
+			}
+		},
+		{
+			"fullUrl": "urn:uuid:55c0f3ad-4a2e-4516-8e2c-3db15ed62941",
+			"resource": {
+				"resourceType": "Observation",
+				"identifier": [
+					{
+						"system": "http://uwearme.com/measures",
+						"value": "Khairon.Khairon-2016-12-05T11:00:00+07:00-Nadi133"
+					}
+				],
+				"status": "final",
+				"code": {
+					"coding": [
+						{
+							"system": "http://loinc.org",
+							"code": "Nadi133",
+							"display": "Nadi2016-12-05T11:00:00+07:00"
+						}
+					]
+				},
+				"subject": {
+					"reference": "urn:uuid:0fc374a1-a226-4552-9683-55dd510e67c9"
+				},
+				"effectiveDateTime": "2016-12-05",
+				"valueQuantity": {
+					"value": 135,
+					"unit": "Bit/min"
+				},
+				"device": {
+					"reference": "urn:uuid:b405c692-54ea-4d0d-afb1-8f91880a3f24"
+				}
+			},
+			"request": {
+				"method": "POST",
+				"url": "Observation"
+			}
+		}
+	]
+}
