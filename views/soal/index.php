@@ -45,11 +45,11 @@
                       }
                       
                   ?>
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table id="example1" class="table table-sm table-striped">
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Pengkajian</th>
+                        <th colspan="3">Pengkajian</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
@@ -65,7 +65,7 @@
                       ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td><?= $data['master_pengkajian'];?></td>
+                        <td colspan="3"><?= $data['master_pengkajian'];?></td>
                         <td><?= $count_data;?></td>
                         <td>
                         <?php
@@ -75,6 +75,7 @@
                         </td>
                       </tr>
                       <?php
+                      
                       $sql_master_rumpun  = mysqli_query($host,"SELECT * FROM master_rumpun WHERE id_master_pengkajian='$id_master_pengkajian'");
                       while($data_master_rumpun = mysqli_fetch_array($sql_master_rumpun)){
                         $id_master_rumpun = $data_master_rumpun['id_master_rumpun'];
@@ -83,22 +84,20 @@
                       ?>
                       <tr>
                         <td></td>
-                        <td><?= $data_master_rumpun['master_rumpun']?></td>
+                        <td></td>
+                        <td colspan="2"><strong><?= $data_master_rumpun['master_rumpun']?></strong></td>
                         <td><?= $count_master_rumpun?></td>
-                        <td>
-                          <?php
-                          include("modal/add-soal.php");
-                          include('aksi/add-soal.php');
-                        ?>
-                        </td>
+                        <td><a href="tambah.php?id=<?= $data_master_rumpun['has_master_rumpun']?>" class="btn btn-warning btn-sm">Detail</a></td>
                       </tr>
                       <?php
-                      $nomor=1;
+                      $c=1;
                       while($data_master_soal= mysqli_fetch_array($sql_master_soal)){
                       ?>
                       <tr>
                         <td></td>
-                        <td><?= $nomor++.". ".$data_master_soal['master_soal']?></td>
+                        <td></td>
+                        <td><?=$c++?></td>
+                        <td><?= $data_master_soal['master_soal']?></td>
                         <td></td>
                         <td></td>
                       </tr>
@@ -111,7 +110,7 @@
                     <tfoot>
                       <tr>
                         <th>#</th>
-                        <th>Pengkajian</th>
+                        <th colspan="3">Pengkajian</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
