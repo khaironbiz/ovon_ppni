@@ -36,6 +36,7 @@
             ?>
             <div class="card">
               <div class="card-header">
+                <?= $_SERVER['PATH_INFO']?>
                 <div class="card-body">
                   <?php
                     include("../core/security/admin-akses.php");
@@ -49,7 +50,7 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Status Pendidikan</th>
+                        <th>Pertanyaan</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
@@ -77,7 +78,7 @@
                     <tfoot>
                       <tr>
                         <th>#</th>
-                        <th>Status Pendidikan</th>
+                        <th>Pertanyaan</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>

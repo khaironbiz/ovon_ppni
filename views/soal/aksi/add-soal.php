@@ -4,6 +4,7 @@ if(isset($_POST['add_master_soal'])){
     $master_soal        = $_POST['master_soal'];
     $key_back           = $_POST['key_back'];
     $nomor_urut         = $_POST['nomor_urut'];
+    $jenis_input_jawaban= $_POST['jenis_input_jawaban'];
     $has_master_soal    = md5(uniqid());
     $sql_master_rumpun  = mysqli_query($host,"SELECT * FROM master_rumpun WHERE has_master_rumpun='$key_back'");
     $master_rumpun      = mysqli_fetch_array($sql_master_rumpun);
@@ -15,6 +16,7 @@ if(isset($_POST['add_master_soal'])){
                             id_master_rumpun    = '$id_master_rumpun',
                             master_soal         = '$master_soal',
                             nomor_urut          = '$nomor_urut',
+                            jenis_input_jawaban = '$jenis_input_jawaban',
                             created_at          = '$hari_ini',
                             created_by          = '$user_check',
                             has_master_soal     = '$has_master_soal'");

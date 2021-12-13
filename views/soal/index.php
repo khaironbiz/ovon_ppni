@@ -87,7 +87,7 @@
                         <td></td>
                         <td colspan="2"><strong><?= $data_master_rumpun['master_rumpun']?></strong></td>
                         <td><?= $count_master_rumpun?></td>
-                        <td><a href="tambah.php?id=<?= $data_master_rumpun['has_master_rumpun']?>" class="btn btn-warning btn-sm">Detail</a></td>
+                        <td><a href="tambah.php?id=<?= $data_master_rumpun['has_master_rumpun']?>" class="btn btn-warning btn-sm">Tambah Data</a></td>
                       </tr>
                       <?php
                       $c=1;
@@ -96,10 +96,10 @@
                       <tr>
                         <td></td>
                         <td></td>
-                        <td><?=$c++?></td>
+                        <td class="text-right"><?=$c++?></td>
                         <td><?= $data_master_soal['master_soal']?></td>
                         <td></td>
-                        <td></td>
+                        <td><a class="btn btn-success btn-sm" href="edit.php?key=<?=$data_master_soal['has_master_soal']?>">Edit Data</a></td>
                       </tr>
                     <?php
                       }
