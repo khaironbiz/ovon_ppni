@@ -1,15 +1,9 @@
 <?php
-$site_server        = 1;
-if($site_server ==1){
-$site_url           = "http://localhost/ovon_ppni";
-?>
-<script src="../assets/js/site_local.js"></script>
-<?php
-}if($site_server ==2){
-$site_url           = "http://ners.my.id";
-?>
-<script src="../assets/js/site_server.js"></script>
-<?php
+if($_SERVER['SERVER_NAME']=='localhost'){
+    $site_url           = "http://localhost/ovon_ppni";
+    
+}else{
+    $site_url           = "http://ners.my.id";
 }
 $nama_web           = "OVON";
 $nama_perusahaan    = "Satu Desa Satu Perawat";
@@ -19,4 +13,7 @@ $version_web        = "2.0.0";
 $time               = "Y-m-d H:i:s";
 $date               = "Y-m-d";
 ?>
+<script>
+    var base_url = "<?= $site_url?>";
+</script>
 

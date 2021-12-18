@@ -9,9 +9,6 @@ function ajaxkota(id){
     ajaxku.open("GET",url,true);
     ajaxku.send(null);
 }
-
-
-
 function buatajax(){
     if (window.XMLHttpRequest){
     return new XMLHttpRequest();
