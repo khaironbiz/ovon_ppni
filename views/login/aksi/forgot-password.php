@@ -13,7 +13,7 @@ if(isset($_POST['forgot_password'])){
     $url_reset      = $site_url."/login/reset-password.php?id=".$kode_aktifasi;
     $link_riset     = "<a href='$url_reset'>Reset</a>";
     if($count_email<1){
-        $_SESSION['status']="Fail request : email tidak terdaftar";
+        $_SESSION['status']="Fail request : email not found";
         $_SESSION['status_info']="danger";
         echo "<script>document.location=\"$site_url/login/forgot.php\"</script>";
     }else{
@@ -45,7 +45,7 @@ if(isset($_POST['forgot_password'])){
             $_SESSION['status_info']="success";
             echo "<script>document.location=\"$site_url/login/forgot.php\"</script>";
             }else{
-            $_SESSION['status']="Fail request";
+            $_SESSION['status']="Fail request : internal email server";
             $_SESSION['status_info']="danger";
             echo "<script>document.location=\"$site_url/login/forgot.php\"</script>";
             }
