@@ -12,6 +12,20 @@
       include("aksi/forgot-password.php");
       ?>
       <p class="login-box-msg">Forgot Password</p>
+      <?php
+      include("aksi/login.php");
+      if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
+      ?>
+        <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
+          <?= $_SESSION['status']?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      <?php
+        unset($_SESSION['status']);
+      }
+      ?>
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" name="username">
