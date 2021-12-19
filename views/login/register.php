@@ -7,8 +7,9 @@
           <img src="<?= $site_url?>/assets/images/ovon-logo1.png" width="295px">
       </div>
       <p class="login-box-msg">Register a new membership</p>
+
       <?php
-      
+      //echo $_SESSION['status_info'];
       include("aksi/register.php");
       
       //include("aksi/session-flash.php");

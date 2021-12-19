@@ -7,7 +7,6 @@ if(isset($_SESSION['login_user'])){
 if (isset($_POST['key'])) {
     $username   = $_POST['username'];
     $password   = md5($_POST['password']);
-    $status     = 1;
     $queryuser  = mysqli_query($host,"SELECT * FROM users WHERE email='$username' AND status='$status'");
     $cont_email = mysqli_num_rows($queryuser);
     //
