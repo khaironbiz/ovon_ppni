@@ -7,6 +7,7 @@ if(isset($_SESSION['login_user'])){
 if (isset($_POST['key'])) {
     $username   = $_POST['username'];
     $password   = md5($_POST['password']);
+    $status     = 1;
     $queryuser  = mysqli_query($host,"SELECT * FROM users WHERE email='$username' AND status='$status'");
     $cont_email = mysqli_num_rows($queryuser);
     //
@@ -20,7 +21,7 @@ if (isset($_POST['key'])) {
         // Variabel username dan password
         }else{
             if ($cont_email <1) {
-                $_SESSION['status']="Email tidak terdaftar";
+                $_SESSION['status']="Email tidak terdaftar code : $count_user";
                 $_SESSION['status_info']="danger";
                 echo "<script>document.location=\"$site_url/login/\"</script>";
             }else{
