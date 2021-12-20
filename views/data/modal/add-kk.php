@@ -10,7 +10,7 @@
                         <label class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" placeholder="Nama kepala keluarga" name="nama_anggota" required>
-                            <input type="hidden" class="form-control" value="<?= $key ?>" name="add_anggota" required>
+                            <input type="hidden" class="form-control" value="<?= uniqid() ?>" name="add_kk" required>
                         </div>
                         <label class="col-sm-2 col-form-label">NIK</label>
                         <div class="col-sm-4">
