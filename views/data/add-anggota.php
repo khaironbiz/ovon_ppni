@@ -34,9 +34,10 @@
                 <div class="card-body">
                     <form method="POST" action="">
                         <?php
-                        include('aksi/add-anggota.php');
+                        include('aksi/add-data-anggota.php');
                         include('modal/add-anggota.php');
                         ?>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                   
                   
