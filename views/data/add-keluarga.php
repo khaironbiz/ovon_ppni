@@ -35,9 +35,9 @@
                     <form method="POST" action="">
                         <?php
                         include('aksi/add-data.php');
-                        include('modal/add-keluarga.php');
+                        include('modal/add-kk.php');
                         ?>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        
                     </form>
                   
                   
