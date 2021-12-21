@@ -5,11 +5,13 @@ if(isset($_POST['add_anggota'])){
     $jenis_kelamin          = $_POST['jenis_kelamin'];
     $tgl_lahir              = $_POST['tgl_lahir'];
     $nik                    = $_POST['nik'];
-    $jenis_keluarga         = 1;
+    $status_ktp             = $_POST['status_ktp'];
+    $jenis_keluarga         = $_POST['jenis_keluarga'];
     $golongan_darah         = $_POST['golongan_darah'];
     $vaksin_covid19         = $_POST['vaksin_covid19'];
     $status_pendidikan      = $_POST['status_pendidikan'];
     $status_pekerjaan       = $_POST['status_pekerjaan'];
+    $status_pernikahan      = $_POST['status_pernikahan'];
     $hari_ini               = date('Y-m-d H:i:s');
     $provinsi               = $data_pengguna['prov'];
     $kabupaten              = $data_pengguna['kota'];
@@ -27,20 +29,11 @@ if(isset($_POST['add_anggota'])){
         $_SESSION['status_info']="danger";
             echo "<script>document.location=\"$site_url/data\"</script>";
     }elseif($count < 1 ){
-        $tambah_kk      = mysqli_query($host,"INSERT INTO keluarga SET
-                            key_keluarga            = '$key_keluarga',
-                            nama_keluarga           = '$nama_anggota',
-                            id_kepala_keluarga      = '$nik',
-                            provinsi                = '$provinsi',
-                            kabupaten               = '$kabupaten',
-                            kecamatan               = '$kecamatan',
-                            kelurahan               = '$kelurahan',
-                            rw                      = '$rw',
-                            rt                      = '$rt'");
         $input_data     = mysqli_query($host, "INSERT INTO keluarga_anggota SET 
                             key_keluarga            = '$key_keluarga',
                             nama_anggota            = '$nama_anggota',
                             nik                     = '$nik',
+                            status_ktp              = '$status_ktp',
                             jenis_kelamin           = '$jenis_kelamin',
                             tgl_lahir               = '$tgl_lahir',
                             id_struktur_keluarga    = '$jenis_keluarga',
@@ -48,6 +41,7 @@ if(isset($_POST['add_anggota'])){
                             vaksin_covid19          = '$vaksin_covid19',
                             pendidikan              = '$status_pendidikan',
                             pekerjaan               = '$status_pekerjaan',
+                            status_pernikahan       = '$status_pernikahan',
                             created_at              = '$hari_ini',
                             created_by              = '$user_check',
                             provinsi                = '$provinsi',

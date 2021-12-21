@@ -35,14 +35,13 @@
                         </div>
                         <label class="col-sm-2 col-form-label">KTP Luar Daerah?</label>
                         <div class="col-sm-4">
-                            <select class="form-control" required name="jenis_ktp">
+                            <select class="form-control" required name="status_ktp">
                                 <option value="">---Jenis KTP----</option>
-                                <option value="1">Tidak</option>
-                                <option value="2">Ya, KTP Luar Kota</option>
+                                <option value="0">Tidak</option>
+                                <option value="1">Ya, KTP Luar Kota</option>
                                 
                             </select>
                         </div>
-                        
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
@@ -124,6 +123,23 @@
                                 ?>
                             </select>
                         </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Status Pernikahan</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" required name="status_pernikahan">
+                                <option value="">---Status----</option>
+                                <?php
+                                    $sql_nikah = mysqli_query($host, "SELECT * FROM master_nikah ");
+                                    while($data_nikah = mysqli_fetch_array($sql_nikah)){
+                                ?>
+                                <option value="<?= $data_nikah['id_master_nikah']?>"><?= $data_nikah['nama_nikah']?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        
                     </div>
             </div>
             <div class="card-footer text-right">

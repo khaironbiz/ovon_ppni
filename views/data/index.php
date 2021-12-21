@@ -86,9 +86,7 @@
                         <td><?= $data['nama_keluarga'];?></td>
                         <td><?= $count_data;?></td>
                         <td>
-                          <a href="keluarga.php?id=<?= $data['key_keluarga']?>" class="btn btn-info btn-sm">View anggota</a>
-                          <a href="edit-keluarga.php?id=<?= $data['key_keluarga']?>" class="btn btn-success btn-sm">Edit</a>
-                          <a href="keluarga-detail.php?id=<?= $data['key_keluarga']?>" class="btn btn-warning btn-sm">Print</a>
+                          <a href="keluarga.php?id=<?= $data['key_keluarga']?>" class="btn btn-info btn-sm">Detail</a>
                         </td>
                       </tr>
                         
