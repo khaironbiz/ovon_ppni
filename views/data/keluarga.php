@@ -97,6 +97,42 @@
                   <?php
                   include('modal/add-anggota-meninggal.php');
                   include('aksi/add-anggota-meninggal.php');
+                  $key_keluarga     = $_GET['id'];
+                  $sql_meninggal    = mysqli_query($host,"SELECT * FROM keluarga_meninggal 
+                                     WHERE keluarga_meninggal.key_keluarga='$key_keluarga'");
+                  $count_meninggal  = mysqli_num_rows($sql_meninggal);
+                  if($count_meninggal>0){
+                    
+                  ?>
+                  <table class="table">
+                    <tr>
+                      <th>#</th>
+                      <th>Status Keluarga</th>
+                      <th>Penyebab Kematian</th>
+                      <th>Usia Saat Meninggal</th>
+                      <th>Tanggal Meninggal</th>
+                    </tr>
+                    <?php
+                    $plus=1;
+                    $sql_meninggal_ini  =  mysqli_query($host,"SELECT * FROM keluarga_meninggal 
+                                        JOIN master_sebab_kematian on master_sebab_kematian.id_master_sebab_kematian=keluarga_meninggal.sebab_kematian
+                                        JOIN master_struktur_keluarga on keluarga_meninggal.id_struktur_keluarga= master_struktur_keluarga.id_struktur_keluarga
+                                        WHERE keluarga_meninggal.key_keluarga='$key_keluarga'");
+                    while($data_meninggal= mysqli_fetch_array($sql_meninggal_ini)){
+                    ?>
+                    <tr>
+                      <td><?= $plus++;?></td>
+                      <td><?= $data_meninggal['struktur_keluarga']?></td>
+                      <td><?= $data_meninggal['master_sebab_kematian']?></td>
+                      <td><?= $data_meninggal['usia_meninggal']?></td>
+                      <td><?= $data_meninggal['tgl_kematian']?></td>
+                    </tr>
+                    <?php
+                    }
+                    ?>
+                  </table>
+                  <?php
+                  }
                   ?>
                 </div>
                 <!-- /.card-body -->

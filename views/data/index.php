@@ -34,10 +34,12 @@
             $data_rt_rw = mysqli_fetch_array($sql_rt_rw);
             ?>
             <div class="card">
-              <div class="card-header">
-                <div class="card-body">
-                  <h4>Desa : <?= $data_pengguna['nama_desa']?></h4>
-                  <h4>RW / RT: <?= $data_rt_rw['nama_rw']?> / <?= $data_rt_rw['nama_rt']?></h4>
+              <div class="card-header bg-dark text-white">
+                <h4>Desa : <?= $data_pengguna['nama_desa']?></h4>
+                <h4>RW / RT: <?= $data_rt_rw['nama_rw']?> / <?= $data_rt_rw['nama_rt']?></h4>
+              </div>
+              <div class="card-body">
+                  
                   <?php
                   if($data_pengguna['id_rw'] !=''){
                     include("../core/security/admin-akses.php");
@@ -110,7 +112,7 @@
                   ?>
                 </div>
                 <!-- /.card-body -->
-            </div>
+              </div>
             <!-- /.card -->
           </div>
           <!-- /.col -->

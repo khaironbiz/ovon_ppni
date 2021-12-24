@@ -21,7 +21,7 @@ if (isset($_POST['key'])) {
         // Variabel username dan password
         }else{
             if ($cont_email <1) {
-                $_SESSION['status']="Email tidak terdaftar code : $count_user";
+                $_SESSION['status']="Email tidak terdaftar";
                 $_SESSION['status_info']="danger";
                 echo "<script>document.location=\"$site_url/login/\"</script>";
             }else{

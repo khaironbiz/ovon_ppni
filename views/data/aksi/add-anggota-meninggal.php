@@ -11,8 +11,8 @@ if(isset($_POST['add_keluarga_meninggal'])){
     if($count >0 ){
         $input_data     = mysqli_query($host, "INSERT INTO keluarga_meninggal SET 
                             key_keluarga            = '$key_keluarga',
-                            struktur_keluarga       = '$struktur_keluarga',
-                            tgl_kematian            = '$tgl_meninggal',
+                            id_struktur_keluarga    = '$struktur_keluarga',
+                            tgl_kematian            = '$tgl_kematian',
                             sebab_kematian          = '$sebab_kematian',
                             usia_meninggal          = '$usia_meninggal',
                             has_keluarga_meninggal  = '$has_keluarga_meninggal'");
