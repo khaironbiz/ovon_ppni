@@ -36,7 +36,11 @@
             ?>
             <div class="card">
               <div class="card-header">
-                <?= $_SERVER['PATH_INFO']?>
+                <?php 
+                if(isset($_SERVER['PATH_INFO'])){
+                  echo $_SERVER['PATH_INFO'];
+                }
+                ?>
                 <div class="card-body">
                   <?php
                     include("../core/security/admin-akses.php");
@@ -69,7 +73,7 @@
                         <td width="10px"><?= $no++; ?></td>
                         <td><?= $data['master_soal'];?></td>
                         <td><?= $count_data;?></td>
-                        <td><a href="<?= $site_url ?>/regulasi/detail.php?id=<?= $data['has_regulasi_jenis']?>" class="btn btn-primary btn-sm">Detail</a></td>
+                        <td><a href="<?= $site_url ?>/soal/edit.php?key=<?= $data['has_master_soal']?>" class="btn btn-primary btn-sm">Edit</a></td>
                       </tr>
                       <?php
                         }
