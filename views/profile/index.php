@@ -57,6 +57,9 @@
                           <tr>
                             <td>Handphone</td><td>:</td><td><?= $data_pengguna['hp']?></td>
                           </tr>
+                          <tr>
+                            <td>NIRA</td><td>:</td><td><?= $data_pengguna['nira']?></td>
+                          </tr>
                         </table>
                       </div>
                     </div>
@@ -81,6 +84,9 @@
                           <tr>
                             <td>Desa</td><td>:</td><td><?= $data_pengguna['nama_desa']?></td>
                           </tr>
+                          <tr>
+                            <td>RT/RW</td><td>:</td><td><?= $data_pengguna['id_rt']."/".$data_pengguna['id_rw']?></td>
+                          </tr>
                         </table>
                       </div>
                     </div>
@@ -92,7 +98,12 @@
                     <div class="card">
                       <div class="card-body">
                         <span class="float-center"><a href="<?= $site_url; ?>/data/" class="btn btn-primary btn-sm text-right">Mulai Pengkajian</a></span>
-                        <span class="float-right"><?php include('modal/edit-rw.php')?></span>
+                        <span class="float-right">
+                          <?php 
+                          include('modal/edit-rw.php');
+                          include('aksi/edit-rw.php');
+                          ?>
+                        </span>
                         <h5>Riwayat Pengkajian</h5>
                         <div class="table-responsive">
                           <table class="table table-hover">
