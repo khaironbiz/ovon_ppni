@@ -100,25 +100,17 @@
           include("../core/security/admin-akses.php");
           if($wilayah_akses_user >30){
           ?>
-          <li class="nav-header">MASTER</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+            <a href="<?= $site_url ?>/soal/" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
               <p>
-                Pengkajian
-                <i class="fas fa-angle-left right"></i>
+                Master Pengkajian
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/soal/" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Master Pengkajian</p>
-                </a>
-              </li>
-              
-            </ul>
           </li>
+          <li class="nav-header">MASTER</li>
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>

@@ -49,7 +49,8 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th colspan="3">Pengkajian</th>
+                        <th colspan="2">Pengkajian</th>
+                        <td>ID</td>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
@@ -65,7 +66,8 @@
                       ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td colspan="3"><?= $data['master_pengkajian'];?></td>
+                        <td colspan="2"><?= $data['master_pengkajian'];?></td>
+                        <td><?= $data['id_master_pengkajian'];?></td>
                         <td><?= $count_data;?></td>
                         <td>
                         <?php
@@ -75,7 +77,7 @@
                         </td>
                       </tr>
                       <?php
-                      
+                      $no_ini             = 1;
                       $sql_master_rumpun  = mysqli_query($host,"SELECT * FROM master_rumpun WHERE id_master_pengkajian='$id_master_pengkajian'");
                       while($data_master_rumpun = mysqli_fetch_array($sql_master_rumpun)){
                         $id_master_rumpun = $data_master_rumpun['id_master_rumpun'];
@@ -83,22 +85,33 @@
                         $count_master_rumpun= mysqli_num_rows($sql_master_soal);
                       ?>
                       <tr>
-                        <td></td>
-                        <td></td>
-                        <td colspan="2"><strong><?= $data_master_rumpun['master_rumpun']?></strong></td>
+                        <th colspan="2" class="text-center"><?= $no_ini++;?></th>
+                        <td><strong><?= $data_master_rumpun['master_rumpun']?></strong></td>
+                        <td><?= $data_master_rumpun['id_master_rumpun']?></td>
                         <td><?= $count_master_rumpun?></td>
                         <td><a href="tambah.php?id=<?= $data_master_rumpun['has_master_rumpun']?>" class="btn btn-warning btn-sm">Tambah Data</a></td>
                       </tr>
                       <?php
                       $c=1;
-                      while($data_master_soal= mysqli_fetch_array($sql_master_soal)){
+                      while($data_master_soal   = mysqli_fetch_array($sql_master_soal)){
+                        $id_jenis_input_jawaban = $data_master_soal['jenis_input_jawaban'];
+                        $sql_tipe_jawaban       = mysqli_query($host,"SELECT * FROM jenis_input_jawaban WHERE 
+                        	                        id_jenis_input_jawaban='$id_jenis_input_jawaban'");
+                        $tipe_jawaban           = mysqli_fetch_array($sql_tipe_jawaban);
                       ?>
                       <tr>
                         <td></td>
-                        <td></td>
                         <td class="text-right"><?=$c++?></td>
-                        <td><?= $data_master_soal['master_soal']?></td>
-                        <td></td>
+                        <td><?= $data_master_soal['master_soal']."---".$tipe_jawaban['jenis_input_jawaban']?></td>
+                        <td>
+                          <?php
+                          $id_soal  = $data_master_soal['id_master_soal'];
+                          echo $id_soal;
+                          $sql_jawaban_ini  = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_soal='$id_soal'");
+                          $count_jawaban    = mysqli_num_rows($sql_jawaban_ini);
+                          ?>
+                        </td>
+                        <td><?= $count_jawaban;?></td>
                         <td><a class="btn btn-success btn-sm" href="edit.php?key=<?=$data_master_soal['has_master_soal']?>">Edit Data</a></td>
                       </tr>
                     <?php

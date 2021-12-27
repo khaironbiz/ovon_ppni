@@ -55,7 +55,8 @@
                       <tr>
                         <th>#</th>
                         <th>Pertanyaan</th>
-                        <th>Count</th>
+                        <th>ID Soal</th>
+                        <th>Count Jawaban</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -66,12 +67,13 @@
                       $sql_master_soal  = mysqli_query($host, "SELECT * FROM master_soal WHERE id_master_rumpun='$id_master_rumpun' ORDER BY nomor_urut");
                       while($data       = mysqli_fetch_array($sql_master_soal)){
                         $id_master_soal = $data['id_master_soal'];
-                        $sql_count      = mysqli_query($host, "SELECT * FROM master_soal WHERE id_master_soal='$id_master_soal'");
+                        $sql_count      = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='$id_master_soal'");
                         $count_data     = mysqli_num_rows($sql_count);
                       ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
                         <td><?= $data['master_soal'];?></td>
+                        <td><?= $id_master_soal; ?></td>
                         <td><?= $count_data;?></td>
                         <td><a href="<?= $site_url ?>/soal/edit.php?key=<?= $data['has_master_soal']?>" class="btn btn-primary btn-sm">Edit</a></td>
                       </tr>
@@ -83,7 +85,8 @@
                       <tr>
                         <th>#</th>
                         <th>Pertanyaan</th>
-                        <th>Count</th>
+                        <th>ID Soal</th>
+                        <th>Count Jawaban</th>
                         <th>Aksi</th>
                       </tr>
                     </tfoot>

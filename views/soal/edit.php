@@ -86,6 +86,7 @@
                             $id_master_soal     = $soal['id_master_soal'];
                             $sql_master_jawaban = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_soal='$id_master_soal'");
                             while($data_jawaban = mysqli_fetch_array( $sql_master_jawaban)){
+                              
                         ?>
                         <tr>
                             <td><?= $urut++; ?></td>
