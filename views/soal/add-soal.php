@@ -56,6 +56,7 @@
                         <th>#</th>
                         <th>Pertanyaan</th>
                         <th>ID Soal</th>
+                        <th>Jenis Jawaban</th>
                         <th>Count Jawaban</th>
                         <th>Aksi</th>
                       </tr>
@@ -74,6 +75,7 @@
                         <td width="10px"><?= $no++; ?></td>
                         <td><?= $data['master_soal'];?></td>
                         <td><?= $id_master_soal; ?></td>
+                        <td></td>
                         <td><?= $count_data;?></td>
                         <td><a href="<?= $site_url ?>/soal/edit.php?key=<?= $data['has_master_soal']?>" class="btn btn-primary btn-sm">Edit</a></td>
                       </tr>
@@ -86,6 +88,7 @@
                         <th>#</th>
                         <th>Pertanyaan</th>
                         <th>ID Soal</th>
+                        <th>Jenis Jawaban</th>
                         <th>Count Jawaban</th>
                         <th>Aksi</th>
                       </tr>
