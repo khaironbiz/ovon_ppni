@@ -5,10 +5,22 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          
           <div class="col-md-12">
+            <?php
+            if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
+            ?>
+            <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
+              <strong>Hay</strong> <?= $_SESSION['status']?>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <?php
+            unset($_SESSION['status']);
+            }
+            ?>
             <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
+            <div class="card card-widget widget-user mt-3">
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-info">
                 <h3 class="widget-user-username"><?= $data_pengguna['user_nama']?></h3>
@@ -18,7 +30,6 @@
                 <img class="img-circle elevation-2" src="<?= $site_url?>/assets/admin/dist/img/user1-128x128.jpg" alt="User Avatar">
               </div>
               <div class="card-footer">
-                
                 <hr>
                 <div class="row">
                   <div class="col-md-6">
@@ -27,13 +38,18 @@
                         <table class="table table-hover">
                           <tr>
                             <th colspan="2">Biodata</th>
-                            <th class="text-right"><a href="" class="btn btn-success btn-sm">Edit</a></th>
+                            <th class="text-right">
+                              <?php 
+                              include('modal/data-diri-edit.php');
+                              include('aksi/data-diri-edit.php');
+                              ?>
+                            </th>
                           </tr>
                           <tr>
                             <td>Nama</td><td>:</td><td><?= $data_pengguna['user_nama']?></td>
                           </tr>
                           <tr>
-                            <td>NIK</td><td>:</td><td>1<?= $data_pengguna['nik']?>23</td>
+                            <td>NIK</td><td>:</td><td><?= $data_pengguna['nik']?></td>
                           </tr>
                           <tr>
                             <td>Email</td><td>:</td><td><?= $data_pengguna['email']?></td>
@@ -75,8 +91,6 @@
                   <div class="col-md-12">
                     <div class="card">
                       <div class="card-body">
-                        
-                        
                         <span class="float-center"><a href="<?= $site_url; ?>/data/" class="btn btn-primary btn-sm text-right">Mulai Pengkajian</a></span>
                         <span class="float-right"><?php include('modal/edit-rw.php')?></span>
                         <h5>Riwayat Pengkajian</h5>
