@@ -20,39 +20,29 @@ if(isset($_POST['add_user'])){
                             valid_until > '$date_ini'");
     $count_key      = mysqli_num_rows($sql_key);  
     //nilai dari data key
-    $data_key       = mysqli_fetch_array($sql_key);
-    $prov           = $data_key['prov'];
-    $kota           = $data_key['kota'];
-    $kecamatan      = $data_key['kecamatan'];
-    $kelurahan      = $data_key['kelurahan'];
-    $valid_until    = $data_key['valid_until'];
-    $wilayah_akses  = $data_key['wilayah_akses'];
-    $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email'");
-    $count_email    = mysqli_num_rows($sql_email);
-
-    if($password1 != $password2){
-        $_SESSION['status']="Password tidak sama";
-        $_SESSION['status_info']="danger";
-        echo "<script>document.location=\"$site_url/login/register.php\"</script>";
-        //echo "<script> alert(\"Password tidak sama\")</script>";
-        //header("location: $site_url/login/register.php");
-        }elseif($count_key_aja <1){
-            $_SESSION['status']="key not found";
-            $_SESSION['status_info']="danger";
-            //echo "<script> alert(\"Password tidak sama\")</script>";
-            header("location: $site_url/login/register.php");  
-        }elseif($count_key <1){  
-            $_SESSION['status']="key expired";
-            $_SESSION['status_info']="danger";
-            //echo "<script> alert(\"Password tidak sama\")</script>";
-            header("location: $site_url/login/register.php");
-        }elseif($count_email>0){
+    if($count_key >0){
+        $data_key       = mysqli_fetch_array($sql_key);
+        $prov           = $data_key['prov'];
+        $kota           = $data_key['kota'];
+        $kecamatan      = $data_key['kecamatan'];
+        $kelurahan      = $data_key['kelurahan'];
+        $valid_until    = $data_key['valid_until'];
+        $wilayah_akses  = $data_key['wilayah_akses'];
+        $sql_email      = mysqli_query($host,"SELECT * FROM users WHERE email ='$email'");
+        $count_email    = mysqli_num_rows($sql_email);
+        if($count_email>0){
             $_SESSION['status']="Email already registered";
             $_SESSION['status_info']="danger";
-            //echo "<script> alert(\"Password tidak sama\")</script>";
-            header("location: $site_url/login/register.php"); 
-            }else{
-            $tambah_user = mysqli_query($host, "INSERT INTO users SET
+            echo "<script> alert(\"Email already registered\")</script>";
+            echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+            }elseif($password1 != $password2){
+            $_SESSION['status']="Password tidak sama";
+            $_SESSION['status_info']="danger";
+            echo "<script> alert(\"Password tidak sama\")</script>";
+            echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+            //header("location: $site_url/login/register.php");
+            }else{  
+                $tambah_user = mysqli_query($host, "INSERT INTO users SET
                         user_nama       = '$user_nama',
                         nik             = '$nik',
                         email           = '$email',
@@ -61,7 +51,7 @@ if(isset($_POST['add_user'])){
                         kec             = '$kecamatan',
                         kel             = '$kelurahan',
                         pass            = '$password',
-                        status          = '1',
+                        status          = '0',
                         kode_aktifasi   = '$kode_aktifasi',
                         created_at      = '$time',
                         secret_key      = '$secret_key',
@@ -91,21 +81,27 @@ if(isset($_POST['add_user'])){
                     if($mail){
                         $_SESSION['status']="Data berhasil disimpan";
                         $_SESSION['status_info']="success";
-                        //echo "<script> alert(\"Data sukses disimpan pada sistem\")</script>";
+                        echo "<script> alert(\"Data sukses disimpan pada sistem\")</script>";
                         echo "<script>document.location=\"$site_url/login/\"</script>";
                     }else{
                     $_SESSION['status']="Data gagal dikirim ke email";
                     $_SESSION['status_info']="danger";
-                    //echo "<script> alert(\"Data gagal disimpan pada sistem\")</script>";
+                    echo "<script> alert(\"Data gagal dikirim ke email\")</script>";
                     echo "<script>document.location=\"$site_url/login/\"</script>";
-                        
-                        }
+                    }   
                 }else{
                     $_SESSION['status']="User gagal ditambah";
                     $_SESSION['status_info']="danger";
-                    //echo "<script> alert(\"Data gagal disimpan pada sistem\")</script>";
+                    echo "<script> alert(\"Data gagal disimpan pada sistem\")</script>";
                     echo "<script>document.location=\"$site_url/login/\"</script>";
                 }
-            }  
+            }
+        }else{
+        $_SESSION['status']="Invalid key";
+        $_SESSION['status_info']="danger";
+        echo "<script> alert(\"Invalid key\")</script>";
+        echo "<script>document.location=\"$site_url/login/register.php\"</script>";
+                    
     }
+}
 
