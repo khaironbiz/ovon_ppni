@@ -6,10 +6,13 @@ if(isset($_GET['key'])){
     if($aktif_user){
         $_SESSION['status']="Selamat akun anda telah aktif";
         $_SESSION['status_info']="success";
+        echo "<script> alert(\"Selamat akun anda telah aktif\")</script>";
         echo "<script>document.location=\"$site_url/login/\"</script>";
     }else{
         $_SESSION['status']="Maaf...!!!! aktifasi akun gagal";
         $_SESSION['status_info']="danger";
+        
+        echo "<script> alert(\"Maaf...!!!! aktifasi akun gagal\")</script>";
         echo "<script>document.location=\"$site_url/login/\"</script>";
     }
 };
