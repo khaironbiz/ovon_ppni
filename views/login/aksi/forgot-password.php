@@ -18,10 +18,10 @@ if(isset($_POST['forgot_password'])){
         echo "<script>document.location=\"$site_url/login/forgot.php\"</script>";
     }else{
         $update_user    = mysqli_query($host, "UPDATE users SET
-                        kode_aktifasi   = '$kode_aktifasi',
-                        berlaku_key     = '$exp_key',
-                        updated_at      = '$time' WHERE
-                        email           = '$email'");
+                            kode_aktifasi   = '$kode_aktifasi',
+                            berlaku_key     = '$exp_key',
+                            updated_at      = '$time' WHERE
+                            email           = '$email'");
         $subject        = "Reset Password";
         $htmlContent    = ' 
             <h3>Reset Password</h3> 
