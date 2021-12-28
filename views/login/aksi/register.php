@@ -92,19 +92,19 @@ if(isset($_POST['add_user'])){
                         $_SESSION['status']="Data berhasil disimpan";
                         $_SESSION['status_info']="success";
                         //echo "<script> alert(\"Data sukses disimpan pada sistem\")</script>";
-                        header("location: $site_url/login/"); 
+                        echo "<script>document.location=\"$site_url/login/\"</script>";
                     }else{
                     $_SESSION['status']="Data gagal dikirim ke email";
                     $_SESSION['status_info']="danger";
                     //echo "<script> alert(\"Data gagal disimpan pada sistem\")</script>";
-                    header("location: $site_url/login/");
+                    echo "<script>document.location=\"$site_url/login/\"</script>";
                         
                         }
                 }else{
                     $_SESSION['status']="User gagal ditambah";
                     $_SESSION['status_info']="danger";
                     //echo "<script> alert(\"Data gagal disimpan pada sistem\")</script>";
-                    header("location: $site_url/login/register.php"); 
+                    echo "<script>document.location=\"$site_url/login/\"</script>";
                 }
             }  
     }
