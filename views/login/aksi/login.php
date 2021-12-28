@@ -17,7 +17,7 @@ if (isset($_POST['key'])) {
     if (empty($_POST['username']) || empty($_POST['password'])) {
         $_SESSION['status']         = "Username or Password is required";
         $_SESSION['status_info']    = "danger";
-        header("location: $site_url/login/");
+        echo "<script>document.location=\"$site_url/login/\"</script>";
         // Variabel username dan password
         }else{
             if ($cont_email <1) {
@@ -31,7 +31,7 @@ if (isset($_POST['key'])) {
                     $_SESSION['kel']        = $data_user['kel'];
                     $_SESSION['status']="Login sukses";
                     $_SESSION['status_info']="success";
-                    header("location: $site_url/profile/"); // Mengarahkan ke halaman profil
+                    echo "<script>document.location=\"$site_url/profile/\"</script>";
                     }else{
                         $_SESSION['status']="Username & pasword not mach";
                         $_SESSION['status_info']="danger";

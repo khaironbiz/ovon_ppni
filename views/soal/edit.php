@@ -92,7 +92,11 @@
                             <td><?= $urut++; ?></td>
                             <td><?= $data_jawaban['master_jawaban']?></td>
                             <td></td>
-                            <td></td>
+                            <td>
+                              <?php
+                                include('modal/edit-jawaban.php');
+                              ?>
+                            </td>
                         </tr>
                         <?php
                             }

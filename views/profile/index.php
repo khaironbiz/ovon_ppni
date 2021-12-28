@@ -84,8 +84,16 @@
                           <tr>
                             <td>Desa</td><td>:</td><td><?= $data_pengguna['nama_desa']?></td>
                           </tr>
+                          <?php
+                            $id_rt    = $data_pengguna['id_rt'];
+                            $sql_rt   = mysqli_query($host,"SELECT * FROM rt WHERE id_rt ='$id_rt'");
+                            $data_rt  = mysqli_fetch_array($sql_rt);
+                            $id_rw    = $data_pengguna['id_rw'];
+                            $sql_rw   = mysqli_query($host,"SELECT * FROM rw WHERE id_rw ='$id_rw'");
+                            $data_rw  = mysqli_fetch_array($sql_rw);
+                          ?>
                           <tr>
-                            <td>RT/RW</td><td>:</td><td><?= $data_pengguna['id_rt']."/".$data_pengguna['id_rw']?></td>
+                            <td>RT/RW</td><td>:</td><td><?= $data_rt['nama_rt']."/".$data_rw['nama_rw']?></td>
                           </tr>
                         </table>
                       </div>
