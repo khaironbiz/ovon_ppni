@@ -95,6 +95,7 @@
                             <td>
                               <?php
                                 include('modal/edit-jawaban.php');
+                                include('aksi/edit-jawaban.php');
                               ?>
                             </td>
                         </tr>

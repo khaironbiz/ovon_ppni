@@ -18,7 +18,7 @@
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Jawaban</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="master_jawaban" value="<?= $data_jawaban['master_jawaban']?>">
-                            <input type="hidden" class="form-control" name="add_master_jawaban" value="<?= $_GET['key'];?>">
+                            <input type="text" class="form-control" name="edit_master_jawaban" value="<?= $data_jawaban['has_master_jawaban']?>">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -31,11 +31,11 @@
                         <label for="inputPassword3" class="col-sm-3 col-form-label">Blokir</label>
                         <div class="col-sm-9">
                             <input class="form-check-input" type="radio" name="blokir" <?php if($data_jawaban['blokir'] >0){echo "checked";}?>>
-                            <label class="form-check-label" for="exampleRadios1">
+                            <label class="form-check-label">
                                 Blokir
                             </label><br>
                             <input class="form-check-input" type="radio" name="blokir" <?php if($data_jawaban['blokir']<1){echo "checked";}?>>
-                            <label class="form-check-label" for="exampleRadios1">
+                            <label class="form-check-label">
                                 Buka Blokir
                             </label>
                         </div>
