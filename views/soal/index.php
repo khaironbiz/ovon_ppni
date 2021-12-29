@@ -35,7 +35,11 @@
             }
             ?>
             <div class="card">
-              <div class="card-header">
+                <div class="card-header bg-info">
+                  <?php
+                    include('../layout/menu-kecil/soal.php');
+                  ?>
+                </div>
                 <div class="card-body">
                   <?php
                     include("../core/security/admin-akses.php");
