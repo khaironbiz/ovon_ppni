@@ -118,7 +118,19 @@
                         <td><?= $count_jawaban;?></td>
                         <td><a class="btn btn-success btn-sm" href="edit.php?key=<?=$data_master_soal['has_master_soal']?>">Edit Data</a></td>
                       </tr>
+                      <?php
+                      while($data_jawaban = mysqli_fetch_array($sql_jawaban_ini)){
+                      ?>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td><?= $data_jawaban['master_jawaban']?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
                     <?php
+                      }
                       }
                       }
                     }
