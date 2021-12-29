@@ -40,14 +40,15 @@
                   <?php
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
-                    
                       }
-                      
                   ?>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3 row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Soal</label>
+                      <div class="card" bg-dark>
+                        <div class="card-header bg-dark">
+                          <label>Edit Pertanyaan</label>
+                        </div>
+                        <div class="card-body">
+                          <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Pertanyaan</label>
                                 <div class="col-sm-10">
                                 <?= $soal['master_soal']?>
                                 </div>
@@ -65,64 +66,88 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php
-                        if($id_jenis_input_jawaban ==4 || $id_jenis_input_jawaban==5 || $id_jenis_input_jawaban==8){
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col-md-4">
+                            <?php
+                            include('modal/edit-soal.php');
+                            ?>
+                            </div>
+                          </div>
+                        </div>
+                          
+                            
+                      </div>
+                      <?php
+                        if($id_jenis_input_jawaban == 4 || $id_jenis_input_jawaban == 5 || $id_jenis_input_jawaban == 8){
+                      ?>
+                      <div class="card">
+                        <div class="card-header bg-success">
+                          <b>Edit Jawaban</b>
+                        </div>
+                        <div class="card-body">
+                          <?php
                             include("modal/add-jawaban.php");
                             include('aksi/add-jawaban.php');
-                    ?>
-                  <table id="example1" class="table table-sm table-striped">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Jawaban</th>
-                        <th>Count</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                          ?>
+                          <table id="example1" class="table table-sm table-striped">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Jawaban</th>
+                                <th>Count</th>
+                                <th>Aksi</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $urut               = 1;     
+                                    $id_master_soal     = $soal['id_master_soal'];
+                                    $sql_master_jawaban = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_soal='$id_master_soal'");
+                                    while($data_jawaban = mysqli_fetch_array( $sql_master_jawaban)){
+                                      
+                                ?>
+                                <tr>
+                                    <td><?= $urut++; ?></td>
+                                    <td><?= $data_jawaban['master_jawaban']?></td>
+                                    <td></td>
+                                    <td>
+                                      <?php
+                                        include('modal/edit-jawaban.php');
+                                        include('aksi/edit-jawaban.php');
+                                      ?>
+                                    </td>
+                                </tr>
+                                <?php
+                                    }
+                                ?>
+                                
+                            </tbody>
+                            
+                            <tfoot>
+                              <tr>
+                                <th>#</th>
+                                <th>Jawaban</th>
+                                <th>Count</th>
+                                <th>Aksi</th>
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                      </div>
                         <?php
-                            $urut               = 1;     
-                            $id_master_soal     = $soal['id_master_soal'];
-                            $sql_master_jawaban = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_soal='$id_master_soal'");
-                            while($data_jawaban = mysqli_fetch_array( $sql_master_jawaban)){
-                              
-                        ?>
-                        <tr>
-                            <td><?= $urut++; ?></td>
-                            <td><?= $data_jawaban['master_jawaban']?></td>
-                            <td></td>
-                            <td>
-                              <?php
-                                include('modal/edit-jawaban.php');
-                                include('aksi/edit-jawaban.php');
-                              ?>
-                            </td>
-                        </tr>
-                        <?php
-                            }
-                        ?>
-                        
-                    </tbody>
+                          };
+                          $id_master_rumpun   = $soal['id_master_rumpun'];
+                          $sql_master_rumpun  = mysqli_query($host,"SELECT * FROM master_rumpun WHERE id_master_rumpun='$id_master_rumpun'");
+                          $data_master_rumpun = mysqli_fetch_array($sql_master_rumpun);
+                          ?>
+                      <div class="card-footer">
+                          <a href="tambah.php?id=<?= $data_master_rumpun['has_master_rumpun']?>" class="btn btn-danger btn-sm"> Kembali ke 
+                          <?= $data_master_rumpun['master_rumpun']?></a>
+                      </div>
                     
-                    <tfoot>
-                      <tr>
-                        <th>#</th>
-                        <th>Jawaban</th>
-                        <th>Count</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </tfoot>
-                  </table>
-                  <?php
-                        };
-                        $id_master_rumpun   = $soal['id_master_rumpun'];
-                        $sql_master_rumpun  = mysqli_query($host,"SELECT * FROM master_rumpun WHERE id_master_rumpun='$id_master_rumpun'");
-                        $data_master_rumpun = mysqli_fetch_array($sql_master_rumpun);
-                    ?>
-                    <a href="tambah.php?id=<?= $data_master_rumpun['has_master_rumpun']?>" class="btn btn-danger btn-sm"><?= $data_master_rumpun['master_rumpun']?></a>
-                </div>
-                <!-- /.card-body -->
+                    </div>
+                  <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
