@@ -38,10 +38,10 @@
                                     $sql_input_jawaban  = mysqli_query($host,"SELECT * FROM jenis_input_jawaban ORDER BY id_jenis_input_jawaban");
                                     while($data= mysqli_fetch_array($sql_input_jawaban)){
                                         
-                                        $id_jenis_input_jawaban = $data['id_jenis_input_jawaban'];
+                                        $id_ini = $data['id_jenis_input_jawaban'];
                                 ?>
                                 <option value="<?= $id_jenis_input_jawaban; ?>" 
-                                <?php if($id_jenis_input_jawaban !=$soal_jenis_input_jawaban){
+                                <?php if($id_ini !=$soal_jenis_input_jawaban){
 
                                 }else{echo "selected";} ?>>
                                     <?= $data['jenis_input_jawaban']?>
