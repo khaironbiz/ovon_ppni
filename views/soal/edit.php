@@ -61,7 +61,7 @@
                                     $sql_input_jawaban  = mysqli_query($host,"SELECT * FROM jenis_input_jawaban 
                                                             WHERE id_jenis_input_jawaban='$id_jenis_input_jawaban'");
                                     $jenis_jawaban      = mysqli_fetch_array($sql_input_jawaban);
-                                    echo $jenis_jawaban['jenis_input_jawaban']
+                                    echo $jenis_jawaban['jenis_input_jawaban'];
                                     ?>
                                 </div>
                             </div>
@@ -79,11 +79,13 @@
                             
                       </div>
                       <?php
-                        if($id_jenis_input_jawaban == 4 || $id_jenis_input_jawaban == 5 || $id_jenis_input_jawaban == 8){
+                        if($id_jenis_input_jawaban == 4 || $id_jenis_input_jawaban == 5 || $id_jenis_input_jawaban == 8){ 
+                        
                       ?>
                       <div class="card">
                         <div class="card-header bg-success">
-                          <b>Edit Jawaban</b>
+                          <b>Edit Jawaban </b>
+                          
                         </div>
                         <div class="card-body">
                           <?php
@@ -144,6 +146,7 @@
                       <div class="card-footer">
                           <a href="tambah.php?id=<?= $data_master_rumpun['has_master_rumpun']?>" class="btn btn-danger btn-sm"> Kembali ke 
                           <?= $data_master_rumpun['master_rumpun']?></a>
+                          
                       </div>
                     
                     </div>
