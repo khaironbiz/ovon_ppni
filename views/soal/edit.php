@@ -47,10 +47,16 @@
                           <label>Edit Pertanyaan</label>
                         </div>
                         <div class="card-body">
-                          <div class="mb-3 row">
+                            <div class="mb-3 row">
                                 <label for="staticEmail" class="col-sm-2 col-form-label">Pertanyaan</label>
                                 <div class="col-sm-10">
                                 <?= $soal['master_soal']?>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Nomor Urut</label>
+                                <div class="col-sm-10">
+                                <?= $soal['nomor_urut']?>
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -71,6 +77,7 @@
                             <div class="col-md-4">
                             <?php
                             include('modal/edit-soal.php');
+                            include('aksi/edit-soal.php');
                             ?>
                             </div>
                           </div>
