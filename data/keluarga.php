@@ -1,5 +1,6 @@
 <?php
 include("../auth/session.php");
+include("../function/jawaban.php");
 $key        = $_GET['id'];
 $sql_kel    = mysqli_query($host,"SELECT * FROM keluarga WHERE key_keluarga='$key'");
 $data_kel   = mysqli_fetch_assoc($sql_kel);

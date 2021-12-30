@@ -60,41 +60,14 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">Data Kesehatan</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= $site_url ?>/data/" class="nav-link">
               <i class="nav-icon fas fa-poll"></i>
               <p>
                 Survey
-                <i class="fas fa-angle-left right"></i>
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/data" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Input Data</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/wilayah/rw.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rekap Data</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/wilayah/rw.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data All</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/rw.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Master RT/RW</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <?php
           include("../core/security/admin-akses.php");

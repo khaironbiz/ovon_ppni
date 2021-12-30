@@ -21,10 +21,10 @@
                             <select class="form-control" required name="struktur_keluarga">
                                 <option value="">---Jenis Keluarga----</option>
                                 <?php
-                                    $sql_struktur_keluarga = mysqli_query($host, "SELECT * FROM master_struktur_keluarga ");
-                                    while($data_struktur_keluarga = mysqli_fetch_array($sql_struktur_keluarga)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='120' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_struktur_keluarga['id_struktur_keluarga']?>"><?= $data_struktur_keluarga['struktur_keluarga']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
@@ -42,10 +42,10 @@
                             <select class="form-control" required name="sebab_kematian">
                                 <option value="">---sebab kematian----</option>
                                 <?php
-                                    $sql_sebab_kematian = mysqli_query($host, "SELECT * FROM master_sebab_kematian ");
-                                    while($data_sebab_kematian = mysqli_fetch_array($sql_sebab_kematian)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='121' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_sebab_kematian['id_master_sebab_kematian']?>"><?= $data_sebab_kematian['master_sebab_kematian']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>

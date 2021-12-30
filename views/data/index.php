@@ -87,6 +87,7 @@
                         <td><?= $count_data;?></td>
                         <td>
                           <a href="keluarga.php?id=<?= $data['key_keluarga']?>" class="btn btn-info btn-sm">Detail</a>
+                          <a href="<?= $site_url; ?>/pengkajian/keluarga.php?key=<?= $data['key_keluarga']?>" class="btn btn-success btn-sm">Pengkajian</a>
                         </td>
                       </tr>
                         

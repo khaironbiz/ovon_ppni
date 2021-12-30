@@ -18,66 +18,110 @@
     </section>
     <!-- Main content -->
     <section class="content">
+      <div class="form">
         <div class="container-fluid">
             <div class="card">
-                    <div class="card-header">
-
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-row">
-                                <div class="col-md-4 mb-3">
-                                <label>Nama Kepala Keluarga</label>
-                                <input type="text" class="form-control" required>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <label>Jenis Kelamin</label>
-                                <select class="custom-select" required>
-                                    <option selected disabled value="">Choose...</option>
-                                    <option>...</option>
-                                </select>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <label for="validationDefault05">Tanggal Lahir</label>
-                                <input type="date" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                
-                                <div class="col-md-4 mb-3">
-                                    <label>Kartu Keluarga</label>
-                                    <input type="number" class="form-control" required>
-                                </div>
-                                
-                                <div class="col-md-4 mb-3">
-                                <label for="validationDefault05">NIK</label>
-                                <input type="text" class="form-control" required>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label>Jenis Keluarga</label>
-                                    <select class="custom-select" required>
-                                        <option selected disabled value="">Choose...</option>
-                                        <option>...</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" required>
-                                <label class="form-check-label">
-                                    Agree to terms and conditions
-                                </label>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary" type="submit">Submit form</button>
-                        </form>
-                    </div>
+              <div class="card-header bg-dark">
+                Tambah Kepala Keluarga
+              </div>
+              <div class="card-body">
+                <div class="card">
+                  <div class="card-body">
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Nama</label>
+                          <div class="col-sm-4">
+                              <?php
+                                $nama_keluarga  = $data_anggota['nama_anggota'];
+                              ?>
+                              <input type="text" class="form-control" value="<?= $nama_keluarga;?>" name="nama_anggota" required>
+                              <input type="hidden" class="form-control" value="<?= uniqid() ?>" name="add_kk" required>
+                          </div>
+                          <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                          <div class="col-sm-4">
+                              <select class="form-control" required name="jenis_kelamin">
+                                  <?php
+                                    $jenis_kelamin  = $data_anggota['jenis_kelamin'];
+                                  ?>
+                                  <option value="<?= $jenis_kelamin?>"><?= master_jawaban($jenis_kelamin)?></option>
+                                  <?php
+                                      $sql_sex = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='3' ");
+                                      while($data_sex = mysqli_fetch_array($sql_sex)){
+                                  ?>
+                                  <option value="<?= $data_sex['id_master_jawaban']?>"><?= $data_sex['master_jawaban']?></option>
+                                  <?php
+                                  }
+                                  ?>
+                              </select>
+                          </div>
+                          
+                      </div>
+                      <div class="form-group row">
+                          <label for="inputPassword3" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                          <div class="col-sm-4">
+                              <input type="text" class="form-control" name="tgl_lahir" value="<?= $data_anggota['tgl_lahir']?>">
+                          </div>
+                          <label for="inputPassword3" class="col-sm-2 col-form-label">Status KTP</label>
+                          <div class="col-sm-4">
+                              <select class="form-control" required name="status_ktp">
+                                  <?php
+                                    $status_ktp  = $data_anggota['status_ktp'];
+                                  ?>
+                                  <option value="<?= $status_ktp; ?>"><?= master_jawaban($status_ktp)?></option>
+                                  <?php
+                                      $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='79' ");
+                                      while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                  ?>
+                                  <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                  <?php
+                                  }
+                                  ?>
+                              </select>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">NIK</label>
+                          <div class="col-sm-4">
+                              <input type="number" name="nik" class="form-control" value="<?= $data_keluarga['id_kepala_keluarga']?>">
+                          </div>
+                          <label for="inputPassword3" class="col-sm-2 col-form-label">No KK</label>
+                          <div class="col-sm-4">
+                              <input type="number" class="form-control" name="no_kk" value="<?= $data_keluarga['no_kk']?>">
+                          </div>
+                      </div>
+                  </div>
+                      
                 </div>
-        <!-- /.row -->
+                <div class="card">
+                  <div class="card-body">
+                    <label>Alamat</label>
+                    <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Nama Jalan</label>
+                          <div class="col-sm-4">
+                            <input type="text" class="form-control" name="alamat">
+                          </div>
+                          <label class="col-sm-2 col-form-label">Jenis Keluarga</label>
+                          <div class="col-sm-4">
+                              <select class="form-control" required name="jenis_keluarga">
+                                  <option value="">---Jenis Keluarga---</option>
+                                  <?php
+                                      $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='18' ");
+                                      while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                  ?>
+                                  <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                  <?php
+                                  }
+                                  ?>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer text-right">
+                  <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </div>
         </div>
-      <!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
