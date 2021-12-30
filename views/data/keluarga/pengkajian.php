@@ -96,9 +96,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Nama Jalan</label>
+                                    <label class="col-sm-2 col-form-label">Alamat</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control form-control-sm" name="alamat" required>
+                                        <input type="text" class="form-control form-control-sm" name="alamat" required placeholder="Nama jalan/nomor rumah/kampung">
                                     </div>
                                     <label class="col-sm-2 col-form-label">Jenis Keluarga</label>
                                     <div class="col-sm-4">
