@@ -105,6 +105,7 @@
                                 <tr>
                                   <th>#</th>
                                   <th>Jawaban</th>
+                                  <th>ID</th>
                                   <th>Count</th>
                                   <th>Aksi</th>
                                 </tr>
@@ -120,6 +121,7 @@
                                   <tr>
                                       <td><?= $urut++; ?></td>
                                       <td><?= $data_jawaban['master_jawaban']?></td>
+                                      <td><?= $data_jawaban['id_master_jawaban']?></td>
                                       <td></td>
                                       <td>
                                         <?php
@@ -138,6 +140,7 @@
                                 <tr>
                                   <th>#</th>
                                   <th>Jawaban</th>
+                                  <th>ID</th>
                                   <th>Count</th>
                                   <th>Aksi</th>
                                 </tr>

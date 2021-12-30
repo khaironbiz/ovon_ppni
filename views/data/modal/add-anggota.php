@@ -15,12 +15,12 @@
                         <label class="col-sm-2 col-form-label">Status Keluarga</label>
                         <div class="col-sm-4">
                             <select class="form-control" required name="jenis_keluarga">
-                                <option value="">---Jenis Keluarga----</option>
+                                <option value="">---Struktur Keluarga----</option>
                                 <?php
-                                    $sql_struktur_keluarga = mysqli_query($host, "SELECT * FROM master_struktur_keluarga ");
-                                    while($data_struktur_keluarga = mysqli_fetch_array($sql_struktur_keluarga)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='120' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_struktur_keluarga['id_struktur_keluarga']?>"><?= $data_struktur_keluarga['struktur_keluarga']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
@@ -33,12 +33,18 @@
                         <div class="col-sm-4">
                             <input type="number" name="nik" class="form-control" placeholder="Nomor KTP">
                         </div>
-                        <label class="col-sm-2 col-form-label">KTP Luar Daerah?</label>
+                        <label class="col-sm-2 col-form-label">Status KTP</label>
                         <div class="col-sm-4">
                             <select class="form-control" required name="status_ktp">
                                 <option value="">---Jenis KTP----</option>
-                                <option value="0">Tidak</option>
-                                <option value="1">Ya, KTP Luar Kota</option>
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='79' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                }
+                                ?>
                                 
                             </select>
                         </div>
@@ -49,10 +55,10 @@
                             <select class="form-control" required name="jenis_kelamin">
                                 <option value="">---Jenis Kelamin----</option>
                                 <?php
-                                    $sql_sex = mysqli_query($host, "SELECT * FROM master_sex ");
-                                    while($data_sex = mysqli_fetch_array($sql_sex)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='3' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_sex['id_master_sex']?>"><?= $data_sex['master_sex']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
@@ -69,10 +75,10 @@
                             <select class="form-control" required name="golongan_darah">
                                 <option value="">---Golongan Darah----</option>
                                 <?php
-                                    $sql_sex = mysqli_query($host, "SELECT * FROM master_golongan_darah ");
-                                    while($data_sex = mysqli_fetch_array($sql_sex)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='90' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_sex['id_golongan_darah']?>"><?= $data_sex['golongan_darah']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
@@ -83,10 +89,10 @@
                             <select class="form-control" required name="vaksin_covid19">
                                 <option value="">---Vaksin Covid-19---</option>
                                 <?php
-                                    $sql_imunisasi = mysqli_query($host, "SELECT * FROM master_imunisasi ");
-                                    while($data_imunisasi = mysqli_fetch_array($sql_imunisasi)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='116' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_imunisasi['id_master_imunisasi']?>"><?= $data_imunisasi['master_imunisasi']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
@@ -100,10 +106,10 @@
                             <select class="form-control" required name="status_pendidikan">
                                 <option value="">---Pendidikan----</option>
                                 <?php
-                                    $sql_pendidikan = mysqli_query($host, "SELECT * FROM master_pendidikan WHERE blokir ='0'");
-                                    while($data_pendidikan = mysqli_fetch_array($sql_pendidikan)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='58' ORDER BY nomor_urut");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_pendidikan['id_master_pendidikan']?>"><?= $data_pendidikan['nama_pendidikan']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
@@ -113,11 +119,11 @@
                         <div class="col-sm-4">
                             <select class="form-control" required name="status_pekerjaan">
                                 <option value="">---Status Pekerjaan----</option>
-                                <<?php
-                                    $sql_pekerjaan = mysqli_query($host, "SELECT * FROM master_pekerjaan WHERE blokir ='0'");
-                                    while($data_pekerjaan = mysqli_fetch_array($sql_pekerjaan)){
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='109' ORDER BY nomor_urut");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_pekerjaan['id_master_pekerjaan']?>"><?= $data_pekerjaan['master_pekerjaan']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
@@ -130,16 +136,29 @@
                             <select class="form-control" required name="status_pernikahan">
                                 <option value="">---Status----</option>
                                 <?php
-                                    $sql_nikah = mysqli_query($host, "SELECT * FROM master_nikah ");
-                                    while($data_nikah = mysqli_fetch_array($sql_nikah)){
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='80' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
-                                <option value="<?= $data_nikah['id_master_nikah']?>"><?= $data_nikah['nama_nikah']?></option>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
                         </div>
-                        
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">BPJS Kesehatan</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" required name="bpjs_kesehatan">
+                                <option value="">---Kepemilikan BPJS----</option>
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='117' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
             </div>
             <div class="card-footer text-right">

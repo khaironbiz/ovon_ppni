@@ -53,9 +53,7 @@
                       <?php
                       $no               = 1;
                       $sql_keluarga     = mysqli_query($host, "SELECT * FROM keluarga_anggota 
-                                                JOIN master_sex on master_sex.id_master_sex = keluarga_anggota.jenis_kelamin 
-                                                JOIN master_struktur_keluarga on master_struktur_keluarga.id_struktur_keluarga=keluarga_anggota.id_struktur_keluarga
-                                                JOIN master_nikah on master_nikah.id_master_nikah=keluarga_anggota.status_pernikahan 
+                                                 
                                                 WHERE keluarga_anggota.key_keluarga = '$key' ORDER BY keluarga_anggota.id_struktur_keluarga ASC");
                       while($data       = mysqli_fetch_array($sql_keluarga)){
                         $tanggal_lahir  = $data['tgl_lahir'];
@@ -72,9 +70,7 @@
                         <td width="10px"><?= $no++; ?></td>
                         <td>
                             <?= $data['nama_anggota']." ".$umur->y." Th ".$umur->m." Bulan"; ?> <br>
-                            <?= $data['master_sex']?><br>
-                            <?= $data['struktur_keluarga']?><br>
-                            <?= $data['nama_nikah']?><br>
+                            
                         </td>
                         <td>
                           

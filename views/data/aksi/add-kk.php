@@ -5,6 +5,8 @@ if(isset($_POST['add_kk'])){
     $jenis_kelamin          = $_POST['jenis_kelamin'];
     $tgl_lahir              = $_POST['tgl_lahir'];
     $nik                    = $_POST['nik'];
+    $no_kk                  = $_POST['no_kk'];
+    $bpjs                   = $_POST['bpjs'];
     $jenis_keluarga         = 1;
     $golongan_darah         = $_POST['golongan_darah'];
     $vaksin_covid19         = $_POST['vaksin_covid19'];
@@ -29,6 +31,8 @@ if(isset($_POST['add_kk'])){
     }elseif($count < 1 ){
         $tambah_kk      = mysqli_query($host,"INSERT INTO keluarga SET
                             key_keluarga            = '$key_keluarga',
+                            no_kk                   = '$no_kk',
+                            bpjs                    = '$bpjs',
                             nama_keluarga           = '$nama_anggota',
                             id_kepala_keluarga      = '$nik',
                             provinsi                = '$provinsi',
