@@ -49,7 +49,7 @@
                       }
                       
                   ?>
-                  <div class="table-respos">
+                  <div class="table-responsive">
                     <table id="example1" class="table table-sm table-striped">
                       <thead>
                         <tr>
