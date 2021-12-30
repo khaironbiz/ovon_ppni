@@ -41,7 +41,10 @@ if(isset($_POST['add_kk'])){
                             kecamatan               = '$kecamatan',
                             kelurahan               = '$kelurahan',
                             rw                      = '$rw',
-                            rt                      = '$rt'");
+                            rt                      = '$rt',
+                            created_by              = '$user_check',
+                            created_at              = '$hari_ini',
+                            has_keluarga            = '$has_keluarga_anggota'");
         $input_data     = mysqli_query($host, "INSERT INTO keluarga_anggota SET 
                             key_keluarga            = '$key_keluarga',
                             nama_anggota            = '$nama_anggota',
