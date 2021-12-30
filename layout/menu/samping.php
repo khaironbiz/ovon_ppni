@@ -100,6 +100,8 @@
           include("../core/security/admin-akses.php");
           if($wilayah_akses_user >30){
           ?>
+          
+          <li class="nav-header">MASTER</li>
           <li class="nav-item">
             <a href="<?= $site_url ?>/soal/" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -109,133 +111,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">MASTER</li>
           
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Keluarga
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/jenis-keluarga.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jenis Keluarga</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/air-minum.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Air Minum</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/fasilitas-keluarga.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fasilitas</p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/kendaraan.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Kendaraan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/atap.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Atap</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/dinding.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dinding</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/lantai.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lantai</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/bahan-bakar.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Bahan Bakar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/jenis-jamban.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jamban</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user-cog"></i>
-              <p>
-                Anggota Keluarga
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/jenis-kelamin.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jenis Kelamin</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pendidikan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/pekerjaan.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pekerjaan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/golongan-darah.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Golongan Darah</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/nikah.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pernikahan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/status-imunisasi.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Satatus Imunisasi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/status-merokok.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Satatus Merokok</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= $site_url ?>/master/struktur-keluarga.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Struktur Keluarga</p>
-                </a>
-              </li>
-            </ul>
-          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>

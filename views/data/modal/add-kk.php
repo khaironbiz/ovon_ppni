@@ -36,7 +36,7 @@
                         </div>
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Golongan Darah</label>
                         <div class="col-sm-4">
-                            <select class="form-control" required name="gol_darah">
+                            <select class="form-control" required name="golongan_darah">
                                 <option value="">---Golongan Darah----</option>
                                 <?php
                                     $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='90' ");
@@ -92,7 +92,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-2 col-form-label">Status Pernikahan</label>
                         <div class="col-sm-4">
-                            <select class="form-control" required name="golongan_darah">
+                            <select class="form-control" required name="status_pernikahan">
                                 <option value="">---status----</option>
                                 <?php
                                     $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='80' ");
@@ -107,9 +107,9 @@
                         <label class="col-sm-2 col-form-label">BPJS Kesehatan</label>
                         <div class="col-sm-4">
                             <select class="form-control" required name="bpjs">
-                                <option value="">---Kepemilikan BPJS dalam Keluarga---</option>
+                                <option value="">---BPJS Kesehatan---</option>
                                 <?php
-                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='27' ");
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='117' ");
                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
                                 <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
