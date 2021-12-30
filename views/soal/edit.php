@@ -99,49 +99,52 @@
                             include("modal/add-jawaban.php");
                             include('aksi/add-jawaban.php');
                           ?>
-                          <table id="example1" class="table table-sm table-striped">
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>Jawaban</th>
-                                <th>Count</th>
-                                <th>Aksi</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    $urut               = 1;     
-                                    $id_master_soal     = $soal['id_master_soal'];
-                                    $sql_master_jawaban = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_soal='$id_master_soal'");
-                                    while($data_jawaban = mysqli_fetch_array( $sql_master_jawaban)){
-                                      
-                                ?>
+                          <div class="table-responsive">
+                            <table id="example1" class="table table-sm table-striped">
+                              <thead>
                                 <tr>
-                                    <td><?= $urut++; ?></td>
-                                    <td><?= $data_jawaban['master_jawaban']?></td>
-                                    <td></td>
-                                    <td>
-                                      <?php
-                                        include('modal/edit-jawaban.php');
-                                        include('aksi/edit-jawaban.php');
-                                      ?>
-                                    </td>
+                                  <th>#</th>
+                                  <th>Jawaban</th>
+                                  <th>Count</th>
+                                  <th>Aksi</th>
                                 </tr>
-                                <?php
-                                    }
-                                ?>
-                                
-                            </tbody>
-                            
-                            <tfoot>
-                              <tr>
-                                <th>#</th>
-                                <th>Jawaban</th>
-                                <th>Count</th>
-                                <th>Aksi</th>
-                              </tr>
-                            </tfoot>
-                          </table>
+                              </thead>
+                              <tbody>
+                                  <?php
+                                      $urut               = 1;     
+                                      $id_master_soal     = $soal['id_master_soal'];
+                                      $sql_master_jawaban = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_soal='$id_master_soal'");
+                                      while($data_jawaban = mysqli_fetch_array( $sql_master_jawaban)){
+                                        
+                                  ?>
+                                  <tr>
+                                      <td><?= $urut++; ?></td>
+                                      <td><?= $data_jawaban['master_jawaban']?></td>
+                                      <td></td>
+                                      <td>
+                                        <?php
+                                          include('modal/edit-jawaban.php');
+                                          include('aksi/edit-jawaban.php');
+                                        ?>
+                                      </td>
+                                  </tr>
+                                  <?php
+                                      }
+                                  ?>
+                                  
+                              </tbody>
+                              
+                              <tfoot>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Jawaban</th>
+                                  <th>Count</th>
+                                  <th>Aksi</th>
+                                </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                          
                         </div>
                       </div>
                         <?php
