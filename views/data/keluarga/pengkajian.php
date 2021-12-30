@@ -16,11 +16,11 @@
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="form">
+        <form action="" method="POST">
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header bg-dark">
-                        Tambah Kepala Keluarga
+                        Pengkajian Keluarga
                     </div>
                     <div class="card-body">
                         <div class="card">
@@ -31,12 +31,12 @@
                                         <?php
                                         $nama_keluarga  = $data_anggota['nama_anggota'];
                                         ?>
-                                        <input type="text" class="form-control" value="<?= $nama_keluarga;?>" name="nama_anggota" required>
-                                        <input type="hidden" class="form-control" value="<?= uniqid() ?>" name="add_kk" required>
+                                        <input type="text" class="form-control form-control-sm" value="<?= $nama_keluarga;?>" name="nama_anggota" required>
+                                        <input type="hidden" class="form-control form-control-sm" value="<?= $_GET['key'] ?>" name="pengkajian_keluarga" required>
                                     </div>
                                     <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="jenis_kelamin">
+                                        <select class="form-control form-control-sm" required name="jenis_kelamin">
                                         <?php
                                             $jenis_kelamin  = $data_anggota['jenis_kelamin'];
                                         ?>
@@ -55,11 +55,11 @@
                                 <div class="form-group row">
                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="tgl_lahir" value="<?= $data_anggota['tgl_lahir']?>">
+                                    <input type="text" class="form-control form-control-sm" name="tgl_lahir" value="<?= $data_anggota['tgl_lahir']?>">
                                 </div>
                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Status KTP</label>
                                 <div class="col-sm-4">
-                                    <select class="form-control" required name="status_ktp">
+                                    <select class="form-control form-control-sm" required name="status_ktp">
                                         <?php
                                             $status_ktp  = $data_anggota['status_ktp'];
                                         ?>
@@ -78,26 +78,31 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">NIK</label>
                                     <div class="col-sm-4">
-                                        <input type="number" name="nik" class="form-control" value="<?= $data_keluarga['id_kepala_keluarga']?>">
+                                        <input type="number" name="nik" class="form-control form-control-sm" required value="<?= $data_keluarga['id_kepala_keluarga']?>">
                                     </div>
                                     <label for="inputPassword3" class="col-sm-2 col-form-label">No KK</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" name="no_kk" value="<?= $data_keluarga['no_kk']?>">
+                                        <input type="number" class="form-control form-control-sm" name="no_kk" value="<?= $data_keluarga['no_kk']?>">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <label>Alamat Rumah</label>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Penghasilan</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control form-control-sm" required name="penghasilan">
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Pengeluaran</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control form-control-sm" required name="pengeluaran">
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Nama Jalan</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="alamat">
+                                        <input type="text" class="form-control form-control-sm" name="alamat" required>
                                     </div>
                                     <label class="col-sm-2 col-form-label">Jenis Keluarga</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="jenis_keluarga">
+                                        <select class="form-control form-control-sm" required name="jenis_keluarga">
                                             <option value="">---Jenis Keluarga---</option>
                                                 <?php
                                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='18' ");
@@ -112,6 +117,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="card">
                             <div class="card-header">
                                 <label>Rumah</label>
@@ -120,12 +126,12 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Luas Rumah (m2)</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="Luas Rumah (m2)" name="luas_rumah" required>
+                                        <input type="text" class="form-control form-control-sm" placeholder="Luas Rumah (m2)" name="luas_rumah" required>
                                     </div>
                                         
                                     <label class="col-sm-2 col-form-label">Jenis Lantai</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="lantai_rumah">
+                                        <select class="form-control form-control-sm" required name="lantai_rumah">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -142,7 +148,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Jenis Atap</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="atap_rumah">
+                                        <select class="form-control form-control-sm" required name="atap_rumah">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -158,7 +164,7 @@
                                         
                                     <label class="col-sm-2 col-form-label">Jenis Dinding</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="dinding_rumah">
+                                        <select class="form-control form-control-sm" required name="dinding_rumah">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -176,12 +182,12 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Luas Ventilasi (m2)</label>
                                     <div class="col-sm-4">
-                                        <input type="number" class="form-control" placeholder="Luas ventilasi (m2)" name="luas_ventilasi" required>
+                                        <input type="number" class="form-control form-control-sm" placeholder="Luas ventilasi (m2)" name="luas_ventilasi" required>
                                     </div>
                                         
                                     <label class="col-sm-2 col-form-label">Arah Ventilasi</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="lantai_rumah">
+                                        <select class="form-control form-control-sm" required name="lantai_rumah">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -198,7 +204,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Air Minum</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="air_minum">
+                                        <select class="form-control form-control-sm" required name="air_minum">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -214,7 +220,7 @@
                                         
                                     <label class="col-sm-2 col-form-label">Air Bersih</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="air_bersih">
+                                        <select class="form-control form-control-sm" required name="air_bersih">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -231,11 +237,11 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Pengelolaan Sampah</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="air_minum">
+                                        <select class="form-control form-control-sm" required name="air_minum">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
-                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='23' ");
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='33' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                                 ?>
                                                     <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
@@ -245,13 +251,13 @@
                                         </select>
                                     </div>
                                         
-                                    <label class="col-sm-2 col-form-label">Air Bersih</label>
+                                    <label class="col-sm-2 col-form-label">Pembuangan Air Limbah</label>
                                     <div class="col-sm-4">
-                                        <select class="form-control" required name="air_bersih">
+                                        <select class="form-control form-control-sm" required name="limbah_air">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
-                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='24' ");
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='32' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                                 ?>
                                                     <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
@@ -261,6 +267,65 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Sampah Organik</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control form-control-sm" name="sampah_basah" placeholder="Produksi sampah basah (kg)/hari">
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Sampah Plastik</label>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control form-control-sm" name="sampah_plastik" placeholder="Produksi sampah plastik (kg)/hari">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Kepemilikan Jamban</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control form-control-sm" required name="kepemilikan_jamban">
+                                        
+                                        <option value="">---pilih---</option>
+                                            <?php
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='29' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                                ?>
+                                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                        </select>
+                                    </div>
+                                        
+                                    <label class="col-sm-2 col-form-label">Jenis Jamban</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control form-control-sm" required name="jenis_jamban">
+                                        
+                                        <option value="">---pilih---</option>
+                                            <?php
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='30' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                                ?>
+                                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 col-form-label">Lokasi Jamban</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control form-control-sm" required name="jenis_jamban">
+                                        
+                                        <option value="">---pilih---</option>
+                                            <?php
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='31' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                                ?>
+                                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         <div class="card">
@@ -269,7 +334,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Jentik</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="jentik">
+                                        <select class="form-control form-control-sm" required name="jentik">
                                         <option value="">---pilih---</option>
                                             <?php
                                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='36' ");
@@ -284,7 +349,7 @@
                                         
                                     <label class="col-sm-2 col-form-label">Tikus</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="tikus">
+                                        <select class="form-control form-control-sm" required name="tikus">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -299,7 +364,7 @@
                                     </div>
                                     <label class="col-sm-2 col-form-label">kecoa</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="kecoa">
+                                        <select class="form-control form-control-sm" required name="kecoa">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -316,7 +381,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Cicak</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="cicak">
+                                        <select class="form-control form-control-sm" required name="cicak">
                                         <option value="">---pilih---</option>
                                             <?php
                                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='39' ");
@@ -331,7 +396,7 @@
                                         
                                     <label class="col-sm-2 col-form-label">Lalat</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="tikus">
+                                        <select class="form-control form-control-sm" required name="tikus">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -349,7 +414,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Anjing</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="anjing">
+                                        <select class="form-control form-control-sm" required name="anjing">
                                         <option value="">---pilih---</option>
                                             <?php
                                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='41' ");
@@ -364,7 +429,7 @@
                                         
                                     <label class="col-sm-2 col-form-label">Kucing</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="kucing">
+                                        <select class="form-control form-control-sm" required name="kucing">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -379,7 +444,7 @@
                                     </div>
                                     <label class="col-sm-2 col-form-label">Burung</label>
                                     <div class="col-sm-2">
-                                        <select class="form-control" required name="burung">
+                                        <select class="form-control form-control-sm" required name="burung">
                                         
                                         <option value="">---pilih---</option>
                                             <?php
@@ -393,6 +458,73 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Ayam/bebek/entok</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control form-control-sm" required name="unggas">
+                                        <option value="">---pilih---</option>
+                                            <?php
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='44' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                                ?>
+                                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                        </select>
+                                    </div>
+                                        
+                                    <label class="col-sm-2 col-form-label">Binatang lain</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control form-control-sm" required name="binatang_lain">
+                                        
+                                        <option value="">---pilih---</option>
+                                            <?php
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='45' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                                ?>
+                                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+                                <label>Hewan Berbahaya</label>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Ular</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control form-control-sm" required name="ular">
+                                        <option value="">---pilih---</option>
+                                            <?php
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='46' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                                ?>
+                                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                        </select>
+                                    </div>
+                                        
+                                    <label class="col-sm-2 col-form-label">Biawak</label>
+                                    <div class="col-sm-2">
+                                        <select class="form-control form-control-sm" required name="biawak">
+                                        
+                                        <option value="">---pilih---</option>
+                                            <?php
+                                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='47' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                                ?>
+                                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -401,6 +533,6 @@
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 </div>
