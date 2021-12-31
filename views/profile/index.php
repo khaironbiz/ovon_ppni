@@ -142,7 +142,7 @@
                                 $sql_keluarga   = mysqli_query($host,"SELECT * FROM keluarga WHERE rw='$id_rw' and created_by='$user_check'");
                                 $count_keluarga = mysqli_num_rows($sql_keluarga);
                                 //sql_jenis_kelamin
-                                $sql_sex        = mysqli_query($host, "SELECT * FROM master_sex");
+                                $sql_sex        = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal ='3'");
                                 //sql_keluarga_anggota
                                 $sql_keluarga_angota  = mysqli_query($host,"SELECT * FROM keluarga_anggota WHERE rw='$id_rw' and created_by='$user_check'");
                                 $count_keluarga_anggota = mysqli_num_rows($sql_keluarga_angota);
@@ -154,7 +154,7 @@
                                 <td><?= $count_keluarga ?></td>
                                 <?php
                                 while($data_sex   = mysqli_fetch_array($sql_sex)){
-                                  $jenis_kelamin  = $data_sex['id_master_sex'];
+                                  $jenis_kelamin  = $data_sex['id_master_jawaban'];
                                   $sql_keluarga_sex = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw='$id_rw' and jenis_kelamin='$jenis_kelamin' and created_by='$user_check'");
                                   $count_keluarga_sex  = mysqli_num_rows( $sql_keluarga_sex);
                                 ?>
@@ -171,7 +171,7 @@
                             </tbody>
                             <tr>
                               <td colspan="3">Jumlah</td>
-                              <td><?= $wilayah_akses_user; ?></td>
+                              <td><?= $juml_total; ?></td>
                               <td></td>
                               <td></td>
                               <td></td>

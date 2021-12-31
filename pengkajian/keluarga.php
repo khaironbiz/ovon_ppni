@@ -16,6 +16,6 @@ if(isset($_GET['key'])){
 
 $template       = "../theme/table-simple.php";
 $wrapp          = "../core/wrapp.php";
-$content        = "../views/data/keluarga/pengkajian.php";
+$content        = "../views/pengkajian/create-keluarga.php";
 include($template);
 ?>

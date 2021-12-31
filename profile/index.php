@@ -1,5 +1,6 @@
 <?php
 include("../auth/session.php");
+include("../function/anggota.php");
 $judul      = "Profile";
 $template   = "../theme/table-simple.php";
 $wrapp      = "../core/wrapp.php";
