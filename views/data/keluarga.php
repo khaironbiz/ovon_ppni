@@ -81,7 +81,7 @@
                               ?>      
                           </td>
                           <td>
-                            <a href="" class="btn btn-success btn-sm">Detail</a>
+                            <a href="<?= $site_url?>/pengkajian/individu.php?key=<?= $data['has_keluarga_anggota']?>" class="btn btn-success btn-sm">Detail</a>
                           </td>
                         </tr>
                           
