@@ -39,9 +39,7 @@
                                         
                                         $id_ini = $data['id_jenis_input_jawaban'];
                                 ?>
-                                <option value="<?= $id_jenis_input_jawaban; ?>" 
-                                <?php if($id_ini !=$soal_jenis_input_jawaban){
-                                }else{echo "selected";} ?>>
+                                <option value="<?= $id_jenis_input_jawaban; ?>">
                                     <?= $data['jenis_input_jawaban']?>
                                 </option>
                                 <?php

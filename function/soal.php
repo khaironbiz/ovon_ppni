@@ -5,7 +5,6 @@ function master_soal($id_master_soal){
    $data_soal     = mysqli_fetch_array($sql_soal);
    $master_soal   = $data_soal['master_soal'];
    return $master_soal;
-};
-$id_master_soal   = 7;
-//echo master_soal($id_master_soal);
+}
+
 ?>

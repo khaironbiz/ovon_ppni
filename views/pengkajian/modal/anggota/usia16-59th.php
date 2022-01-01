@@ -118,7 +118,7 @@
                                 ?>
                                 <option value="<?= $vaksin_covid19; ?>"><?= master_jawaban($vaksin_covid19)?></option>
                                 <?php
-                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='109' ");
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='116' ");
                                                 while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                 ?>
                                     <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
@@ -143,8 +143,8 @@
                         <td>:</td>
                         <td>
                         <div class="form-check form-check-inline">
-                                <input type="number" required class="form-control col-sm-6" name="sistolik" placeholder="sistolik">
-                                <input type="number" required class="form-control col-sm-6" name="diastolik" placeholder="diastolik">
+                                <input type="number" required class="form-control form-control-sm col-sm-6" name="sistolik" placeholder="sistolik">
+                                <input type="number" required class="form-control form-control-sm col-sm-6" name="diastolik" placeholder="diastolik">
                             </div>
                             
                         </td>
@@ -153,8 +153,8 @@
                         <td></td><td></td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input type="number" required class="form-control col-sm-6" name="nadi" placeholder="nadi (x/mnt)">
-                                <input type="number" required class="form-control col-sm-6" name="respirasi" placeholder="nafas (x/mnt)">
+                                <input type="number" required class="form-control form-control-sm col-sm-6" name="nadi" placeholder="nadi (x/mnt)">
+                                <input type="number" required class="form-control form-control-sm col-sm-6" name="respirasi" placeholder="nafas (x/mnt)">
                             </div>
 
                         </td>
@@ -164,8 +164,8 @@
                         <td>:</td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input type="number" required class="form-control col-sm-6" name="bb" placeholder="berat badan (kg)">
-                                <input type="number" required class="form-control col-sm-6" name="tb" placeholder="tinggi badan (cm)">
+                                <input type="number" required class="form-control form-control-sm col-sm-6" name="bb" placeholder="berat badan (kg)">
+                                <input type="number" required class="form-control form-control-sm col-sm-6" name="tb" placeholder="tinggi badan (cm)">
                             </div>
                             
                         </td>
@@ -175,8 +175,8 @@
                         <td>:</td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input type="text" class="form-control col-sm-6" name="hb" placeholder="HB (mg/dl)">
-                                <input type="number" class="form-control col-sm-6" name="cholesterol" placeholder="cholesterol (mg/dl)">
+                                <input type="text" class="form-control form-control-sm col-sm-6" name="hb" placeholder="HB (mg/dl)">
+                                <input type="number" class="form-control form-control-sm col-sm-6" name="cholesterol" placeholder="cholesterol (mg/dl)">
                             </div>
                                 
                         </td>
@@ -187,12 +187,178 @@
                             
                         <td>
                             <div class="form-check form-check-inline">
-                                <input type="number" class="form-control col-sm-6" name="asam_urat" placeholder="asam urat (mg/dl)">
-                                <input type="number" class="form-control col-sm-6" name="gd" placeholder="gula darah (mg/dl)">
+                                <input type="number" class="form-control form-control-sm col-sm-6" name="asam_urat" placeholder="asam urat (mg/dl)">
+                                <input type="number" class="form-control form-control-sm col-sm-6" name="gd" placeholder="gula darah (mg/dl)">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Olah Raga</td>
+                        <td>:</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                                   
+                                    <option value="">--frekwensi--</option>
+                                    <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='96' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                    ?>
+                                        <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
+                                <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                                   <option value="">--durasi--</option>
+                                    <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='97' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                    ?>
+                                        <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
                             </div>
                         </td>
                     </tr>
                 </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Riwayat Penyakit
+            </div>
+            <div class="card-body">
+                <?php
+                $no=1;
+                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
+                            while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                ?>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
+                    <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                </div>
+                <?php
+                    }
+                ?>
+            </div>
+            <div class="card-footer">
+                Kebiasaan Buruk
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>Merokok</td>
+                        <td>:</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                                   
+                                    <option value="">--Kebiasaan merokok--</option>
+                                    <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='98' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                    ?>
+                                        <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
+                                <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                                   <option value="">--jenis rokok--</option>
+                                    <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='99' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                    ?>
+                                        <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Minum Alkohol</td>
+                        <td>:</td>
+                        <td>
+                            <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                                <option value="">--minum alkohol--</option>
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='100' ");
+                                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+               Kebiasaan
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>Makan</td>
+                        <td>:</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                                   
+                                    <option value="">--frekwensi--</option>
+                                    <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='96' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                    ?>
+                                        <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
+                                <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                                   <option value="">--Jumlah--</option>
+                                    <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='97' ");
+                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                    ?>
+                                        <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-footer">
+                Penyakit diderita
+            </div>
+            <div class="card-body">
+                <?php
+                $no=1;
+                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
+                            while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                ?>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
+                    <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
     </div>
