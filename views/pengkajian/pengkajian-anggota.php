@@ -35,7 +35,7 @@
                             include('modal/anggota/usia6-15th.php');
                         }elseif($umurnya < 60){
                             if($sex < 44){
-                                include('modal/anggota/pria16-59th.php');
+                                include('modal/anggota/usia16-59th.php');
                             }else{
                                 include('modal/anggota/wanita16-59th.php');
                             }
