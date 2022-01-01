@@ -238,7 +238,7 @@
                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
                             while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                 ?>
-                <div class="form-check form-check-inline col-sm-12">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
                     <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
                 </div>
@@ -362,7 +362,7 @@
                     <tr>
                         <td>Makan Sayur</td><td>:</td>
                         <td>
-                            <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                            <select class="form-control form-control-sm" required name="vaksin_covid19">
                                 <option value="">--makan sayur--</option>
                                 <?php
                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='103' ");
@@ -378,7 +378,7 @@
                     <tr>
                         <td>Makan Buah</td><td>:</td>
                         <td>
-                            <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                            <select class="form-control form-control-sm" required name="vaksin_covid19">
                                 <option value="">--makan buah--</option>
                                 <?php
                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='104' ");
@@ -394,7 +394,7 @@
                     <tr>
                         <td>Lauk Tersering</td><td>:</td>
                         <td>
-                            <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
+                            <select class="form-control form-control-sm" required name="vaksin_covid19">
                                 <option value="">--lauk tersering dikonsumsi--</option>
                                 <?php
                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='105' ");
@@ -408,25 +408,29 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Tidur</td>
+                        <td>Durasi Tidur</td>
                         <td>:</td>
                         <td>
-                            <div class="form-check form-check-inline col-sm-12">
-                                <select class="form-control col-sm-6" required name="vaksin_covid19">
-                                   
-                                    <option value="">--durasi--</option>
-                                    <?php
-                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='106' ");
-                                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                                    ?>
-                                        <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
-                                    <?php
-                                        }
-                                    ?>
-                                </select>
-                                <select class="form-control col-sm-6" required name="vaksin_covid19">
-                                   <option value="">--kualitas tidur--</option>
-                                    <?php
+                            <select class="form-control form-control-sm" required name="vaksin_covid19">
+                                <option value="">--durasi--</option>
+                                <?php
+                                     $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='106' ");
+                                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kualitas Tidur</td>
+                        <td>:</td>
+                        <td>
+                            <select class="form-control form-control-sm" required name="vaksin_covid19">
+                                <option value="">--kualitas tidur--</option>
+                                <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='107' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                                     ?>
@@ -435,24 +439,22 @@
                                         }
                                     ?>
                                 </select>
-                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td>Gangguan tidur</td>
                         <td>:</td>
                         <td>
-                            <select class="form-control col-sm-6" required name="vaksin_covid19">
-                                   
-                                   <option value="">--durasi--</option>
-                                   <?php
-                                       $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='108' ");
-                                                   while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                                   ?>
-                                       <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
-                                   <?php
-                                       }
-                                   ?>
+                            <select class="form-control form-control-sm" required name="vaksin_covid19">
+                                <option value="">--durasi--</option>
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='108' ");
+                                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                    }
+                                ?>
                             </select>
                         </td>
                     </tr>
