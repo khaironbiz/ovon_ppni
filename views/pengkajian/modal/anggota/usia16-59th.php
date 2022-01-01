@@ -142,7 +142,7 @@
                         <td>TTV</td>
                         <td>:</td>
                         <td>
-                        <div class="form-check form-check-inline">
+                        <div class="form-check form-check-inline col-sm-12">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="sistolik" placeholder="sistolik">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="diastolik" placeholder="diastolik">
                             </div>
@@ -152,7 +152,7 @@
                     <tr>
                         <td></td><td></td>
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="nadi" placeholder="nadi (x/mnt)">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="respirasi" placeholder="nafas (x/mnt)">
                             </div>
@@ -163,7 +163,7 @@
                         <td>Antropometri</td>
                         <td>:</td>
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="bb" placeholder="berat badan (kg)">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="tb" placeholder="tinggi badan (cm)">
                             </div>
@@ -174,7 +174,7 @@
                         <td>Laboratotium</td>
                         <td>:</td>
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <input type="text" class="form-control form-control-sm col-sm-6" name="hb" placeholder="HB (mg/dl)">
                                 <input type="number" class="form-control form-control-sm col-sm-6" name="cholesterol" placeholder="cholesterol (mg/dl)">
                             </div>
@@ -186,7 +186,7 @@
                         <td></td>
                             
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <input type="number" class="form-control form-control-sm col-sm-6" name="asam_urat" placeholder="asam urat (mg/dl)">
                                 <input type="number" class="form-control form-control-sm col-sm-6" name="gd" placeholder="gula darah (mg/dl)">
                             </div>
@@ -196,7 +196,7 @@
                         <td>Olah Raga</td>
                         <td>:</td>
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
                                    
                                     <option value="">--frekwensi--</option>
@@ -238,7 +238,7 @@
                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
                             while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                 ?>
-                <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline col-sm-12">
                     <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
                     <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
                 </div>
@@ -255,7 +255,7 @@
                         <td>Merokok</td>
                         <td>:</td>
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
                                    
                                     <option value="">--Kebiasaan merokok--</option>
@@ -332,7 +332,7 @@
                         <td>Makan</td>
                         <td>:</td>
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <select class="form-control form-control-sm col-sm-6" required name="vaksin_covid19">
                                    
                                     <option value="">--frekwensi--</option>
@@ -411,7 +411,7 @@
                         <td>Tidur</td>
                         <td>:</td>
                         <td>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <select class="form-control col-sm-6" required name="vaksin_covid19">
                                    
                                     <option value="">--durasi--</option>
