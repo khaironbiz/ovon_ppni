@@ -441,25 +441,34 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="3">Penyakit diderita</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <?php
+                            $no=1;
+                            $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
+                                        while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                            ?>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
+                                <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                                
+                            </div>
+                            <?php
+                                }
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Keluhan</td>
+                        <td>:</td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" placeholder="keluhan" name="keluhan">
+                        </td>
+                    </tr>
                 </table>
-            </div>
-            <div class="card-footer">
-                Penyakit diderita
-            </div>
-            <div class="card-body">
-                <?php
-                $no=1;
-                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
-                            while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                ?>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
-                    <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
-                    
-                </div>
-                <?php
-                    }
-                ?>
             </div>
         </div>
     </div>

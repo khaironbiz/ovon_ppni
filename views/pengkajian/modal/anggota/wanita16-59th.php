@@ -1,5 +1,13 @@
 <?php
-
-echo "<h1>Ini adalah Pengkajian wanita usia 16 sd 59 Tahun</h1>"
-
+include('usia16-59th.php');
 ?>
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            Kesehatan Wanita
+        </div>
+        <div class="card-body">
+
+        </div>
+    </div>
+</div>
