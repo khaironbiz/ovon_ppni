@@ -37,6 +37,8 @@
                             if($sex < 44){
                                 //include('modal/anggota/usia16-59th.php');
                                 include('ekstensi/dewasa.php');
+                                include('modal/anggota/dewasa/ttv-lab.php');
+                                include('modal/anggota/dewasa/data-dasar.php');
                             }else{
                                 include('modal/anggota/wanita16-59th.php');
                             }
@@ -48,9 +50,6 @@
                             // include('modal/keluarga/create.php');
                         ?>
                     </div>
-                </div>
-                <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </form>

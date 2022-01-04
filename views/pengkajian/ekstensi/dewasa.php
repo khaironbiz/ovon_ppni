@@ -4,7 +4,11 @@
             <div class="card-header bg-black">
                 <div class="row">
                     <div class="col-6"><label>Data Dasar</label></div>
-                    <div class="col-6 text-right"><a href="#" class="btn btn-danger btn-sm">Update</a></div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#datadasar">
+                            Update
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -71,7 +75,11 @@
             <div class="card-header bg-black">
                 <div class="row">
                     <div class="col-6"><label>TTV dan Laborat</label></div>
-                    <div class="col-6 text-right"><a href="#" class="btn btn-danger btn-sm">Update</a></div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#dewasattv">
+                            Update
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -135,3 +143,7 @@
         </div>
     </div>
 </div>
+
+<?php
+    
+?>
