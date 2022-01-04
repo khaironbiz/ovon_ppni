@@ -41,9 +41,9 @@
                             
                             if($sex == 43){
                                 //include('modal/anggota/usia16-59th.php');
-                                
                             }else{
                                 include('modal/anggota/dewasa/kesehatan-wanita.php');
+                                include('modal/anggota/dewasa/kehamilan.php');
                             }
                             
                         }elseif($umurnya >=60){

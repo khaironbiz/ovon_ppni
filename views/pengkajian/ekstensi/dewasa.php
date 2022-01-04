@@ -279,59 +279,124 @@
             </div>
             <div class="card-body">
                 <div class="row mb-1">
-                        <div class="col-5">Usia awal menstruasi</div>
-                        <div class="col-7">: 
+                    <div class="col-5">Usia awal menstruasi</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-5">Keluhan Menstruasi</div>
-                        <div class="col-7">: 
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Keluhan Menstruasi</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-5">Status Menstruasi</div>
-                        <div class="col-7">: 
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Status Menstruasi</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-5">Lama Hari Menstruasi</div>
-                        <div class="col-7">: 
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Lama Hari Menstruasi</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-5">Siklus Menstruasi</div>
-                        <div class="col-7">: 
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Siklus Menstruasi</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-5">Pemeriksaan IVA</div>
-                        <div class="col-7">: 
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Pemeriksaan IVA</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-5">Kontrasepsi</div>
-                        <div class="col-7">: 
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Kontrasepsi</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-5">Status Kehamilan</div>
-                        <div class="col-7">: 
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Status Kehamilan</div>
+                    <div class="col-7">: 
                             
-                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-black">
+                <div class="row">
+                    <div class="col-6"><label>Kehamilan</label></div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#kehamilan">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row mb-1">
+                    <div class="col-5">HPHT</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Usia Kehamilan</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Taksiran Partus</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Gravida</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Partus</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Abortus</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Riwayat Partus</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Konsultasi Kehamilan</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <?php
     }
     ?>
+    
 </div>
 
 <?php
