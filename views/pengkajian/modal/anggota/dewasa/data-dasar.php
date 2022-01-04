@@ -4,7 +4,7 @@
         <div class="modal-content">
             <form action="">
                 <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Data Dasar</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -41,7 +41,7 @@
                     <div class="row mb-1">
                         <div class="col-5">NIK</div>
                         <div class="col-7">
-                            <input type="date" class="form-control form-control-sm" name="nik" value="<?= $data_anggota['nik']?>">
+                            <input type="text" class="form-control form-control-sm" name="nik" value="<?= $data_anggota['nik']?>">
                         </div>
                     </div>
                     <div class="row mb-1">
