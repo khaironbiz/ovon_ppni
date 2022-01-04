@@ -128,21 +128,11 @@
                             </select>
                         </td>
                     </tr>
-                </table>
-            </div>
-            
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <table class="table">
-                    
                     <tr>
                         <td>TTV</td>
                         <td>:</td>
                         <td>
-                        <div class="form-check form-check-inline col-sm-12">
+                            <div class="form-check form-check-inline col-sm-12">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="sistolik" placeholder="sistolik">
                                 <input type="number" required class="form-control form-control-sm col-sm-6" name="diastolik" placeholder="diastolik">
                             </div>
@@ -193,6 +183,38 @@
                         </td>
                     </tr>
                     <tr>
+                        <td colspan="3">Riwayat Penyakit</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <?php
+                            $no=1;
+                            $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
+                                        while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                            ?>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
+                                <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+               Kebiasaan
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
                         <td>Olah Raga</td>
                         <td>:</td>
                         <td>
@@ -223,17 +245,6 @@
                             </div>
                         </td>
                     </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-               Kebiasaan
-            </div>
-            <div class="card-body">
-                <table class="table">
                     <tr>
                         <td>Makan</td>
                         <td>:</td>
@@ -364,35 +375,6 @@
                             </select>
                         </td>
                     </tr>
-                </table>
-            </div>
-            
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                Riwayat Penyakit
-            </div>
-            <div class="card-body">
-                <?php
-                $no=1;
-                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
-                            while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                ?>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
-                    <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
-                </div>
-                <?php
-                    }
-                ?>
-            </div>
-            <div class="card-footer">
-                Kebiasaan Buruk
-            </div>
-            <div class="card-body">
-                <table class="table">
                     <tr>
                         <td>Merokok</td>
                         <td>:</td>
@@ -470,6 +452,8 @@
                     </tr>
                 </table>
             </div>
+            
         </div>
     </div>
+    
 </div>

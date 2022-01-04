@@ -21,7 +21,7 @@
             ?>
             <div class="card">
                 <div class="card-header">
-                  <h1>Page Not Found</h1>
+                  <h1 class="text-center mt-5 mb-5">Page Not Found</h1>
                 </div>
                 <!-- /.card-body -->
             </div>
