@@ -12,27 +12,69 @@
                 <div class="modal-body">
                     <div class="row mb-1">
                         <div class="col-5">Nama</div>
-                        <div class="col-7">: <?= $data_anggota['nama_anggota']?></div>
+                        <div class="col-7">
+                            <input type="text" class="form-control form-control-sm" name="nama_anggota" value="<?= $data_anggota['nama_anggota']?>">
+                        </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-5">Tgl Lahir</div>
-                        <div class="col-7">: <?= $data_anggota['tgl_lahir']?></div>
+                        <div class="col-7">
+                            <input type="date" class="form-control form-control-sm" name="tgl_lahir" value="<?= $data_anggota['tgl_lahir']?>">
+                        </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-5">Jenis Kelamin</div>
-                        <div class="col-7">: <?= master_jawaban($data_anggota['jenis_kelamin'])?></div>
+                        <div class="col-7">
+                            <select class="form-control form-control-sm" required name="jenis_kelamin">
+                                <option value="<?= $data_anggota['jenis_kelamin']; ?>"><?= master_jawaban($data_anggota['jenis_kelamin'])?></option>
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='3' ");
+                                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-5">NIK</div>
-                        <div class="col-7">: <?= $data_anggota['nik']?></div>
+                        <div class="col-7">
+                            <input type="date" class="form-control form-control-sm" name="nik" value="<?= $data_anggota['nik']?>">
+                        </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-5">Status KTP</div>
-                        <div class="col-7">: <?= master_jawaban($data_anggota['status_ktp'])?></div>
+                        <div class="col-7">
+                            <select class="form-control form-control-sm" required name="status_ktp">
+                                <option value="<?= $data_anggota['status_ktp']; ?>"><?= master_jawaban($data_anggota['status_ktp'])?></option>
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='79' ");
+                                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-5">Struktur Keluarga</div>
-                        <div class="col-7">: <?= master_jawaban($data_anggota['id_struktur_keluarga'])?></div>
+                        <div class="col-7">
+                            <select class="form-control form-control-sm" required name="id_struktur_keluarga">
+                                <option value="<?= $data_anggota['id_struktur_keluarga']; ?>"><?= master_jawaban($data_anggota['id_struktur_keluarga'])?></option>
+                                <?php
+                                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='120' ");
+                                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                    <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                    }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-5">Status Pernikahan</div>
@@ -91,7 +133,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-1">
                         <div class="col-5">Golongan Darah</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="golongan_darah">
@@ -108,12 +150,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-1">
                         <div class="col-5">Vaksin Covid-19</div>
-                        <div class="col-7">: 
-                            <?php
-                                
-                            ?>
+                        <div class="col-7">
                             <select class="form-control form-control-sm" required name="vaksin_covid19">
                                 <?php
                                     $vaksin_covid19  = $data_anggota['vaksin_covid19'];
