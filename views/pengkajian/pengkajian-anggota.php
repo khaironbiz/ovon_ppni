@@ -39,7 +39,7 @@
                             include('modal/anggota/dewasa/data-dasar.php');
                             include('modal/anggota/dewasa/pola-kebiasaan.php');
                             
-                            if($sex < 44){
+                            if($sex == 43){
                                 //include('modal/anggota/usia16-59th.php');
                                 
                             }else{
