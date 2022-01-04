@@ -34,13 +34,16 @@
                         }elseif($umurnya <16){
                             include('modal/anggota/usia6-15th.php');
                         }elseif($umurnya < 60){
+                            include('ekstensi/dewasa.php');
+                            include('modal/anggota/dewasa/ttv-lab.php');
+                            include('modal/anggota/dewasa/data-dasar.php');
+                            include('modal/anggota/dewasa/pola-kebiasaan.php');
+                            
                             if($sex < 44){
                                 //include('modal/anggota/usia16-59th.php');
-                                include('ekstensi/dewasa.php');
-                                include('modal/anggota/dewasa/ttv-lab.php');
-                                include('modal/anggota/dewasa/data-dasar.php');
+                                
                             }else{
-                                include('modal/anggota/wanita16-59th.php');
+                                include('modal/anggota/dewasa/kesehatan-wanita.php');
                             }
                             
                         }elseif($umurnya >=60){

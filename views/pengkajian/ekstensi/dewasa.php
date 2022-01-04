@@ -140,8 +140,198 @@
     </div>
     <div class="col-md-6">
         <div class="card">
+            <div class="card-header bg-black">
+                <div class="row">
+                    <div class="col-6"><label>Pola Kebiasaan</label></div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#polakebiasaan">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <label>Olah Raga</label>
+                <div class="row mb-1">
+                    <div class="col-5">Frekwensi</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Durasi</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <label>Pola Makan</label>
+                <div class="row mb-1">
+                    <div class="col-5">Frekwensi</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Porsi</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Makan Sayuran</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Makan Buah</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Lauk Tersering</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <label>Pola Tidur</label>
+                <div class="row mb-1">
+                    <div class="col-5">Frekwensi</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Durasi</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Kualitas Tidur</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Gangguan Tidur</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <label>Kebiasaan Buruk</label>
+                <div class="row mb-1">
+                    <div class="col-5">Kebiasaan Merokok</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Jenis Rokok</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-5">Minuman Alkohol</div>
+                    <div class="col-7">: 
+                            
+                    </div>
+                </div>
+                <label>Penyakit Diderita</label>
+                <div class="row mb-1">
+                    <?php
+                    $no=1;
+                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
+                                    while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                    ?>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>" readonly>
+                        <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                    </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+                <label>Keluhan Saat Ini</label>
+                <div class="row">
+                    <textarea class="form-control" rows="2"></textarea>
+                </div>
+            </div>
         </div>
     </div>
+    <?php
+        if($sex > 43){
+            //include('modal/anggota/usia16-59th.php');
+    ?>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-black">
+                <div class="row">
+                    <div class="col-6"><label>Kesehatan Wanita</label></div>
+                    <div class="col-6 text-right">
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#kesehatanwanita">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row mb-1">
+                        <div class="col-5">Usia awal menstruasi</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-5">Keluhan Menstruasi</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-5">Status Menstruasi</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-5">Lama Hari Menstruasi</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-5">Siklus Menstruasi</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-5">Pemeriksaan IVA</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-5">Kontrasepsi</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-5">Status Kehamilan</div>
+                        <div class="col-7">: 
+                            
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <?php
+    }
+    ?>
 </div>
 
 <?php
