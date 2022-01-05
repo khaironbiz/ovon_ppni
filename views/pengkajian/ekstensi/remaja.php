@@ -153,49 +153,49 @@
                 <div class="row mb-1">
                     <div class="col-5">Tinggi Badan</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Berat Badan</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">IMT</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Tekanan Darah</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Nadi</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Respirasi</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Riwayat Kesehatan</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Penyakit diderita</div>
                     <div class="col-7">: 
-                            
+                        
                     </div>
                 </div>
                 <label>Keluhan Saat Ini</label>
