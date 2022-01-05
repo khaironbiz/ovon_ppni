@@ -49,9 +49,8 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Secret Key</th>
-                        <th>Level</th>
-                        <th>Valid Key</th>
+                        <th>Key</th>
+                        <th>Wilayah</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
@@ -59,7 +58,7 @@
                     <tbody>
                       <?php
                       $no                   = 1;
-                      $sql_m_key            = mysqli_query($host, "SELECT * FROM master_key ORDER BY id_master_key");
+                      $sql_m_key            = mysqli_query($host, "SELECT * FROM master_key ORDER BY id_master_key DESC");
                       while($data           = mysqli_fetch_array($sql_m_key)){
                         $master_key         = $data['master_key'];
                         $sql_count          = mysqli_query($host, "SELECT * FROM users WHERE secret_key='$master_key'");
@@ -67,9 +66,17 @@
                       ?>
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
-                        <td><?= $data['master_key'];?></td>
-                        <td><?= user_level($data['wilayah_akses'])?></td>
-                        <td><?= $data['valid_until'];?></td>
+                        <td>
+                            <?= $data['master_key'];?><br>
+                            <?= user_level($data['wilayah_akses'])?><br>
+                            <?= $data['valid_until'];?>
+                        </td>
+                        <td>
+                          <?= provinsi($data['prov'])?><br>
+                          <?= kabupaten($data['kota'])?><br>
+                          <?= kecamatan($data['kecamatan'])?><br>
+                          <?= desa($data['kelurahan'])?>
+                        </td>
                         <td><?= $count_data;?></td>
                         <td><a href="<?= $site_url ?>/regulasi/detail.php?id=<?= $data['has_regulasi_jenis']?>" class="btn btn-primary btn-sm">Detail</a></td>
                       </tr>
@@ -80,9 +87,8 @@
                     <tfoot>
                       <tr>
                         <th>#</th>
-                        <th>Secret Key</th>
-                        <th>Level</th>
-                        <th>Valid Key</th>
+                        <th>Key</th>
+                        <th>Wilayah</th>
                         <th>Count</th>
                         <th>Aksi</th>
                       </tr>
