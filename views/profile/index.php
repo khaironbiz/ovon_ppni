@@ -157,10 +157,12 @@
                                   $jenis_kelamin  = $data_sex['id_master_jawaban'];
                                   $sql_keluarga_sex = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE rw='$id_rw' and jenis_kelamin='$jenis_kelamin' and created_by='$user_check'");
                                   $count_keluarga_sex  = mysqli_num_rows( $sql_keluarga_sex);
+                                  $query_keluarga = mysqli_query($host,"SELECT * FROM keluarga where kelurahan='$mydesa' and created_by='$user_check'");
+                                  $count_keluargaku= mysqli_num_rows($query_keluarga);
                                 ?>
                                 <td><?= $count_keluarga_sex ?></td>
                                 <?php
-                                $juml_total = count(array($count_keluarga_sex));
+                                $juml_total = $count_keluargaku;
                                 }
                                 ?>
                                 <td><?= $count_keluarga_anggota ?></td>

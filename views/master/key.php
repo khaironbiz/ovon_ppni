@@ -36,7 +36,7 @@
             ?>
             <div class="card">
               <div class="card-header">
-                <div class="card-body">
+                <div class="card-body table-responsive">
                   <?php
                     include("../core/security/admin-akses.php");
                     if($count_admin >0){
@@ -50,6 +50,7 @@
                       <tr>
                         <th>#</th>
                         <th>Secret Key</th>
+                        <th>Level</th>
                         <th>Valid Key</th>
                         <th>Count</th>
                         <th>Aksi</th>
@@ -67,6 +68,7 @@
                       <tr>
                         <td width="10px"><?= $no++; ?></td>
                         <td><?= $data['master_key'];?></td>
+                        <td><?= user_level($data['wilayah_akses'])?></td>
                         <td><?= $data['valid_until'];?></td>
                         <td><?= $count_data;?></td>
                         <td><a href="<?= $site_url ?>/regulasi/detail.php?id=<?= $data['has_regulasi_jenis']?>" class="btn btn-primary btn-sm">Detail</a></td>
@@ -79,6 +81,7 @@
                       <tr>
                         <th>#</th>
                         <th>Secret Key</th>
+                        <th>Level</th>
                         <th>Valid Key</th>
                         <th>Count</th>
                         <th>Aksi</th>

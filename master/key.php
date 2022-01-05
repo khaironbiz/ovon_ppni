@@ -1,7 +1,8 @@
 <?php
 include("../auth/session.php");
+include("../function/user_level.php");
 $judul      = "Master Key";
-$template   = "../theme/table-simple.php";
+$template   = "../theme/table.php";
 $wrapp      = "../core/wrapp.php";
 $content    = "../views/master/key.php";
 include($template);
