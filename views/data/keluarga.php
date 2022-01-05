@@ -97,8 +97,20 @@
                         </tr>
                       </tfoot>
                     </table>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <?php
+                        include('modal/add-anggota-meninggal.php');
+                      ?>
+                    </div>
+                    <div class="col-6 text-right">
+                      <a href="<?= $site_url?>/data/" class="btn btn-success btn-sm">DB Keluarga</a>
+                    </div>
+                  </div>
+                  <div class="row">
                     <?php
-                    include('modal/add-anggota-meninggal.php');
+                    
                     include('aksi/add-anggota-meninggal.php');
                     $key_keluarga     = $_GET['id'];
                     $sql_meninggal    = mysqli_query($host,"SELECT * FROM keluarga_meninggal 
@@ -146,7 +158,8 @@
                     }
                     ?>
                   </div>
-                    
+                  
+
                 </div>
                 <!-- /.card-body -->
             </div>
