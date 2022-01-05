@@ -6,22 +6,22 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link text-white" href="#">0-11 Bln</a>
+        <a class="nav-link text-white" href="#">Bayi</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">12-23 Bln</a>
+        <a class="nav-link text-white" href="#">Batita</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">24-59 Bln</a>
+        <a class="nav-link text-white" href="#">Balita</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">6-15 Tahun</a>
+        <a class="nav-link text-white" href="#">Remaja</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">16-59 Tahun</a>
+        <a class="nav-link text-white" href="#">Dewasa</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">60++ Tahun</a>
+        <a class="nav-link text-white" href="#">Lansia</a>
       </li>
     </ul>
   </div>
