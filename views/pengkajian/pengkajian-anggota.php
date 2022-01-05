@@ -47,7 +47,7 @@
                                 include('modal/anggota/dewasa/kehamilan.php');
                             }
                         }elseif($umurnya >=60){
-                            
+                            include('ekstensi/lansia.php');
                         }
                             // include('aksi/keluarga/create.php');
                             // include('modal/keluarga/create.php');

@@ -117,7 +117,6 @@
                                       WHERE keluarga_meninggal.key_keluarga='$key_keluarga'");
                     $count_meninggal  = mysqli_num_rows($sql_meninggal);
                     if($count_meninggal>0){
-                      
                     ?>
                     <table class="table">
                       <tr>
@@ -158,8 +157,6 @@
                     }
                     ?>
                   </div>
-                  
-
                 </div>
                 <!-- /.card-body -->
             </div>

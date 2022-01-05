@@ -28,17 +28,17 @@ if (isset($_POST['key'])) {
                     $_SESSION['status']="Username & pasword not mach";
                     $_SESSION['status_info']="danger";
                     echo "<script>document.location=\"$site_url/login/\"</script>";
-                        }elseif($data_user['aktif_sd'] < $today){
+                    }elseif($data_user['aktif_sd'] < $today){
                         $_SESSION['status']="Akun kadaluarsa";
                         $_SESSION['status_info']="danger";
                         echo "<script>document.location=\"$site_url/login/\"</script>";
-                            }elseif($data_user['status'] < 1){
+                        }elseif($data_user['status'] < 1){
                             $_SESSION['status']="Akun belum aktif";
                             $_SESSION['status_info']="danger";
                             echo "<script>document.location=\"$site_url/login/\"</script>";
                             }elseif($count_user == 1){
-                                    $_SESSION['login_user'] = $data_user['id_user']; // Membuat Sesi/session
-                                    $_SESSION['email']      = $data_user['email']; // Membuat Sesi/session
+                                    $_SESSION['login_user'] = $data_user['id_user'];
+                                    $_SESSION['email']      = $data_user['email'];
                                     $_SESSION['kel']        = $data_user['kel'];
                                     $_SESSION['status']="Login sukses";
                                     $_SESSION['status_info']="success";
@@ -48,7 +48,7 @@ if (isset($_POST['key'])) {
                                         $_SESSION['status_info']="danger";
                                         echo "<script>document.location=\"$site_url/login/\"</script>";
                                     }
-        mysql_close($host); // Menutup koneksi
+    mysql_close($host); // Menutup koneksi
     }
 
 

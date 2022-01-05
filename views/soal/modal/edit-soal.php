@@ -18,7 +18,7 @@
                         <label class="col-sm-3 col-form-label">Pertanyaan</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="master_soal" value="<?=  $soal['master_soal']?>">
-                            <input type="text" class="form-control" name="edit_master_soal" value="<?= $_GET['key']?>">
+                            <input type="hidden" class="form-control" name="edit_master_soal" value="<?= $_GET['key']?>">
                             
                         </div>
                     </div>
@@ -32,6 +32,7 @@
                         <label class="col-sm-3 col-form-label">Jenis Jawaban</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="jenis_input_jawaban" required>
+                                <option value="">---pilih jawaban---</option>
                                 <?php
                                     $soal_jenis_input_jawaban = $soal['jenis_input_jawaban'];
                                     $sql_input_jawaban  = mysqli_query($host,"SELECT * FROM jenis_input_jawaban ORDER BY id_jenis_input_jawaban");
@@ -39,7 +40,7 @@
                                         
                                         $id_ini = $data['id_jenis_input_jawaban'];
                                 ?>
-                                <option value="<?= $id_jenis_input_jawaban; ?>">
+                                <option value="<?= $id_ini; ?>">
                                     <?= $data['jenis_input_jawaban']?>
                                 </option>
                                 <?php
@@ -50,7 +51,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Save </button>
                 </div>
             </div>
         </div>
