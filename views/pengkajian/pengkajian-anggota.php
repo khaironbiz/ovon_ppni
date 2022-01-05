@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <?php
                         if($umurnya <1){
-                            //include('ekstensi/bayi.php');
+                            include('ekstensi/bayi.php');
                         }elseif($umurnya <2){
                             include('ekstensi/batita.php');
                         }elseif($umurnya <5){

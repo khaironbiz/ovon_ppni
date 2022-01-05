@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header bg-black">
                 <div class="row">
-                    <div class="col-6"><label>Balita</label></div>
+                    <div class="col-6"><label>Bayi</label></div>
                     <div class="col-6 text-right">
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#datadasar">
                             Update
