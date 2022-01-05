@@ -8,8 +8,7 @@ if (isset($_POST['key'])) {
     $today      = date('Y-m-d');
     $username   = $_POST['username'];
     $password   = md5($_POST['password']);
-    $status     = 1;
-    $queryuser  = mysqli_query($host,"SELECT * FROM users WHERE email='$username' AND status='$status'");
+    $queryuser  = mysqli_query($host,"SELECT * FROM users WHERE email='$username'");
     $cont_email = mysqli_num_rows($queryuser);
     //
     
