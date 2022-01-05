@@ -1,9 +1,10 @@
 <?php
 if($_SERVER['SERVER_NAME']=='localhost'){
     $site_url           = "http://localhost/ovon_ppni";
-    
+    $db                 = 1;
 }else{
     $site_url           = "http://ners.my.id";
+    $db                 = 2;
 }
 $nama_web           = "OVON";
 $nama_perusahaan    = "Satu Desa Satu Perawat";

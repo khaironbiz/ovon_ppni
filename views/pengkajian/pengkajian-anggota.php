@@ -29,23 +29,22 @@
                             include('modal/anggota/usia0-1th.php');
                         }elseif($umurnya <2){
                             include('modal/anggota/usia1-2th.php');
-                        }elseif($umurnya <3){
+                        }elseif($umurnya <5){
                             include('modal/anggota/usia3-5th.php');
                         }elseif($umurnya <16){
-                            include('modal/anggota/usia6-15th.php');
+                            include('ekstensi/remaja.php');
                         }elseif($umurnya < 60){
                             include('ekstensi/dewasa.php');
                             include('modal/anggota/dewasa/ttv-lab.php');
                             include('modal/anggota/dewasa/data-dasar.php');
                             include('modal/anggota/dewasa/pola-kebiasaan.php');
-                            
                             if($sex == 43){
-                                //include('modal/anggota/usia16-59th.php');
+                                //aksi
                             }else{
+                                //aksi
                                 include('modal/anggota/dewasa/kesehatan-wanita.php');
                                 include('modal/anggota/dewasa/kehamilan.php');
                             }
-                            
                         }elseif($umurnya >=60){
                             
                         }

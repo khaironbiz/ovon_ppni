@@ -92,6 +92,10 @@
                     <div class="col-7">: 76 Kg</div>
                 </div>
                 <div class="row">
+                    <div class="col-5">IMT</div>
+                    <div class="col-7">: </div>
+                </div>
+                <div class="row">
                     <div class="col-5">Tekanan Darah</div>
                     <div class="col-7">: 135/85 mmHg</div>
                 </div>
@@ -136,6 +140,7 @@
                     ?>
                 </div>
             </div>
+            
         </div>
     </div>
     <div class="col-md-6">
