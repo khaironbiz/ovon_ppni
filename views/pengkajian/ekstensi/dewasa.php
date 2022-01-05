@@ -18,7 +18,7 @@
                 </div>
                 <div class="row">
                     <div class="col-5">Tgl Lahir</div>
-                    <div class="col-7">: <?= $data_anggota['tgl_lahir']?></div>
+                    <div class="col-7">: <?= $data_anggota['tgl_lahir']." ($umur->y tahun $umur->m bulan $umur->d hari)"?></div>
                 </div>
                 <div class="row">
                     <div class="col-5">Jenis Kelamin</div>

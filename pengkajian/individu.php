@@ -1,6 +1,7 @@
 <?php
 include("../auth/session.php");
 include("../function/jawaban.php");
+include("../function/usia.php");
 if(isset($_GET['key'])){
     $key            = $_GET['key'];
     $sql_anggota    = mysqli_query($host,"SELECT * FROM keluarga_anggota WHERE has_keluarga_anggota='$key'");
@@ -8,10 +9,7 @@ if(isset($_GET['key'])){
     if($count_anggota >0){
         $data_anggota   = mysqli_fetch_array($sql_anggota);
         $judul          = $data_anggota['nama_anggota'];
-        $tgl_now        = date('Y-m-d');
-        $lahir          = new DateTime($data_anggota['tgl_lahir']);
-        $today          = new DateTime();
-        $umur           = $today->diff($lahir);
+        $umur           = usia($data_anggota['tgl_lahir']);
         $sex            = $data_anggota['jenis_kelamin'];
         $template       = "../theme/table-simple.php";
         $wrapp          = "../core/wrapp.php";

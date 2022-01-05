@@ -20,17 +20,18 @@
                         Pengkajian Individu Usia
                         <?php
                         $umurnya    = $umur->y;
+                        $umur_bulan = $umur->m;
                         echo $umurnya." Tahun";
                         ?>
                     </div>
                     <div class="card-body">
                         <?php
                         if($umurnya <1){
-                            include('modal/anggota/usia0-1th.php');
+                            //include('ekstensi/bayi.php');
                         }elseif($umurnya <2){
-                            include('modal/anggota/usia1-2th.php');
+                            include('ekstensi/batita.php');
                         }elseif($umurnya <5){
-                            include('modal/anggota/usia3-5th.php');
+                            include('ekstensi/balita.php');
                         }elseif($umurnya <16){
                             include('ekstensi/remaja.php');
                         }elseif($umurnya < 60){
