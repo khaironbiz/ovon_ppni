@@ -5,7 +5,7 @@ $sidebar  = $m_berita->sidebar();
 ?>
 <main id="main">
   <section id="contact" class="contact">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row mt-5">
          <div class="col-md-8">
            <div class="card" style="margin-bottom: 20px;">
