@@ -68,16 +68,9 @@
                           <td>
                               <?= $data['nama_anggota']." ".$umur->y." Th ".$umur->m." Bulan"; ?> <br>
                               <?php
-                                $status_ktp           = $data['status_ktp'];
-                                echo  master_jawaban($status_ktp)."<br>";
-                                $id_struktur_keluarga = $data['id_struktur_keluarga'];
-                                echo  master_jawaban($id_struktur_keluarga)."<br>";
-                                $jenis_kelamin = $data['jenis_kelamin'];
-                                echo  master_jawaban($jenis_kelamin)."<br>";
-                                $pendidikan = $data['pendidikan'];
-                                echo  master_jawaban($pendidikan)."<br>";
-                                $pekerjaan = $data['pekerjaan'];
-                                echo  master_jawaban($pekerjaan)."<br>";
+                                echo  master_jawaban($data['status_ktp'])."<br>";
+                                echo  master_jawaban($data['id_struktur_keluarga'])."<br>";
+                                echo  master_jawaban($data['jenis_kelamin'])."<br>";
                               ?>      
                           </td>
                           <td>
