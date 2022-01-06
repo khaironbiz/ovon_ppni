@@ -24,7 +24,7 @@ class User_model extends Model
     {
         return $this->asArray()
             ->where(['username' => $username,
-                'password'      => sha1($password), ])
+                'password'      => md5($password), ])
             ->first();
     }
 

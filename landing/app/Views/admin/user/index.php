@@ -16,7 +16,7 @@
 foreach ($user as $user) { ?>
 		<tr>
 			<td><?= $no ?></td>
-			<td><?= $user['nama'] ?></td>
+			<td><?= $user['user_nama'] ?></td>
 			<td><?= $user['username'] ?></td>
 			<td><?= $user['email'] ?></td>
 			<td><?= $user['akses_level'] ?></td>
