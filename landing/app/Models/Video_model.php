@@ -28,7 +28,14 @@ class Video_model extends Model
 
         return $query->getResultArray();
     }
+    public function populer()
+    {
+        $builder = $this->db->table('video');
+        $builder->orderBy('video.tanggal', 'DESC');
+        $query = $builder->get(1);
 
+        return $query->getResultArray();
+    }
     // total
     public function total()
     {

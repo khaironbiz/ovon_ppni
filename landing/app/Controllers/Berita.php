@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Berita_model;
 use App\Models\Kategori_model;
 use App\Models\Konfigurasi_model;
+use App\Models\Video_model;
 
 class Berita extends BaseController
 {
@@ -33,18 +34,26 @@ class Berita extends BaseController
         $konfigurasi   = $m_konfigurasi->listing();
         $berita        = $m_berita->read($slug_berita);
 
+        $m_konfigurasi = new Konfigurasi_model();
+        $m_video       = new Video_model();
+        $konfigurasi   = $m_konfigurasi->listing();
+        $video         = $m_video->populer();
+
         // Update hits
-        $data = ['id_berita' => $berita['id_berita'],
-            'hits'           => $berita['hits'] + 1,
+        $data = [
+            'id_berita' => $berita['id_berita'],
+            'hits'      => $berita['hits'] + 1,
         ];
         $m_berita->edit($data);
         // Update hits
 
-        $data = ['title'  => $berita['judul_berita'],
-            'description' => $berita['judul_berita'],
-            'keywords'    => $berita['judul_berita'],
-            'berita'      => $berita,
-            'content'     => 'berita/read',
+        $data = [
+            'title'         => $berita['judul_berita'],
+            'description'   => $berita['judul_berita'],
+            'keywords'      => $berita['judul_berita'],
+            'berita'        => $berita,
+            'video'         => $video,
+            'content'       => 'berita/read',
         ];
         echo view('layout/wrapper', $data);
     }
