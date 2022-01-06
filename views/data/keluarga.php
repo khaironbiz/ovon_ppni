@@ -41,7 +41,7 @@
                         }
                     }
                     ?>
-                    <a href="<?= $site_url?>/data/anggota.php?id=<?= $_GET['id']?>" class="btn btn-primary btn-sm mb-3">Add Anggota</a>
+                    <a href="<?= $site_url?>/data/anggota.php?id=<?= $_GET['id']?>" class="btn btn-primary btn-sm mb-1">Add Anggota</a>
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
