@@ -169,19 +169,13 @@ $site        = $konfigurasi->listing();
               <li class="nav-item">
                 <a href="<?= base_url('admin/staff') ?>" class="nav-link">
                   <i class="fas fa-table nav-icon"></i>
-                  <p>Data Staff/Team</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/staff/tambah') ?>" class="nav-link">
-                  <i class="fas fa-plus nav-icon"></i>
-                  <p>Tambah Staff/Team</p>
+                  <p>Team</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?= base_url('admin/kategori_staff') ?>" class="nav-link">
                   <i class="fas fa-tags nav-icon"></i>
-                  <p>Kategori Staff/Team</p>
+                  <p>Kategori Team</p>
                 </a>
               </li>
             </ul>

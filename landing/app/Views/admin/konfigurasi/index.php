@@ -37,7 +37,7 @@ echo csrf_field();
 <div class="form-group row">
 	<label class="col-3">Tentang Website</label>
 	<div class="col-9">
-		<textarea name="tentang" class="form-control konten" rows="5"><?= $konfigurasi['tentang'] ?></textarea>
+		<textarea name="tentang" class="form-control konten" rows="10"><?= $konfigurasi['tentang'] ?></textarea>
 	</div>
 </div>
 

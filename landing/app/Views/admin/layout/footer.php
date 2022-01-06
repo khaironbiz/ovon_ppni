@@ -205,10 +205,10 @@ $(document).ready(function(){
 <script>
   $(function () {
     $("#example1").DataTable({
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "buttons": ["csv", "excel", "pdf"],
       "responsive": true,
       "paging": true,
-      "lengthMenu": [[100, 250, 500, -1], [100, 250, 500, "All"]],
+      "lengthMenu": [[10, 50, 100, -1], [10, 50, 100, "All"]],
       "lengthChange": true,
       "autoWidth": false
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');

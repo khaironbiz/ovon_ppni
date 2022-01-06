@@ -23,8 +23,9 @@ class User_model extends Model
     public function login($username, $password)
     {
         return $this->asArray()
-            ->where(['username' => $username,
-                'password'      => md5($password), ])
+            ->where([
+                'email'     => $username,
+                'password'  => md5($password), ])
             ->first();
     }
 

@@ -21,11 +21,7 @@ foreach ($slider as $slider) {  ?>
     echo ' active';
 } ?>" style="background-image: url(<?= base_url('assets/upload/image/' . $slider['gambar']) ?>)">
           <?php if ($slider['status_text'] === 'Ya') {  ?>
-          <div class="container" style="max-width: 70%; text-align: left; padding-left: 2%; padding-right: 2%;">
-                <h2><?= $slider['judul_galeri'] ?></h2>
-                <p><?= $slider['isi'] ?></p>
-                <a href="<?= $slider['website'] ?>" class="btn-get-started scrollto">Read More</a>
-            </div>
+          
           <?php } ?>
         </div>
         <?php $noslide++; } ?>
@@ -88,10 +84,10 @@ foreach ($profil as $profil) { ?>
         </div>
 
         <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
+          <!-- <div class="col-lg-4" data-aos="fade-right">
             <img src="<?= icon() ?>" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          </div> -->
+          <div class="col-lg-12 pt-4 pt-lg-0 content text-center" data-aos="fade-left">
             <?= $konfigurasi['tentang'] ?>
           </div>
         </div>

@@ -31,31 +31,10 @@ $menu_layanan = $menu->layanan();
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto " href="<?= base_url() ?>">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <?php foreach ($menu_profil as $menu_profil) { ?>
-              <li><a href="<?= base_url('berita/profil/' . $menu_profil['slug_berita']) ?>"><?= $menu_profil['judul_berita'] ?></a></li>
-              <?php } ?>
-              <li><a href="<?= base_url('staff') ?>">Our Team</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown"><a href="<?= base_url('berita') ?>"><span>Berita</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <?php foreach ($menu_berita as $menu_berita) { ?>
-              <li><a href="<?= base_url('berita/kategori/' . $menu_berita['slug_kategori']) ?>"><?= $menu_berita['nama_kategori'] ?></a></li>
-              <?php } ?>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <?php foreach ($menu_layanan as $menu_layanan) { ?>
-              <li><a href="<?= base_url('berita/layanan/' . $menu_layanan['slug_berita']) ?>"><?= $menu_layanan['judul_berita'] ?></a></li>
-              <?php } ?>
-            </ul>
-          </li>
-
-          <li class="dropdown"><a href="#"><span>Galeri &amp; Video</span> <i class="bi bi-chevron-down"></i></a>
+          
+          <li><a class="nav-link scrollto" href="<?= base_url('berita') ?>">News</a></li>
+          
+          <li class="dropdown"><a href="#"><span>Galeri</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?= base_url('galeri') ?>">Galeri Gambar</a></li>
               <li><a href="<?= base_url('video') ?>">Galeri Video</a></li>
@@ -68,7 +47,7 @@ $menu_layanan = $menu->layanan();
       </nav><!-- .navbar -->
 
       <a href="<?= base_url('login') ?>" class="appointment-btn scrollto">
-        Login <span class="d-none d-md-inline">Admin</span>
+        Login
       </a>
 
     </div>

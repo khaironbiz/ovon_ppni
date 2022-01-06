@@ -36,7 +36,7 @@ class User extends BaseController
 
             return redirect()->to(base_url('admin/user'));
         }
-        $data = ['title' => 'Pengguna Website: ' . $total['total'],
+        $data = ['title' => 'Pengguna Website',
             'user'       => $user,
             'content'    => 'admin/user/index',
         ];
