@@ -1,19 +1,6 @@
 <main id="main">
-  <!-- ======= Breadcrumbs Section ======= -->
-  <section class="breadcrumbs">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <h2><?= $title ?></h2>
-        <ol>
-          <li><a href="<?= base_url() ?>">Home</a></li>
-          <li><?= $title ?></li>
-        </ol>
-      </div>
-    </div>
-  </section><!-- End Breadcrumbs Section -->
-
  <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery mt-5">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">

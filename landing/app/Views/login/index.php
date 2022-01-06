@@ -35,57 +35,54 @@ $site        = $konfigurasi->listing();
 
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body" style="border-radius: 10px;">
-
+    <div class="card-body login-card-body">
       <div class="login-logo">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-md-3">
             <img src="<?= base_url('assets/upload/image/' . $site['icon']) ?>" class="img img-fluid">
           </div>
-          <div class="col-md-9 text-left">
-            <h1><?= $site['namaweb'] ?></h1>
-            <p style="font-size: 12px; font-weight: bold;"><?= $site['tagline'] ?></p>
-          </div>
         </div>
       </div>
-      <hr>
-      <p class="login-box-msg">Masukkan username dan password</p>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <p class="login-box-msg">Masukkan username dan password</p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <?= '<span class="text-danger">' . \Config\Services::validation()->listErrors() . '</span>'; ?>
+          <?= form_open(base_url('login')); ?>
+          <?= csrf_field() ?>
 
-       <?= '<span class="text-danger">' . \Config\Services::validation()->listErrors() . '</span>'; ?>
-<?= form_open(base_url('login')); ?>
-      <?= csrf_field() ?>
-
-        <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="Username">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+          <div class="input-group mb-3">
+            <input type="text" name="username" class="form-control" placeholder="Username">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+        <div class="col-md-8">
+          <div class="input-group mb-3">
+            <input type="password" name="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
+        <div class="col-md-8">
+          <div class="icheck-primary">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember Me</label>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
         </div>
+        <div class="col-md-8">
+          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </div>
+      </div>
       <?= form_close(); ?>
       <hr>
       <p class="mb-1 text-center">

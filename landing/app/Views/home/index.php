@@ -7,19 +7,16 @@ $layanan = $menu->layanan();
 ?>
 
 <!-- ======= Hero Section ======= -->
-  <section id="hero">
+  <section id="hero" class="mt-5">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
       <div class="carousel-inner" role="listbox">
         <?php $noslide = 1;
-
-foreach ($slider as $slider) {  ?>
-        <!-- Slide 1 -->
-        <div class="carousel-item<?php if ($noslide === 1) {
-    echo ' active';
-} ?>" style="background-image: url(<?= base_url('assets/upload/image/' . $slider['gambar']) ?>)">
+        foreach ($slider as $slider) {  ?>
+                <!-- Slide 1 -->
+                <div class="carousel-item<?php if ($noslide === 1) {
+            echo ' active';
+        } ?>" style="background-image: url(<?= base_url('assets/upload/image/' . $slider['gambar']) ?>)">
           <?php if ($slider['status_text'] === 'Ya') {  ?>
           
           <?php } ?>
