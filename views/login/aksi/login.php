@@ -12,7 +12,7 @@ if (isset($_POST['key'])) {
     $cont_email = mysqli_num_rows($queryuser);
     //
     
-    $query      = mysqli_query($host,"SELECT * FROM users WHERE pass='$password' AND email='$username'");
+    $query      = mysqli_query($host,"SELECT * FROM users WHERE password='$password' AND email='$username'");
     $count_user = mysqli_num_rows($query);
     $data_user  = mysqli_fetch_array($query);
     if (empty($_POST['username']) || empty($_POST['password'])) {
