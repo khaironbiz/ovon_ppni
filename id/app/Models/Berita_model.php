@@ -38,7 +38,20 @@ class Berita_model extends Model
 
         return $query->getResultArray();
     }
+    public function populer()
+    {
+        $builder = $this->db->table('berita');
+        $builder->select('berita.*, kategori.nama_kategori, kategori.slug_kategori, users.nama');
+        $builder->join('kategori', 'kategori.id_kategori = berita.id_kategori', 'LEFT');
+        $builder->join('users', 'users.id_user = berita.id_user', 'LEFT');
+        $builder->where(['status_berita' => 'Publish',
+            'jenis_berita'               => 'Berita', ]);
+        $builder->orderBy('hits', 'DESC');
+        $builder->limit(4);
+        $query = $builder->get();
 
+        return $query->getResultArray();
+    }
     // home
     public function sidebar()
     {

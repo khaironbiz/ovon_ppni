@@ -19,7 +19,6 @@ class Galeri_model extends Model
         $builder->join('users', 'users.id_user = galeri.id_user', 'LEFT');
         $builder->orderBy('galeri.id_galeri', 'DESC');
         $query = $builder->get();
-
         return $query->getResultArray();
     }
 
@@ -28,7 +27,6 @@ class Galeri_model extends Model
     {
         $builder = $this->db->table('galeri');
         $query   = $builder->get();
-
         return $query->getNumRows();
     }
 

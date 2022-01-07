@@ -14,14 +14,16 @@ class Berita extends BaseController
     {
         $m_konfigurasi = new Konfigurasi_model();
         $m_berita      = new Berita_model();
+        $berita_populer= $m_berita->populer();
         $konfigurasi   = $m_konfigurasi->listing();
         $berita        = $m_berita->home();
-
-        $data = ['title'  => 'Berita ' . $konfigurasi['namaweb'],
-            'description' => 'Berita ' . $konfigurasi['namaweb'],
-            'keywords'    => 'Berita ' . $konfigurasi['namaweb'],
-            'berita'      => $berita,
-            'content'     => 'berita/index',
+        $data = [
+            'title'             => 'Berita ' . $konfigurasi['namaweb'],
+            'description'       => 'Berita ' . $konfigurasi['namaweb'],
+            'keywords'          => 'Berita ' . $konfigurasi['namaweb'],
+            'berita'            => $berita,
+            'berita_populer'    => $berita_populer,
+            'content'           => 'berita/index',
         ];
         echo view('layout/wrapper', $data);
     }

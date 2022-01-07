@@ -49,34 +49,19 @@
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-6">
+                    <?php foreach ($berita_populer as $berita_populer) { ?>
+                    <div class="col-lg-12">
                       <div class="card mb-1">
-                        <div class="card-body">
-                          satu
-                        </div>
+                        
+                        <a href="<?= base_url('berita/read')."/".$berita_populer['slug_berita']?>">
+                          <label><?= $berita_populer['judul_berita']?></label>
+                        </a>
                       </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-6">
-                      <div class="card mb-1">
-                        <div class="card-body">
-                          Dua
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-6">
-                      <div class="card mb-1">
-                        <div class="card-body">
-                          Tiga
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-6">
-                      <div class="card mb-1">
-                        <div class="card-body">
-                          Emapt
-                        </div>
-                      </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
+                    
                   </div>
                 </div>
                 <div class="card-header bg-black text-white text-center">
