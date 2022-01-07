@@ -3,7 +3,7 @@ if($_SERVER['SERVER_NAME']=='localhost'){
     $site_url           = "http://localhost/ovon_ppni";
     $db                 = 1;
 }else{
-    $site_url           = "http://ners.my.id";
+    $site_url           = "https://nurse.my.id";
     $db                 = 2;
 }
 $nama_web           = "OVON";
