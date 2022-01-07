@@ -16,7 +16,6 @@ $sidebar  = $m_berita->sidebar();
             <div class="card-body">
               
                 <?= $berita['isi'] ?>
-
             </div>
           </div>
         </div>
