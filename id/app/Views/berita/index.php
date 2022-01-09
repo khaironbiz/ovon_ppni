@@ -17,10 +17,11 @@
                     <div class="card">
                       <img src="<?= base_url('assets/upload/image/' . $berita['gambar']) ?>">
                       <div class="card-header">
+                      
                           <?= $berita['judul_berita'] ?>
                         </div>
                       <div class="card-body text-black">
-                        <?= $berita['ringkasan'] ?>
+                        <?= substr($berita['ringkasan'],0,100) ?>
                         <a href="<?= base_url('berita/read/' . $berita['slug_berita']) ?>"><br>
                             <i class="fa fa-chevron-right" style="font-size: 0.6em;"></i>  More...</a>
                       </div>
@@ -52,10 +53,11 @@
                     <?php foreach ($berita_populer as $berita_populer) { ?>
                     <div class="col-lg-12">
                       <div class="card mb-1">
-                        
-                        <a href="<?= base_url('berita/read')."/".$berita_populer['slug_berita']?>">
-                          <label><?= $berita_populer['judul_berita']?></label>
-                        </a>
+                        <div class="card-body">
+                          <a href="<?= base_url('berita/read')."/".$berita_populer['slug_berita']?>">
+                            <label><?= $berita_populer['judul_berita']?></label>
+                          </a>
+                        </div>
                       </div>
                     </div>
                     <?php
