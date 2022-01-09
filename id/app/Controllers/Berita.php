@@ -13,6 +13,7 @@ class Berita extends BaseController
     public function index()
     {
         $m_konfigurasi = new Konfigurasi_model();
+        $m_kategori     = new Kategori_model();
         $m_berita      = new Berita_model();
         $berita_populer= $m_berita->populer();
         $konfigurasi   = $m_konfigurasi->listing();
