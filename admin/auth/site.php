@@ -1,9 +1,9 @@
 <?php
 if($_SERVER['SERVER_NAME']=='localhost'){
-    $site_url           = "http://localhost/ovon_ppni";
+    $site_url           = "http://localhost/ovon_ppni/admin";
     $db                 = 1;
 }else{
-    $site_url           = "https://nurse.my.id";
+    $site_url           = "https://nurse.my.id/admin";
     $db                 = 2;
 }
 $nama_web           = "OVON";
