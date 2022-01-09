@@ -10,7 +10,7 @@
         <div class="card-body row">
           <div class="col-lg-8">
             <div class="card mb-1">
-              <div class="card-header bg-dark text-white text-center">
+              <div class="card-header bg-black text-white text-center">
                 <h5>Berita Terkini</h5>
               </div>
               <div class="card-body">
@@ -38,7 +38,7 @@
           </div>
             <div class="col-lg-4">
               <div class="card">
-                <div class="card-header bg-dark text-white text-center">
+                <div class="card-header bg-black text-white text-center">
                   <h5>Kategori</h5>
                 </div>
                 <div class="card-body">
