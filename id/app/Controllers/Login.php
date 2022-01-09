@@ -39,12 +39,12 @@ class Login extends BaseController
                     <tr>
                         <td>IP Login</td>
                         <td>:</td>
-                        <td>$ip</td>
+                        <td>'.$ip.'</td>
                     </tr>
                     <tr>
                         <td>Waktu Login</td>
                         <td>:</td>
-                        <td>$waktu_login</td>
+                        <td>'.$waktu_login.'</td>
                     </tr>
                 </table>
                 <p>DPK PPNI RSPON</p>
