@@ -3,10 +3,13 @@
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
     <div class="container">
-      <div class="card">
-        <div class="row mt-5">
-          <div class="col-md-8">
-            <div class="card">
+      <div class="card mt-5">
+        <div class="card-header text-center text-white bg-black">
+          <h2 = class="text-upper">BERITA</h2>
+        </div>
+        <div class="card-body row">
+          <div class="col-lg-8">
+            <div class="card mb-1">
               <div class="card-header bg-dark text-white text-center">
                 <h5>Berita Terkini</h5>
               </div>
@@ -33,7 +36,7 @@
               </div>
             </div>
           </div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
               <div class="card">
                 <div class="card-header bg-dark text-white text-center">
                   <h5>Kategori</h5>
@@ -118,6 +121,35 @@
                   <div class="col-md-6">
                     <div class="card mb-1">
                       Sponsor 1
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer bg-black text-white text-center">
+                  <h6>Link Terkait</h6>
+                </div>
+                <div class="card-body">
+                  <div class="card mb-1">
+                    <div class="card-body col-lg-12">
+                      <a href="#">Link</a><br>
+                      <label>Label Ini menjelaskan pemilik link</label>
+                    </div>
+                  </div>
+                  <div class="card mb-1">
+                    <div class="card-body col-lg-12">
+                      <a href="#">Link</a><br>
+                      <label>Label Ini menjelaskan pemilik link</label>
+                    </div>
+                  </div>
+                  <div class="card mb-1">
+                    <div class="card-body col-lg-12">
+                      <a href="#">Link</a><br>
+                      <label>Label Ini menjelaskan pemilik link</label>
+                    </div>
+                  </div>
+                  <div class="card mb-1">
+                    <div class="card-body col-lg-12">
+                      <a href="#">Link</a><br>
+                      <label>Label Ini menjelaskan pemilik link</label>
                     </div>
                   </div>
                 </div>
