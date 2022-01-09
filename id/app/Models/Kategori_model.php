@@ -18,17 +18,14 @@ class Kategori_model extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
-
     // listing
     public function listing()
     {
         $builder = $this->db->table('kategori');
         $builder->orderBy('kategori.id_kategori', 'DESC');
         $query = $builder->get();
-
         return $query->getResultArray();
     }
-
     // total
     public function total()
     {
@@ -36,10 +33,8 @@ class Kategori_model extends Model
         $builder->select('COUNT(*) AS total');
         $builder->orderBy('kategori.id_kategori', 'DESC');
         $query = $builder->get();
-
         return $query->getRowArray();
     }
-
     // detail
     public function detail($id_kategori)
     {
@@ -47,10 +42,8 @@ class Kategori_model extends Model
         $builder->where('id_kategori', $id_kategori);
         $builder->orderBy('kategori.id_kategori', 'DESC');
         $query = $builder->get();
-
         return $query->getRowArray();
     }
-
     // read
     public function read($slug_kategori)
     {
@@ -58,10 +51,8 @@ class Kategori_model extends Model
         $builder->where('slug_kategori', $slug_kategori);
         $builder->orderBy('kategori.id_kategori', 'DESC');
         $query = $builder->get();
-
         return $query->getRowArray();
     }
-
     // edit
     public function edit($data)
     {
