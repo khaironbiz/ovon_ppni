@@ -30,9 +30,23 @@ class Login extends BaseController
                 // Jika username password benar
                 //kirim email
                 $subject        = "Login Success";
+                $ip             = $_SERVER['REMOTE_ADDR'];
+                $waktu_login    = date('d-m-Y');
                 $htmlContent    = ' 
                 <h3>Login Success</h3> 
-                <p>Selamat anda telah sukses login, jika anda tidak merasa login silahkan hubungi admin : Khairon 081213798746.</p> 
+                <p>Selamat anda telah sukses login, jika anda tidak merasa login silahkan ganti password anda atau hubungi admin : Khairon 081213798746.</p> 
+                <table>
+                    <tr>
+                        <td>IP Login</td>
+                        <td>:</td>
+                        <td>$ip</td>
+                    </tr>
+                    <tr>
+                        <td>Waktu Login</td>
+                        <td>:</td>
+                        <td>$waktu_login</td>
+                    </tr>
+                </table>
                 <p>DPK PPNI RSPON</p>
                 <p>Ini adalah email server mohon tidak membalas email ini</p>
                 '; 

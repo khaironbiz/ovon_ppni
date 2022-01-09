@@ -149,7 +149,7 @@ tinymce.init({
       <label>Your IP : <?= $_SERVER['REMOTE_ADDR']?>, </label>
       <b>App Version : </b> 3.1.0
     </div>
-    <strong>Copyright &copy; <?=date('Y')?> <a href="https://hpii.or.id">Himpunan Perawat Informatika Indonesia</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; <?=date('Y')?> <a href="https://ovon.or.id">OVON</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
