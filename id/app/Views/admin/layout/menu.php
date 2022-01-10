@@ -44,9 +44,7 @@ $site        = $konfigurasi->listing();
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
-              <p>Berita, Profil &amp; Layanan
-                <i class="fas fa-angle-left right"></i>
-              </p>
+              <p>Berita<i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -73,9 +71,7 @@ $site        = $konfigurasi->listing();
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-image"></i>
-              <p>Galeri &amp; Banner
-                <i class="fas fa-angle-left right"></i>
-              </p>
+              <p>Galeri<i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -102,7 +98,7 @@ $site        = $konfigurasi->listing();
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-download"></i>
-              <p>Data File Download
+              <p>File Download
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -131,7 +127,7 @@ $site        = $konfigurasi->listing();
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fab fa-youtube"></i>
-              <p>Data Video Youtube
+              <p>Video
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -154,16 +150,14 @@ $site        = $konfigurasi->listing();
           <li class="nav-item">
             <a href="<?= base_url('admin/client') ?>" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
-              <p>Clients &amp; Portfolio</p>
+              <p>Clients</p>
             </a>
           </li>
           <!-- Staff -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-image"></i>
-              <p>Staff &amp; Team
-                <i class="fas fa-angle-left right"></i>
-              </p>
+              <p>Team<i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -184,16 +178,14 @@ $site        = $konfigurasi->listing();
           <li class="nav-item">
             <a href="<?= base_url('admin/user') ?>" class="nav-link">
               <i class="nav-icon fas fa-lock"></i>
-              <p>Pengguna Website</p>
+              <p>Users</p>
             </a>
           </li>
           <!-- Konfigurasi -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-wrench"></i>
-              <p>Setting Website
-                <i class="fas fa-angle-left right"></i>
-              </p>
+              <p>Web Setting <i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -226,7 +218,7 @@ $site        = $konfigurasi->listing();
           <li class="nav-item">
             <a href="<?= base_url('admin/panduan') ?>" class="nav-link">
               <i class="nav-icon fas fa-file-pdf"></i>
-              <p>Panduan &amp; Manual Book</p>
+              <p>Manual Book</p>
             </a>
           </li>
           <!-- logout -->

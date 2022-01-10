@@ -33,6 +33,7 @@ class User_model extends Model
     public function listing()
     {
         $builder = $this->db->table('users');
+        $builder->join('user_level', 'user_level.wilayah_akses = users.wilayah_akses', 'LEFT');
         $builder->orderBy('users.id_user', 'DESC');
         $query = $builder->get();
 
