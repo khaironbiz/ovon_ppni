@@ -1,10 +1,10 @@
 <?php
-function master_soal($id_master_soal){
+function key_keluarga($id_keluarga){
     include('../auth/koneksi.php');
-    $sql_soal      = mysqli_query($host,"SELECT * FROM keluarga WHERE id_master_soal = '$id_master_soal'");
-    $data_soal     = mysqli_fetch_array($sql_soal);
-    $master_soal   = $data_soal['master_soal'];
-    return $master_soal;
+    $sql            = mysqli_query($host,"SELECT * FROM keluarga WHERE id_keluarga = '$id_keluarga'");
+    $data           = mysqli_fetch_array($sql);
+    $key_keluarga   = $data['key_keluarga'];
+    return $key_keluarga;
 }
 function nama_keluarga($key_keluarga){
     include('../auth/koneksi.php');
