@@ -2,26 +2,26 @@
     <section class="content">
         <form action="" method="POST">
             <div class="container-fluid">
-                <?php
-                include('aksi/keluarga/kunjungan.php');
-                    if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
-                    ?>
-                    <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
-                    <strong>Hay</strong> <?= $_SESSION['status']?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <?php
-                    unset($_SESSION['status']);
-                    }
-                ?>
-                <div class="card">
+            <?php
+            if(isset($_SESSION['status'])&& $_SESSION['status'] !=""){
+            ?>
+            <div class="alert alert-<?= $_SESSION['status_info']?> alert-dismissible fade show" role="alert">
+                <strong>Hay</strong> <?= $_SESSION['status']?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php
+            unset($_SESSION['status']);
+            }
+            ?>
+                <div class="card mt-1">
                     <div class="card-header bg-dark">
                         <?= $judul?>
                     </div>
                     <div class="card-body">
                         <?php
+                        include('aksi/keluarga/kunjungan.php');
                         include('modal/keluarga/kunjungan.php');
                         ?>
                         <table id="example1" class="table table-bordered table-striped">
@@ -50,7 +50,6 @@
                                 }
                                 ?>
                             </tbody>
-                            
                         </table>
                     </div>
                 </div>
