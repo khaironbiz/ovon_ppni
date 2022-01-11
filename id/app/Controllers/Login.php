@@ -7,16 +7,15 @@ class Login extends BaseController
     public function __construct()
     {
         helper('form');
-        
+        $email = \Config\Services::email();
     }
     // Homepage
     public function index()
     {
-        $session        = \Config\Services::session();
-        $email          = \Config\Services::email();
-        $m_konfigurasi  = new Konfigurasi_model();
-        $m_user         = new User_model();
-        $konfigurasi    = $m_konfigurasi->listing();
+        $session       = \Config\Services::session();
+        $m_konfigurasi = new Konfigurasi_model();
+        $m_user        = new User_model();
+        $konfigurasi   = $m_konfigurasi->listing();
         // Start validasi
         if ($this->request->getMethod() === 'post' && $this->validate(
             [
@@ -58,13 +57,11 @@ class Login extends BaseController
                 // $file           = $download['file']; 
                 $headers        = "From: $fromName"." <".$from.">"; 
                 $semi_rand      = md5(time());  
-                $attachment     = "";
                 $mime_boundary  = "==Multipart_Boundary_x{$semi_rand}x";  
                 $headers        .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
                 $message        = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" . 
                 "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";  
-                //$send_email     = @mail($to, $subject, $message, $headers, $returnpath); 
-                $this->sendEmail($attachment, $to, 'Invoice', $htmlContent);
+                $send_email     = @mail($to, $subject, $message, $headers, $returnpath); 
                 //create session
                 $this->session->set('username', $username);
                 $this->session->set('id_user', $user['id_user']);
@@ -87,19 +84,6 @@ class Login extends BaseController
         echo view('login/index', $data);
         // End proses
     }
-    //
-    private function sendEmail($attachment, $to, $title, $message){
-		$this->email->setFrom('khairon.yt@gmail.com','Khairon Youtube');
-		$this->email->setTo($to);
-		$this->email->attach($attachment);
-		$this->email->setSubject($title);
-		$this->email->setMessage($message);
-		if(! $this->email->send()){
-			return false;
-		}else{
-			return true;
-		}
-	}
     // lupa
     public function lupa()
     {
