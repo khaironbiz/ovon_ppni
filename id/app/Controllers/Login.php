@@ -88,7 +88,7 @@ class Login extends BaseController
     }
     //
     private function sendEmail($attachment, $to, $title, $message){
-		$this->email->setFrom('deavenditama@gmail.com','deavenditama');
+		$this->email->setFrom('khairon.yt@gmail.com','Khairon Youtube');
 		$this->email->setTo($to);
 		$this->email->attach($attachment);
 		$this->email->setSubject($title);
