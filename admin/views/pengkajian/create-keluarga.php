@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <?php
                             include('aksi/keluarga/create.php');
-                            include('modal/keluarga/create.php');
+                            include('ekstensi/keluarga.php');
                         ?>
                     </div>
                 </div>

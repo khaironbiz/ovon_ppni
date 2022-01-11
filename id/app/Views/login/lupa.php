@@ -31,32 +31,47 @@ $site        = $konfigurasi->listing();
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="hold-transition login-page" style="background-color: #2596be;">
-<div class="login-box" style="min-width: 35% !important; ">
+<div class="login-box" style="min-width: 25% !important; ">
 
   <!-- /.login-logo -->
+  <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body" style="border-radius: 10px;">
-
+    <div class="card-body login-card-body">
       <div class="login-logo">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-md-3">
-            <img src="<?= base_url('assets/upload/image/' . $site['icon']) ?>" class="img img-fluid">
-          </div>
-          <div class="col-md-9 text-left">
-            <h1><?= $site['namaweb'] ?></h1>
-            <h2><?= $site['tagline'] ?></h2>
+            <img src="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" class="img img-fluid">
           </div>
         </div>
       </div>
-      <hr>
-      <div class="alert alert-warning text-center">
-        <h4>Oops... Mohon maaf</h4>
-        <hr>
-        <p>Halaman ini hanya tersedia untuk versi Premium. <br>Silakan Hubungi Java Web Media <a href="https://javawebmedia.com">www.javawebmedia.com</a></p>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <p class="login-box-msg">Masukkan Email Anda</p>
+        </div>
       </div>
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <?= '<span class="text-danger">' . \Config\Services::validation()->listErrors() . '</span>'; ?>
+          <?= form_open(base_url('login')); ?>
+          <?= csrf_field() ?>
+          <div class="input-group mb-3">
+            <input type="text" name="username" class="form-control" placeholder="Email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-10">
+          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </div>
+      </div>
+      <?= form_close(); ?>
       <hr>
       <p class="mb-1 text-center">
-        <a href="<?= base_url('login') ?>">Login</a> | <a href="<?= base_url() ?>" class="text-center">Home</a>
+        <a href="<?= base_url('login/lupa') ?>">Lupa Password?</a> | <a href="<?= base_url() ?>" class="text-center">Home</a>
       </p>
     </div>
     <!-- /.login-card-body -->

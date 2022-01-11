@@ -1,6 +1,6 @@
                         <div class="card">
                             <div class="card-body">
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-4">
                                         <?php
@@ -27,7 +27,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control form-control-sm" name="tgl_lahir" value="<?= $data_anggota['tgl_lahir']?>">
@@ -50,7 +50,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">NIK</label>
                                     <div class="col-sm-4">
                                         <input type="number" name="nik" class="form-control form-control-sm" required value="<?= $data_keluarga['id_kepala_keluarga']?>">
@@ -60,7 +60,7 @@
                                         <input type="number" class="form-control form-control-sm" name="no_kk" value="<?= $data_keluarga['no_kk']?>" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Penghasilan</label>
                                     <div class="col-sm-4">
                                         <input type="number" class="form-control form-control-sm" required name="penghasilan">
@@ -70,7 +70,7 @@
                                         <input type="number" class="form-control form-control-sm" required name="pengeluaran">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Alamat</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control form-control-sm" name="alamat" required placeholder="Nama jalan/nomor rumah/kampung">
@@ -98,7 +98,7 @@
                                 <label>Rumah</label>
                             </div>
                             <div class="card-body">
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Luas Rumah (m2)</label>
                                     <div class="col-sm-4">
                                         <input type="number" class="form-control form-control-sm" placeholder="Luas Rumah (m2)" name="luas_rumah" required>
@@ -120,7 +120,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Jenis Atap</label>
                                     <div class="col-sm-4">
                                         <select class="form-control form-control-sm" required name="atap_rumah">
@@ -154,7 +154,7 @@
                                     </div>
 
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Luas Ventilasi (m2)</label>
                                     <div class="col-sm-4">
                                         <input type="number" class="form-control form-control-sm" placeholder="Luas ventilasi (m2)" name="luas_ventilasi" required>
@@ -176,7 +176,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Air Minum</label>
                                     <div class="col-sm-4">
                                         <select class="form-control form-control-sm" required name="air_minum">
@@ -209,7 +209,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Pengelolaan Sampah</label>
                                     <div class="col-sm-4">
                                         <select class="form-control form-control-sm" required name="pengelolaan_sampah">
@@ -242,7 +242,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Sampah Organik</label>
                                     <div class="col-sm-4">
                                         <input type="number" class="form-control form-control-sm" name="sampah_basah" placeholder="Produksi sampah basah (kg)/hari">
@@ -252,7 +252,7 @@
                                         <input type="number" class="form-control form-control-sm" name="sampah_plastik" placeholder="Produksi sampah plastik (kg)/hari">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Kepemilikan Jamban</label>
                                     <div class="col-sm-2">
                                         <select class="form-control form-control-sm" required name="kepemilikan_jamban">
@@ -306,7 +306,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <label>Vektor</label>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Jentik</label>
                                     <div class="col-sm-2">
                                         <select class="form-control form-control-sm" required name="jentik">
@@ -353,7 +353,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Cicak</label>
                                     <div class="col-sm-2">
                                         <select class="form-control form-control-sm" required name="cicak">
@@ -386,7 +386,7 @@
                                     </div>
                                 </div>
                                 <label>Hewan Peliharaan</label>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Anjing</label>
                                     <div class="col-sm-2">
                                         <select class="form-control form-control-sm" required name="anjing">
@@ -433,7 +433,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Ayam/bebek/entok</label>
                                     <div class="col-sm-2">
                                         <select class="form-control form-control-sm" required name="unggas">
@@ -467,7 +467,7 @@
                                     
                                 </div>
                                 <label>Hewan Berbahaya</label>
-                                <div class="form-group row">
+                                <div class="row">
                                     <label class="col-sm-2 col-form-label">Ular</label>
                                     <div class="col-sm-2">
                                         <select class="form-control form-control-sm" required name="ular">
