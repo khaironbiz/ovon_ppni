@@ -16,14 +16,13 @@ class Berita extends BaseController
         $m_kategori = new Kategori_model();
         $berita     = $m_berita->listing();
         $total      = $m_berita->total();
-
-        $data = ['title' => 'Berita, Profil dan Layanan (' . $total . ')',
-            'berita'     => $berita,
-            'content'    => 'admin/berita/index',
+        $data = [
+            'title'     => 'Berita, Profil dan Layanan (' . $total . ')',
+            'berita'    => $berita,
+            'content'   => 'admin/berita/index',
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // kategori
     public function kategori($id_kategori)
     {
@@ -33,14 +32,13 @@ class Berita extends BaseController
         $kategori   = $m_kategori->detail($id_kategori);
         $berita     = $m_berita->kategori_all($id_kategori);
         $total      = $m_berita->total_kategori($id_kategori);
-
-        $data = ['title' => $kategori['nama_kategori'] . ' (' . $total . ')',
-            'berita'     => $berita,
-            'content'    => 'admin/berita/index',
+        $data       = [
+            'title'     => $kategori['nama_kategori'] . ' (' . $total . ')',
+            'berita'    => $berita,
+            'content'   => 'admin/berita/index',
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // jenis_berita
     public function jenis_berita($jenis_berita)
     {
@@ -49,10 +47,10 @@ class Berita extends BaseController
         $m_kategori = new Kategori_model();
         $berita     = $m_berita->jenis_berita_all($jenis_berita);
         $total      = $m_berita->total_jenis_berita($jenis_berita);
-
-        $data = ['title' => $jenis_berita . ' (' . $total . ')',
-            'berita'     => $berita,
-            'content'    => 'admin/berita/index',
+        $data       = [
+            'title'     => $jenis_berita . ' (' . $total . ')',
+            'berita'    => $berita,
+            'content'   => 'admin/berita/index',
         ];
         echo view('admin/layout/wrapper', $data);
     }
@@ -66,14 +64,13 @@ class Berita extends BaseController
         $kategori   = $m_kategori->detail($id_kategori);
         $berita     = $m_berita->status_berita_all($status_berita);
         $total      = $m_berita->total_status_berita($status_berita);
-
-        $data = ['title' => $status_berita . ' (' . $total . ')',
-            'berita'     => $berita,
-            'content'    => 'admin/berita/index',
+        $data       = [
+            'title'     => $status_berita . ' (' . $total . ')',
+            'berita'    => $berita,
+            'content'   => 'admin/berita/index',
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // author
     public function author($id_user)
     {
@@ -84,14 +81,13 @@ class Berita extends BaseController
         $user       = $m_user->detail($id_user);
         $berita     = $m_berita->author_all($id_user);
         $total      = $m_berita->total_author($id_user);
-
-        $data = ['title' => $user['nama'] . ' (' . $total . ')',
-            'berita'     => $berita,
-            'content'    => 'admin/berita/index',
+        $data       = [
+            'title'     => $user['nama'] . ' (' . $total . ')',
+            'berita'    => $berita,
+            'content'   => 'admin/berita/index',
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // Tambah
     public function tambah()
     {
@@ -99,12 +95,11 @@ class Berita extends BaseController
         $m_kategori = new Kategori_model();
         $m_berita   = new Berita_model();
         $kategori   = $m_kategori->listing();
-
         // Start validasi
         if ($this->request->getMethod() === 'post' && $this->validate(
             [
-                'judul_berita' => 'required',
-                'gambar' => [
+                'judul_berita'  => 'required',
+                'gambar'        => [
                     'mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]',
                     'max_size[gambar,4096]',
                 ],
@@ -137,7 +132,6 @@ class Berita extends BaseController
                     'tanggal_publish' => date('Y-m-d', strtotime($this->request->getVar('tanggal_publish'))) . ' ' . date('H:i', strtotime($this->request->getVar('jam'))),
                 ];
                 $m_berita->tambah($data);
-
                 return redirect()->to(base_url('admin/berita/jenis_berita/' . $this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
             }
             $data = [
@@ -155,17 +149,14 @@ class Berita extends BaseController
                 'tanggal_publish' => date('Y-m-d', strtotime($this->request->getVar('tanggal_publish'))) . ' ' . date('H:i', strtotime($this->request->getVar('jam'))),
             ];
             $m_berita->tambah($data);
-
             return redirect()->to(base_url('admin/berita/jenis_berita/' . $this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
         }
-
         $data = ['title' => 'Tambah Berita',
             'kategori'   => $kategori,
             'content'    => 'admin/berita/tambah',
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // edit
     public function edit($id_berita)
     {
@@ -211,7 +202,6 @@ class Berita extends BaseController
                     'tanggal_publish' => date('Y-m-d', strtotime($this->request->getVar('tanggal_publish'))) . ' ' . date('H:i', strtotime($this->request->getVar('jam'))),
                 ];
                 $m_berita->edit($data);
-
                 return redirect()->to(base_url('admin/berita/jenis_berita/' . $this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
             }
             $data = [
@@ -229,18 +219,16 @@ class Berita extends BaseController
                 'tanggal_publish' => date('Y-m-d', strtotime($this->request->getVar('tanggal_publish'))) . ' ' . date('H:i', strtotime($this->request->getVar('jam'))),
             ];
             $m_berita->edit($data);
-
             return redirect()->to(base_url('admin/berita/jenis_berita/' . $this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
         }
-
-        $data = ['title' => 'Edit Berita: ' . $berita['judul_berita'],
-            'kategori'   => $kategori,
-            'berita'     => $berita,
-            'content'    => 'admin/berita/edit',
+        $data = [
+            'title'     => 'Edit Berita: ' . $berita['judul_berita'],
+            'kategori'  => $kategori,
+            'berita'    => $berita,
+            'content'   => 'admin/berita/edit',
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // Delete
     public function delete($id_berita)
     {
@@ -250,7 +238,6 @@ class Berita extends BaseController
         $m_berita->delete($data);
         // masuk database
         $this->session->setFlashdata('sukses', 'Data telah dihapus');
-
         return redirect()->to(base_url('admin/berita'));
     }
 }

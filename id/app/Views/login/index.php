@@ -14,8 +14,8 @@ $site        = $konfigurasi->listing();
   <meta content="<?= strip_tags($description) ?>" name="description">
   <meta content="<?= $keywords ?>" name="keywords">
   <!-- Favicons -->
-  <link href="<?= base_url('assets/upload/image/' . $site['icon']) ?>" rel="icon">
-  <link href="<?= base_url('assets/upload/image/' . $site['icon']) ?>" rel="apple-touch-icon">
+  <link href="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" rel="icon">
+  <link href="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" rel="apple-touch-icon">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -39,7 +39,7 @@ $site        = $konfigurasi->listing();
       <div class="login-logo">
         <div class="row justify-content-center">
           <div class="col-md-3">
-            <img src="<?= base_url('assets/upload/image/' . $site['icon']) ?>" class="img img-fluid">
+            <img src="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" class="img img-fluid">
           </div>
         </div>
       </div>

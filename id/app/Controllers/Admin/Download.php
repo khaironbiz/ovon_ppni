@@ -15,14 +15,12 @@ class Download extends BaseController
         $m_kategori_download = new Kategori_download_model();
         $download            = $m_download->listing();
         $total               = $m_download->total();
-
         $data = ['title' => 'Data File Download (' . $total . ')',
             'download'   => $download,
             'content'    => 'admin/download/index',
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // Tambah
     public function tambah()
     {
@@ -30,7 +28,6 @@ class Download extends BaseController
         $m_download          = new Download_model();
         $m_kategori_download = new Kategori_download_model();
         $kategori_download   = $m_kategori_download->listing();
-
         // Start validasi
         if ($this->request->getMethod() === 'post' && $this->validate(
             [
