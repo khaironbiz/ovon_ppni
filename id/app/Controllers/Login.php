@@ -30,10 +30,13 @@ class Login extends BaseController
             if ($user) {
                 // Jika username password benar
                 //kirim email
+                $email_pengirim = 'khairon.yt@gmail.com';
+                $nama_pengirim  = 'One Village One Nurse';
                 $subject        = "Login Success";
                 $ip             = $_SERVER['REMOTE_ADDR'];
                 $waktu_login    = date('d-m-Y H:i:s');
-                $htmlContent    = ' 
+                $to             = $user['email'];
+                $pesan          = ' 
                 <h3>Login Success</h3> 
                 <p>Selamat anda telah sukses login, jika anda tidak merasa login silahkan ganti password anda atau hubungi admin : Khairon 081213798746.</p> 
                 <table>
@@ -48,20 +51,20 @@ class Login extends BaseController
                         <td>'.$waktu_login.'</td>
                     </tr>
                 </table>
-                <p>DPK PPNI RSPON</p>
+                
+                <p>One Village One Nurse Administrator</p>
+
+                <b>-----------------------------------------------------------</b>
                 <p>Ini adalah email server mohon tidak membalas email ini</p>
                 '; 
-                $to             = $user['email'];
-                $from           = 'admin@ovon.or.id'; 
-                $fromName       = 'One Village One Nurse'; 
-                // $file           = $download['file']; 
-                $headers        = "From: $fromName"." <".$from.">"; 
-                $semi_rand      = md5(time());  
-                $mime_boundary  = "==Multipart_Boundary_x{$semi_rand}x";  
-                $headers        .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
-                $message        = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" . 
-                "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";  
-                $send_email     = @mail($to, $subject, $message, $headers, $returnpath); 
+
+                //send email
+                $email = \Config\Services::email();
+                $email->setFrom($email_pengirim, $nama_pengirim);
+                $email->setTo($to);
+                $email->setSubject($subject);
+                $email->setMessage($pesan);
+                $email->send(); 
                 //create session
                 $this->session->set('username', $username);
                 $this->session->set('id_user', $user['id_user']);
