@@ -42,11 +42,22 @@
                   <h5>Kategori</h5>
                 </div>
                 <div class="card-body">
-                  <ul>
-                    <li>Makanan</li>
-                    <li>Minuman</li>
-                    <li>Snack</li>
-                  </ul>
+                  <table class="table table-hover">
+                    <?php
+                    use App\Models\Berita_model;
+                    $m_kategori     = new Berita_model();
+                    foreach($kategori as $kat){
+                    $count_kat      = $m_kategori->total_kategori($kat['id_kategori']);
+                  ?>
+                  <tr>
+                      <td><a href="<?= base_url('berita/kategori/' . $kat['slug_kategori']) ?>"><?= $kat['nama_kategori']?></a></td>
+                      <td class="text-center"><a href="<?= base_url('berita/kategori/' . $kat['slug_kategori']) ?>"><?= $count_kat?></a></td>
+                    </tr>
+                  <?php
+                  }
+                  ?>
+                  </table>
+                  
                 </div>
                 <div class="card-footer bg-black text-white text-center">
                   <h6>Berita Terpopuler</h6>

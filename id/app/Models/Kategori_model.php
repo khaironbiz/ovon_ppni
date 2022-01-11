@@ -26,6 +26,7 @@ class Kategori_model extends Model
         $query = $builder->get();
         return $query->getResultArray();
     }
+    
     // total
     public function total()
     {

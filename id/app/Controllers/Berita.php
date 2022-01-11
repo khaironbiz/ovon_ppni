@@ -12,17 +12,19 @@ class Berita extends BaseController
     // index
     public function index()
     {
-        $m_konfigurasi = new Konfigurasi_model();
+        $m_konfigurasi  = new Konfigurasi_model();
         $m_kategori     = new Kategori_model();
-        $m_berita      = new Berita_model();
-        $berita_populer= $m_berita->populer();
-        $konfigurasi   = $m_konfigurasi->listing();
-        $berita        = $m_berita->home();
+        $kategori_list  = $m_kategori->listing();
+        $m_berita       = new Berita_model();
+        $berita_populer = $m_berita->populer();
+        $konfigurasi    = $m_konfigurasi->listing();
+        $berita         = $m_berita->home();
         $data = [
             'title'             => 'Berita ' . $konfigurasi['namaweb'],
             'description'       => 'Berita ' . $konfigurasi['namaweb'],
             'keywords'          => 'Berita ' . $konfigurasi['namaweb'],
             'berita'            => $berita,
+            'kategori'          => $kategori_list,
             'berita_populer'    => $berita_populer,
             'content'           => 'berita/index',
         ];
@@ -112,25 +114,31 @@ class Berita extends BaseController
     // kategori
     public function kategori($slug_kategori)
     {
-        $m_konfigurasi = new Konfigurasi_model();
-        $m_berita      = new Berita_model();
-        $m_kategori    = new Kategori_model();
-        $konfigurasi   = $m_konfigurasi->listing();
-        $kategori      = $m_kategori->read($slug_kategori);
-        $berita        = $m_berita->kategori($kategori['id_kategori']);
+        $m_konfigurasi  = new Konfigurasi_model();
+        $m_berita       = new Berita_model();
+        $m_kategori     = new Kategori_model();
+        $kategori_list  = $m_kategori->listing();
+        $konfigurasi    = $m_konfigurasi->listing();
+        $kategori       = $m_kategori->read($slug_kategori);
+        $berita         = $m_berita->kategori($kategori['id_kategori']);
+        $berita_populer = $m_berita->populer();
         // Update hits
-        $data = ['id_kategori' => $kategori['id_kategori'],
-            'hits'             => $kategori['hits'] + 1,
+        $data = [
+            'id_kategori' => $kategori['id_kategori'],
+            'hits'        => $kategori['hits'] + 1,
         ];
         $m_kategori->edit($data);
         // Update hits
 
-        $data = ['title'  => $kategori['nama_kategori'],
-            'description' => $kategori['nama_kategori'],
-            'keywords'    => $kategori['nama_kategori'],
-            'kategori'    => $kategori,
-            'berita'      => $berita,
-            'content'     => 'berita/index',
+        $data = [
+            'title'             => $kategori['nama_kategori'],
+            'description'       => $kategori['nama_kategori'],
+            'keywords'          => $kategori['nama_kategori'],
+            'kategori'          => $kategori,
+            'kategori'          => $kategori_list,
+            'berita'            => $berita,
+            'berita_populer'    => $berita_populer,
+            'content'           => 'berita/index',
         ];
         echo view('layout/wrapper', $data);
     }

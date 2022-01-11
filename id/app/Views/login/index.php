@@ -1,5 +1,5 @@
-<?php use App\Models\Konfigurasi_model;
-
+<?php 
+use App\Models\Konfigurasi_model;
 $konfigurasi = new Konfigurasi_model();
 $site        = $konfigurasi->listing();
 ?>
@@ -9,14 +9,12 @@ $site        = $konfigurasi->listing();
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title><?= $title ?></title>
   <meta content="<?= strip_tags($description) ?>" name="description">
   <meta content="<?= $keywords ?>" name="keywords">
   <!-- Favicons -->
   <link href="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" rel="icon">
   <link href="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" rel="apple-touch-icon">
-
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -32,7 +30,6 @@ $site        = $konfigurasi->listing();
 </head>
 <body class="hold-transition login-page" style="background-color: #2596be;">
 <div class="login-box" style="min-width: 25% !important; ">
-
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
@@ -92,7 +89,6 @@ $site        = $konfigurasi->listing();
   </div>
 </div>
 <!-- /.login-box -->
-
 <script>
 <?php if ($session->getFlashdata('sukses')) { ?>
 // Notifikasi

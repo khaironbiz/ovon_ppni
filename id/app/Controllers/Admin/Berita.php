@@ -12,10 +12,10 @@ class Berita extends BaseController
     public function index()
     {
         checklogin();
-        $m_berita   = new Berita_model();
-        $m_kategori = new Kategori_model();
-        $berita     = $m_berita->listing();
-        $total      = $m_berita->total();
+        $m_berita       = new Berita_model();
+        $m_kategori     = new Kategori_model();
+        $berita         = $m_berita->listing();
+        $total          = $m_berita->total();
         $data = [
             'title'     => 'Berita, Profil dan Layanan (' . $total . ')',
             'berita'    => $berita,
@@ -27,12 +27,12 @@ class Berita extends BaseController
     public function kategori($id_kategori)
     {
         checklogin();
-        $m_berita   = new Berita_model();
-        $m_kategori = new Kategori_model();
-        $kategori   = $m_kategori->detail($id_kategori);
-        $berita     = $m_berita->kategori_all($id_kategori);
-        $total      = $m_berita->total_kategori($id_kategori);
-        $data       = [
+        $m_berita       = new Berita_model();
+        $m_kategori     = new Kategori_model();
+        $kategori       = $m_kategori->detail($id_kategori);
+        $berita         = $m_berita->kategori_all($id_kategori);
+        $total          = $m_berita->total_kategori($id_kategori);
+        $data           = [
             'title'     => $kategori['nama_kategori'] . ' (' . $total . ')',
             'berita'    => $berita,
             'content'   => 'admin/berita/index',
