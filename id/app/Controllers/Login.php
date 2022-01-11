@@ -52,8 +52,8 @@ class Login extends BaseController
                 <p>Ini adalah email server mohon tidak membalas email ini</p>
                 '; 
                 $to             = $user['email'];
-                $from           = 'admin@ppni.or.id'; 
-                $fromName       = 'DPK PPNI RSPON'; 
+                $from           = 'admin@ovon.or.id'; 
+                $fromName       = 'One Village One Nurse'; 
                 // $file           = $download['file']; 
                 $headers        = "From: $fromName"." <".$from.">"; 
                 $semi_rand      = md5(time());  
