@@ -7,15 +7,16 @@ class Login extends BaseController
     public function __construct()
     {
         helper('form');
-        $email = \Config\Services::email();
+        
     }
     // Homepage
     public function index()
     {
-        $session       = \Config\Services::session();
-        $m_konfigurasi = new Konfigurasi_model();
-        $m_user        = new User_model();
-        $konfigurasi   = $m_konfigurasi->listing();
+        $session        = \Config\Services::session();
+        $email          = \Config\Services::email();
+        $m_konfigurasi  = new Konfigurasi_model();
+        $m_user         = new User_model();
+        $konfigurasi    = $m_konfigurasi->listing();
         // Start validasi
         if ($this->request->getMethod() === 'post' && $this->validate(
             [
