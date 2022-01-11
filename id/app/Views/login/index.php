@@ -31,7 +31,7 @@ $site        = $konfigurasi->listing();
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="hold-transition login-page" style="background-color: #2596be;">
-<div class="login-box" style="min-width: 35% !important; ">
+<div class="login-box" style="min-width: 25% !important; ">
 
   <!-- /.login-logo -->
   <div class="card">
@@ -49,11 +49,10 @@ $site        = $konfigurasi->listing();
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <?= '<span class="text-danger">' . \Config\Services::validation()->listErrors() . '</span>'; ?>
           <?= form_open(base_url('login')); ?>
           <?= csrf_field() ?>
-
           <div class="input-group mb-3">
             <input type="text" name="username" class="form-control" placeholder="Username">
             <div class="input-group-append">
@@ -63,7 +62,7 @@ $site        = $konfigurasi->listing();
             </div>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
           <div class="input-group mb-3">
             <input type="password" name="password" class="form-control" placeholder="Password">
             <div class="input-group-append">
@@ -73,13 +72,13 @@ $site        = $konfigurasi->listing();
             </div>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
           <div class="icheck-primary">
             <input type="checkbox" id="remember">
             <label for="remember">Remember Me</label>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
           <button type="submit" class="btn btn-primary btn-block">Sign In</button>
         </div>
       </div>
