@@ -92,10 +92,10 @@ class Login extends BaseController
         $m_user        = new User_model();
         $konfigurasi   = $m_konfigurasi->listing();
         $data = [
-            'title'         => 'Lupa Password',
-            'description'   => $konfigurasi['namaweb'] . ', ' . $konfigurasi['tentang'],
-            'keywords'      => $konfigurasi['namaweb'] . ', ' . $konfigurasi['keywords'],
-            'session'       => $session,
+                'title'         => 'Lupa Password',
+                'description'   => $konfigurasi['namaweb'] . ', ' . $konfigurasi['tentang'],
+                'keywords'      => $konfigurasi['namaweb'] . ', ' . $konfigurasi['keywords'],
+                'session'       => $session,
         ];
         echo view('login/lupa', $data);
     }
@@ -103,7 +103,6 @@ class Login extends BaseController
     public function logout()
     {
         $this->session->destroy();
-
         return redirect()->to(base_url('login?logout=sukses'));
     }
 }
