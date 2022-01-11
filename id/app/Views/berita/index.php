@@ -5,7 +5,7 @@
     <div class="container">
       <div class="card mt-5">
         <div class="card-header text-center text-white bg-black">
-          <h2 = class="text-upper">BERITA</h2>
+          <h2 = class="text-upper">BERITA </h2>
         </div>
         <div class="card-body row">
           <div class="col-lg-8">
