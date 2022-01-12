@@ -109,12 +109,12 @@ class Berita extends BaseController
                 // Image upload
                 $avatar   = $this->request->getFile('gambar');
                 $namabaru = str_replace(' ', '-', $avatar->getName());
-                $avatar->move(WRITEPATH . '../assets/upload/image/', $namabaru);
+                $avatar->move('../assets/upload/image/', $namabaru);
                 // Create thumb
                 $image = \Config\Services::image()
-                    ->withFile(WRITEPATH . '../assets/upload/image/' . $namabaru)
+                    ->withFile('../assets/upload/image/' . $namabaru)
                     ->fit(100, 100, 'center')
-                    ->save(WRITEPATH . '../assets/upload/image/thumbs/' . $namabaru);
+                    ->save('../assets/upload/image/thumbs/' . $namabaru);
                 // masuk database
                 $data = [
                     'id_user'         => $this->session->get('id_user'),
@@ -179,12 +179,12 @@ class Berita extends BaseController
                 // Image upload
                 $avatar   = $this->request->getFile('gambar');
                 $namabaru = str_replace(' ', '-', $avatar->getName());
-                $avatar->move(WRITEPATH . '../assets/upload/image/', $namabaru);
+                $avatar->move('../assets/upload/image/', $namabaru);
                 // Create thumb
                 $image = \Config\Services::image()
-                    ->withFile(WRITEPATH . '../assets/upload/image/' . $namabaru)
+                    ->withFile('../assets/upload/image/' . $namabaru)
                     ->fit(100, 100, 'center')
-                    ->save(WRITEPATH . '../assets/upload/image/thumbs/' . $namabaru);
+                    ->save('../assets/upload/image/thumbs/' . $namabaru);
                 // masuk database
                 $data = [
                     'id_berita'       => $id_berita,
