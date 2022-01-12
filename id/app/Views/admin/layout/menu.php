@@ -42,30 +42,16 @@ $site        = $konfigurasi->listing();
           </li>
           <!-- Berita -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url('admin/berita') ?>" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
-              <p>Berita<i class="fas fa-angle-left right"></i></p>
+              <p>Berita</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('admin/berita') ?>" class="nav-link">
-                  <i class="fas fa-table nav-icon"></i>
-                  <p>Data Berita/Profil</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/berita/tambah') ?>" class="nav-link">
-                  <i class="fas fa-plus nav-icon"></i>
-                  <p>Tambah Berita/Profil</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/kategori') ?>" class="nav-link">
-                  <i class="fas fa-tags nav-icon"></i>
-                  <p>Kategori Berita/Profil</p>
-                </a>
-              </li>
-            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('admin/kategori') ?>" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Kategori Berita</p>
+            </a>
           </li>
           <!-- Galeri -->
           <li class="nav-item">
@@ -125,26 +111,10 @@ $site        = $konfigurasi->listing();
           </li>
           <!-- Video -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= base_url('admin/video') ?>" class="nav-link">
               <i class="nav-icon fab fa-youtube"></i>
-              <p>Video
-                <i class="fas fa-angle-left right"></i>
-              </p>
+              <p>Video</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('admin/video') ?>" class="nav-link">
-                  <i class="fas fa-table nav-icon"></i>
-                  <p>Data Video Youtube</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/video/tambah') ?>" class="nav-link">
-                  <i class="fas fa-plus nav-icon"></i>
-                  <p>Tambah Video Youtube</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <!-- pengguna -->
           <li class="nav-item">
@@ -275,7 +245,7 @@ $validation = \Config\Services::validation();
 ?>
 
 <?php if (session('msg')) : ?>
-     <div class="alert alert-info alert-dismissible">
+    <div class="alert alert-info alert-dismissible">
          <?= session('msg') ?>
          <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
      </div>

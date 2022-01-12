@@ -16,7 +16,7 @@ class Galeri extends BaseController
         $galeri            = $m_galeri->listing();
         $total             = $m_galeri->total();
 
-        $data = ['title' => 'Galeri dan Banner (' . $total . ')',
+        $data = ['title' => 'Galeri',
             'galeri'     => $galeri,
             'content'    => 'admin/galeri/index',
         ];
@@ -30,7 +30,6 @@ class Galeri extends BaseController
         $m_galeri          = new Galeri_model();
         $m_kategori_galeri = new Kategori_galeri_model();
         $kategori_galeri   = $m_kategori_galeri->listing();
-
         // Start validasi
         if ($this->request->getMethod() === 'post' && $this->validate(
             [
@@ -38,7 +37,7 @@ class Galeri extends BaseController
                 'gambar' => [
                     'uploaded[gambar]',
                     'mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]',
-                    'max_size[gambar,4096]',
+                    'max_size[gambar,2096]',
                 ],
             ]
         )) {
@@ -46,12 +45,18 @@ class Galeri extends BaseController
                 // Image upload
                 $avatar   = $this->request->getFile('gambar');
                 $namabaru = str_replace(' ', '-', $avatar->getName());
-                $avatar->move(WRITEPATH . '../assets/upload/image/', $namabaru);
+                $avatar->move('../assets/upload/image/', $namabaru);
+                // Create gambar flayer
+                $flayer = \Config\Services::image()
+                    ->withFile('../assets/upload/image/' . $namabaru)
+                    ->fit(1200, 600, 'center')
+                    ->save('../assets/upload/image/flayer/' . $namabaru);
+                
                 // Create thumb
                 $image = \Config\Services::image()
-                    ->withFile(WRITEPATH . '../assets/upload/image/' . $namabaru)
+                    ->withFile('../assets/upload/image/' . $namabaru)
                     ->fit(100, 100, 'center')
-                    ->save(WRITEPATH . '../assets/upload/image/thumbs/' . $namabaru);
+                    ->save('../assets/upload/image/thumbs/' . $namabaru);
                 // masuk database
                 $data = [
                     'id_user'            => $this->session->get('id_user'),
@@ -83,9 +88,10 @@ class Galeri extends BaseController
             return redirect()->to(base_url('admin/galeri'))->with('sukses', 'Data Berhasil di Simpan');
         }
 
-        $data = ['title'      => 'Tambah Galeri',
-            'kategori_galeri' => $kategori_galeri,
-            'content'         => 'admin/galeri/tambah',
+        $data = [
+            'title'             => 'Tambah Galeri',
+            'kategori_galeri'   => $kategori_galeri,
+            'content'           => 'admin/galeri/tambah',
         ];
         echo view('admin/layout/wrapper', $data);
     }
@@ -103,8 +109,8 @@ class Galeri extends BaseController
             [
                 'judul_galeri' => 'required',
                 'gambar' => [
-                    'mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]',
-                    'max_size[gambar,4096]',
+                            'mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]',
+                            'max_size[gambar,4096]',
                 ],
             ]
         )) {
@@ -112,12 +118,18 @@ class Galeri extends BaseController
                 // Image upload
                 $avatar   = $this->request->getFile('gambar');
                 $namabaru = str_replace(' ', '-', $avatar->getName());
-                $avatar->move(WRITEPATH . '../assets/upload/image/', $namabaru);
+                $avatar->move('../assets/upload/image/', $namabaru);
+                // Create gambar flayer
+                $flayer = \Config\Services::image()
+                    ->withFile('../assets/upload/image/' . $namabaru)
+                    ->fit(1200, 600, 'center')
+                    ->save('../assets/upload/image/flayer/' . $namabaru);
+                
                 // Create thumb
                 $image = \Config\Services::image()
-                    ->withFile(WRITEPATH . '../assets/upload/image/' . $namabaru)
+                    ->withFile('../assets/upload/image/' . $namabaru)
                     ->fit(100, 100, 'center')
-                    ->save(WRITEPATH . '../assets/upload/image/thumbs/' . $namabaru);
+                    ->save('../assets/upload/image/thumbs/' . $namabaru);
                 // masuk database
                 $data = [
                     'id_galeri'          => $id_galeri,
@@ -131,7 +143,6 @@ class Galeri extends BaseController
                     'status_text'        => $this->request->getVar('status_text'),
                 ];
                 $m_galeri->edit($data);
-
                 return redirect()->to(base_url('admin/galeri'))->with('sukses', 'Data Berhasil di Simpan');
             }
             $data = [
@@ -145,10 +156,8 @@ class Galeri extends BaseController
                 'status_text'        => $this->request->getVar('status_text'),
             ];
             $m_galeri->edit($data);
-
             return redirect()->to(base_url('admin/galeri'))->with('sukses', 'Data Berhasil di Simpan');
         }
-
         $data = ['title'      => 'Edit Galeri: ' . $galeri['judul_galeri'],
             'kategori_galeri' => $kategori_galeri,
             'galeri'          => $galeri,
@@ -156,7 +165,6 @@ class Galeri extends BaseController
         ];
         echo view('admin/layout/wrapper', $data);
     }
-
     // Delete
     public function delete($id_galeri)
     {
@@ -166,7 +174,6 @@ class Galeri extends BaseController
         $m_galeri->delete($data);
         // masuk database
         $this->session->setFlashdata('sukses', 'Data telah dihapus');
-
         return redirect()->to(base_url('admin/galeri'));
     }
 }

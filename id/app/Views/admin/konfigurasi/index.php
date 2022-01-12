@@ -32,19 +32,19 @@ echo csrf_field();
 	</div>
 </div>
 
-<h4>Informasi Profil Website/Aplikasi</h4>
+<h4>Profil Website</h4>
 <hr>
 <div class="form-group row">
-	<label class="col-3">Tentang Website</label>
+	<label class="col-3">Tentang Kami</label>
 	<div class="col-9">
 		<textarea name="tentang" class="form-control konten" rows="10"><?= $konfigurasi['tentang'] ?></textarea>
 	</div>
 </div>
 
 <div class="form-group row">
-	<label class="col-3">Deskripsi Ringkas</label>
+	<label class="col-3">Sejarah Singkat</label>
 	<div class="col-9">
-		<textarea name="deskripsi" class="form-control"><?= $konfigurasi['deskripsi'] ?></textarea>
+		<textarea name="deskripsi" class="form-control sejarah" rows="10"><?= $konfigurasi['deskripsi'] ?></textarea>
 	</div>
 </div>
 

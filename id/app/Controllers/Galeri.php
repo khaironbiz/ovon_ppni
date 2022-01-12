@@ -15,12 +15,13 @@ class Galeri extends BaseController
         $konfigurasi   = $m_konfigurasi->listing();
         $galeri        = $m_galeri->galeri();
 
-        $data = ['title'  => 'Galeri Gambar',
-            'description' => 'Galeri Gambar ' . $konfigurasi['namaweb'] . ', ' . $konfigurasi['tentang'],
-            'keywords'    => 'Galeri Gambar ' . $konfigurasi['namaweb'] . ', ' . $konfigurasi['keywords'],
-            'galeri'      => $galeri,
-            'konfigurasi' => $konfigurasi,
-            'content'     => 'galeri/index',
+        $data = [
+            'title'         => 'Galeri',
+            'description'   => 'Galeri ' . $konfigurasi['namaweb'] . ', ' . $konfigurasi['tentang'],
+            'keywords'      => 'Galeri ' . $konfigurasi['namaweb'] . ', ' . $konfigurasi['keywords'],
+            'galeri'        => $galeri,
+            'konfigurasi'   => $konfigurasi,
+            'content'       => 'galeri/index',
         ];
         echo view('layout/wrapper', $data);
     }

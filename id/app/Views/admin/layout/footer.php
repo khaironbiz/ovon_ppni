@@ -15,7 +15,6 @@ $awal      = $sek - 100;
     dateFormat: "dd-mm-yy",
     yearRange: "<?= $awal ?>:<?php $tahundepan = date('Y') + 2; echo $tahundepan; ?>"
   });
-
   $( ".tanggal" ).datepicker({
     inline: true,
     changeYear: true,
@@ -23,7 +22,6 @@ $awal      = $sek - 100;
     dateFormat: "dd-mm-yy",
     yearRange: "<?= $awal ?>:<?php $tahundepan = date('Y') + 2; echo $tahundepan; ?>"
   });
-
   $( ".tanggalan" ).datepicker({
     inline: true,
     changeYear: true,
@@ -31,7 +29,6 @@ $awal      = $sek - 100;
     dateFormat: "dd-mm-yy",
     yearRange: "<?= $awal ?>:<?php $tahundepan = date('Y') + 2; echo $tahundepan; ?>"
   });
-
 </script>
 <!-- SWEETALERT -->
 <?php if ($session->getFlashdata('sukses')) { ?>
@@ -39,19 +36,16 @@ $awal      = $sek - 100;
   swal("Berhasil", "<?= $session->getFlashdata('sukses'); ?>","success")
 </script>
 <?php } ?>
-
 <?php if (isset($error)) { ?>
 <script>
   swal("Oops...", "<?= strip_tags($error); ?>","warning")
 </script>
 <?php } ?>
-
 <?php if ($session->getFlashdata('warning')) { ?>
 <script>
   swal("Oops...", "<?= $session->getFlashdata('warning'); ?>","warning")
 </script>
 <?php } ?>
-
 <script>
 // Sweet alert
 function confirmation(ev) {
@@ -73,7 +67,6 @@ swal({
   }
 });
 }
-
 // Kirim ulang
 function kirim(ev) {
 ev.preventDefault();
@@ -115,11 +108,21 @@ swal({
   }
 });
 }
-
 // Tinymce
-
 tinymce.init({
   selector: '.konten',
+  menubar: true,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table paste code help wordcount'
+  ],
+  toolbar: 'undo redo | formatselect | bold italic strikethrough forecolor backcolor | link image | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat code',
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+// Tinymce
+tinymce.init({
+  selector: '.sejarah',
   menubar: true,
   plugins: [
     'advlist autolink lists link image charmap print preview anchor',

@@ -18,7 +18,7 @@
                   <?php foreach ($berita as $berita) { ?>
                   <div class="col-md-6 mb-1">
                     <div class="card">
-                      <img src="<?= base_url('assets/upload/image/' . $berita['gambar']) ?>">
+                      <img src="<?= base_url('assets/upload/image/flayer/' . $berita['gambar']) ?>">
                       <div class="card-header">
                       
                           <?= $berita['judul_berita'] ?>
