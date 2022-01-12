@@ -221,6 +221,7 @@ class Berita extends BaseController
             $m_berita->edit($data);
             return redirect()->to(base_url('admin/berita/jenis_berita/' . $this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
         }
+        
         $data = [
             'title'     => 'Edit Berita: ' . $berita['judul_berita'],
             'kategori'  => $kategori,
