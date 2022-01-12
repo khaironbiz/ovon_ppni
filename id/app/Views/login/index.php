@@ -35,13 +35,13 @@ $site        = $konfigurasi->listing();
     <div class="card-body login-card-body">
       <div class="login-logo">
         <div class="row justify-content-center">
-          <div class="col-md-3">
+          <div class="col-md-8">
             <img src="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" class="img img-fluid">
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
           <p class="login-box-msg">Masukkan username dan password</p>
         </div>
       </div>

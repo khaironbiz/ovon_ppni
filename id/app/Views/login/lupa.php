@@ -39,20 +39,20 @@ $site        = $konfigurasi->listing();
     <div class="card-body login-card-body">
       <div class="login-logo">
         <div class="row justify-content-center">
-          <div class="col-md-3">
+          <div class="col-md-10">
             <img src="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" class="img img-fluid">
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-10">
           <p class="login-box-msg">Masukkan Email Anda</p>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-md-10">
           <?= '<span class="text-danger">' . \Config\Services::validation()->listErrors() . '</span>'; ?>
-          <?= form_open(base_url('login')); ?>
+          <?= form_open(base_url('login/reset-password')); ?>
           <?= csrf_field() ?>
           <div class="input-group mb-3">
             <input type="text" name="username" class="form-control" placeholder="Email">
@@ -65,13 +65,13 @@ $site        = $konfigurasi->listing();
         </div>
         
         <div class="col-md-10">
-          <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
         </div>
       </div>
       <?= form_close(); ?>
       <hr>
       <p class="mb-1 text-center">
-        <a href="<?= base_url('login/lupa') ?>">Lupa Password?</a> | <a href="<?= base_url() ?>" class="text-center">Home</a>
+        <a href="<?= base_url('login') ?>">Sign In</a> | <a href="<?= base_url() ?>" class="text-center">Home</a>
       </p>
     </div>
     <!-- /.login-card-body -->

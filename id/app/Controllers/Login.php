@@ -19,7 +19,7 @@ class Login extends BaseController
         // Start validasi
         if ($this->request->getMethod() === 'post' && $this->validate(
             [
-                'username' => 'required|min_length[3]',
+                'username' => 'required|valid_email',
                 'password' => 'required|min_length[3]',
             ]
         )) {
@@ -34,29 +34,32 @@ class Login extends BaseController
                 $nama_pengirim  = 'One Village One Nurse';
                 $subject        = "Login Success";
                 $ip             = $_SERVER['REMOTE_ADDR'];
+                $perangkat      = $_SERVER['HTTP_USER_AGENT'];
+                
                 $waktu_login    = date('d-m-Y H:i:s');
                 $to             = $user['email'];
-                $pesan          = ' 
+                $pesan          = " 
                 <h3>Login Success</h3> 
                 <p>Selamat anda telah sukses login, jika anda tidak merasa login silahkan ganti password anda atau hubungi admin : Khairon 081213798746.</p> 
                 <table>
                     <tr>
                         <td>IP Login</td>
                         <td>:</td>
-                        <td>'.$ip.'</td>
+                        <td>$ip</td>
                     </tr>
                     <tr>
                         <td>Waktu Login</td>
                         <td>:</td>
-                        <td>'.$waktu_login.'</td>
+                        <td>$waktu_login</td>
                     </tr>
+                    
                 </table>
                 
                 <p>One Village One Nurse Administrator</p>
 
                 <b>-----------------------------------------------------------</b>
                 <p>Ini adalah email server mohon tidak membalas email ini</p>
-                '; 
+                "; 
 
                 //send email
                 $email = \Config\Services::email();
@@ -101,6 +104,73 @@ class Login extends BaseController
                 'session'       => $session,
         ];
         echo view('login/lupa', $data);
+    }
+    
+    //reset password
+    public function reset_password(){
+        $session       = \Config\Services::session();
+        $m_konfigurasi = new Konfigurasi_model();
+        $m_user        = new User_model();
+        $konfigurasi   = $m_konfigurasi->listing();
+        // Start validasi
+        if ($this->request->getMethod() === 'post' && $this->validate(
+            [
+                'username' => 'required|valid_email',
+            ]
+        )) {
+            $username = $this->request->getPost('username');
+            $password = $this->request->getPost('password');
+            $user     = $m_user->login($username, $password);
+            // Proses login
+            if ($user) {
+                // Jika username password benar
+                //kirim email
+                $email_pengirim = 'khairon.yt@gmail.com';
+                $nama_pengirim  = 'One Village One Nurse';
+                $subject        = "Login Success";
+                $ip             = $_SERVER['REMOTE_ADDR'];
+                $perangkat      = $_SERVER['HTTP_USER_AGENT'];
+                $waktu_login    = date('d-m-Y H:i:s');
+                $to             = $user['email'];
+                $pesan          = " 
+                <h3>Login Success</h3> 
+                <p>Selamat anda telah sukses login, jika anda tidak merasa login silahkan ganti password anda atau hubungi admin : Khairon 081213798746.</p> 
+                <table>
+                    <tr>
+                        <td>IP Login</td>
+                        <td>:</td>
+                        <td>$ip</td>
+                    </tr>
+                    <tr>
+                        <td>Waktu Login</td>
+                        <td>:</td>
+                        <td>$waktu_login</td>
+                    </tr>
+                    
+                </table>
+                
+                <p>One Village One Nurse Administrator</p>
+
+                <b>-----------------------------------------------------------</b>
+                <p>Ini adalah email server mohon tidak membalas email ini</p>
+                "; 
+
+                //send email
+                $email = \Config\Services::email();
+                $email->setFrom($email_pengirim, $nama_pengirim);
+                $email->setTo($to);
+                $email->setSubject($subject);
+                $email->setMessage($pesan);
+                $email->send(); 
+                //create session
+                $this->session->set('username', $username);
+                $this->session->set('id_user', $user['id_user']);
+                $this->session->set('akses_level', $user['akses_level']);
+                $this->session->set('nama', $user['user_nama']);
+                $this->session->setFlashdata('sukses', 'Hai ' . $user['nama'] . ', Anda berhasil login');
+                return redirect()->to(base_url('login/reset'));
+            }
+        }
     }
     // Logout
     public function logout()
