@@ -35,12 +35,9 @@ $site        = $konfigurasi->listing();
       </li>
       <li class="nav-item">
         <a href="<?= base_url('admin/akun') ?>" class="nav-link">
-          <i class="fa fa-user"></i> <?= $session->get('nama') ?> (<?= $session->get('akses_level') ?>)</a>
+          <i class="fa fa-user"></i> <?= $session->get('nama') ?></a>
       </li>
-      <li class="nav-item">
-        <a href="<?= base_url('login/logout') ?>" class="nav-link text-danger">
-          <i class="fa fa-sign-out-alt"></i> Logout</a>
-      </li>
+      
     </ul>
   </nav>
   <!-- /.navbar -->
