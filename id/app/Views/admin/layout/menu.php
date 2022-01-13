@@ -17,7 +17,6 @@ $site        = $konfigurasi->listing();
       <img src="<?= base_url('assets/upload/image/thumbs/' . $site['icon']) ?>" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light"><?= $site['singkatan'] ?></span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -29,7 +28,6 @@ $site        = $konfigurasi->listing();
           <a href="<?= base_url('admin/akun') ?>" class="d-block"><?= $session->get('nama') ?></a>
         </div>
       </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
