@@ -17,6 +17,11 @@ class Send_email extends BaseController
         $email->setTo('khaironbiz@gmail.com');
         $email->setSubject('Email Test');
         $email->setMessage('Testing the email class.');
-        $email->send();
+        $send = $email->send();
+        if($send){
+            echo "Sukses Kirim email";
+        }else{
+            echo "Gagal Kirim Email";
+        }
     }
 }
