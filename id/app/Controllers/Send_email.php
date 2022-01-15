@@ -9,6 +9,7 @@ use App\Models\Konfigurasi_model;
 
 class Send_email extends BaseController
 {
+    
     // Homepage
     public function index()
     {
@@ -19,9 +20,9 @@ class Send_email extends BaseController
         $email->setMessage('Testing the email class.');
         $send = $email->send();
         if($send){
-            echo "Sukses Kirim email";
+            echo "Sukses Kirim email by khairon";
         }else{
-            echo "Gagal Kirim Email";
+            echo "Gagal Kirim Email by khairon";
         }
     }
 }
