@@ -9,12 +9,12 @@ class Email extends BaseConfig
     /**
      * @var string
      */
-    public $fromEmail;
+    public $fromEmail = 'khairon.yt@gmail.com';
 
     /**
      * @var string
      */
-    public $fromName;
+    public $fromName = 'khairon';
 
     /**
      * @var string
@@ -75,7 +75,7 @@ class Email extends BaseConfig
      *
      * @var int
      */
-    public $SMTPTimeout = 5;
+    public $SMTPTimeout = 15;
 
     /**
      * Enable persistent SMTP connections
