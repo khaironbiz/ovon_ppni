@@ -91,47 +91,15 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div class="card-body">
-                                <div>Vektor</div>
-                                <div class="row">
-                                    <div class="col-sm-2">Jentik</div>
-                                    <div class="col-sm-2">:</div>
-                                        
-                                    <div class="col-sm-2">Tikus</div>
-                                    <div class="col-sm-2">:</div>
-                                    <div class="col-sm-2">Kecoa</div>
-                                    <div class="col-sm-2">:</div>
+                            <div class="card-body row">
+                                <div class="col-md-4">
+                                    <label>Vektor</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-2">Cicak</div>
-                                    <div class="col-sm-2">:</div>
-                                        
-                                    <div class="col-sm-2">Lalat</div>
-                                    <div class="col-sm-2">:</div>
+                                <div class="col-md-4">
+                                    <label>Hewan Berbahaya</label>
                                 </div>
-                                <div>Hewan Peliharaan</div>
-                                <div class="row">
-                                    <div class="col-sm-2">Anjing</div>
-                                    <div class="col-sm-2">:</div>
-                                        
-                                    <div class="col-sm-2">Kucing</div>
-                                    <div class="col-sm-2">:</div>
-                                    <div class="col-sm-2">Burung</div>
-                                    <div class="col-sm-2">:</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-2">Ayam/bebek/entok</div>
-                                    <div class="col-sm-2">:</div>
-                                    <div class="col-sm-2">Binatang lain</div>
-                                    <div class="col-sm-2">:</div>
-                                </div>
-                                <div>Hewan Berbahaya</div>
-                                <div class="row">
-                                    <div class="col-sm-2">Ular</div>
-                                    <div class="col-sm-2">:</div>
-                                    <div class="col-sm-2">Biawak</div>
-                                    <div class="col-sm-2">:</div>
-                                    
+                                <div class="col-md-4">
+                                    <label>Hewan Peliharaan</label>
                                 </div>
                             </div>
                         </div>
