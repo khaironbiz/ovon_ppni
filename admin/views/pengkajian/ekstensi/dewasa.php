@@ -85,44 +85,49 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-5">Berat Badan</div>
-                    <div class="col-7">: 76 Kg</div>
+                    <div class="col-7">: <?= $data_anggota['berat_badan']?> Kg</div>
                 </div>
                 <div class="row">
                     <div class="col-5">Tinggi</div>
-                    <div class="col-7">: 76 Kg</div>
+                    <div class="col-7">: <?= $data_anggota['tinggi_badan']?> Kg</div>
                 </div>
                 <div class="row">
                     <div class="col-5">IMT</div>
-                    <div class="col-7">: </div>
+                    <?php
+                        $tb     = $data_anggota['tinggi_badan']/100;
+                        $bb     = $data_anggota['berat_badan'];
+                        $imt    = $bb/($tb*$tb);
+                    ?>
+                    <div class="col-7">: <?= round($imt,2) ?> <b>(<?= imt($imt)?>)</b></div>
                 </div>
                 <div class="row">
                     <div class="col-5">Tekanan Darah</div>
-                    <div class="col-7">: 135/85 mmHg</div>
+                    <div class="col-7">: <?= $data_anggota['sistolik']?> / <?= $data_anggota['diastolik']?> mmHg</div>
                 </div>
                 <div class="row">
                     <div class="col-5">Nadi</div>
-                    <div class="col-7">: 86 x/menit</div>
+                    <div class="col-7">: <?= $data_anggota['nadi']?> x/menit</div>
                 </div>
                 <div class="row">
                     <div class="col-5">Respirasi</div>
-                    <div class="col-7">: 18 x/menit</div>
+                    <div class="col-7">: <?= $data_anggota['nafas']?> x/menit</div>
                 </div>
                 <label>Laboratorium</label>
                 <div class="row">
                     <div class="col-5">HB</div>
-                    <div class="col-7">: 12 mg/dL</div>
+                    <div class="col-7">: <?= $data_anggota['hb']?> mg/dL</div>
                 </div>
                 <div class="row">
                     <div class="col-5">Gula Darah</div>
-                    <div class="col-7">: 125 mg/dL</div>
+                    <div class="col-7">: <?= $data_anggota['gula_darah']?> mg/dL</div>
                 </div>
                 <div class="row">
                     <div class="col-5">Cholesterol</div>
-                    <div class="col-7">: 150 mg/dL</div>
+                    <div class="col-7">: <?= $data_anggota['cholesterol']?> mg/dL</div>
                 </div>
                 <div class="row">
                     <div class="col-5">Asam Urat</div>
-                    <div class="col-7">:  mg/dL</div>
+                    <div class="col-7">:  <?= $data_anggota['asam_urat']?> mg/dL</div>
                 </div>
                 <label>Riwayat Penyakit</label>
                 <div class="row">
@@ -130,10 +135,28 @@
                     $no=1;
                     $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
                                         while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                    $id_penyakit    = $data_jawaban['id_master_jawaban'];
+                    $id_anggota     = $data_anggota['id_keluarga_anggota'];
+                    $sql_riwayat    = mysqli_query($host,"SELECT * FROM riwayat_penyakit WHERE
+                                        id_keluarga_anggota     = '$id_anggota' AND 
+                                        id_penyakit             = '$id_penyakit' ");
+                    $count_penyakit = mysqli_num_rows($sql_riwayat);
                     ?>
                         <div class="form-check form-check-inline">
+                            <?php
+                            if($count_penyakit <1){
+                            ?>
                             <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
                             <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                            <?php
+                            }else{
+                            ?>
+                            <input class="form-check-input" type="checkbox" checked>
+                            <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                            <?php
+                            }
+                            ?>
+                            
                     </div>
                     <?php
                     }
@@ -159,88 +182,83 @@
                 <label>Olah Raga</label>
                 <div class="row mb-1">
                     <div class="col-5">Frekwensi</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['olah_raga_frekwensi'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Durasi</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['olah_raga_durasi'])?>
                             
                     </div>
                 </div>
                 <label>Pola Makan</label>
                 <div class="row mb-1">
                     <div class="col-5">Frekwensi</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['makan_frekwensi'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Porsi</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['makan_porsi'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Makan Sayuran</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['makanan_sayur'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Makan Buah</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['makanan_buah'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Lauk Tersering</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['makanan_lauk'])?>
                             
                     </div>
                 </div>
                 <label>Pola Tidur</label>
-                <div class="row mb-1">
-                    <div class="col-5">Frekwensi</div>
-                    <div class="col-7">: 
-                            
-                    </div>
-                </div>
+                
                 <div class="row mb-1">
                     <div class="col-5">Durasi</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['tidur_durasi'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Kualitas Tidur</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['tidur_kualitas'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Gangguan Tidur</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['tidur_gangguan'])?>
                             
                     </div>
                 </div>
                 <label>Kebiasaan Buruk</label>
                 <div class="row mb-1">
                     <div class="col-5">Kebiasaan Merokok</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['rokok_kebiasaan'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Jenis Rokok</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['rokok_jenis'])?>
                             
                     </div>
                 </div>
                 <div class="row mb-1">
                     <div class="col-5">Minuman Alkohol</div>
-                    <div class="col-7">: 
+                    <div class="col-7">: <?= master_jawaban($data_anggota['alkohol_kebiasaan'])?>
                             
                     </div>
                 </div>
@@ -250,10 +268,27 @@
                     $no=1;
                     $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                    $id_penyakit    = $data_jawaban['id_master_jawaban'];
+                    $id_anggota     = $data_anggota['id_keluarga_anggota'];
+                    $sql_sakit      = mysqli_query($host,"SELECT * FROM keluarga_penyakit WHERE
+                                        id_keluarga_anggota     = '$id_anggota' AND 
+                                        id_penyakit             = '$id_penyakit' ");
+                    $count_sakit    = mysqli_num_rows($sql_sakit);
                     ?>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>" readonly>
-                        <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                        <?php
+                            if($count_sakit <1){
+                            ?>
+                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban'];?>">
+                            <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                            <?php
+                            }else{
+                            ?>
+                            <input class="form-check-input" type="checkbox" checked>
+                            <label class="form-check-label"><?= $data_jawaban['master_jawaban'];?></label>
+                            <?php
+                            }
+                            ?>
                     </div>
                     <?php
                     }
@@ -261,7 +296,7 @@
                 </div>
                 <label>Keluhan Saat Ini</label>
                 <div class="row">
-                    <textarea class="form-control" rows="2"></textarea>
+                    <textarea class="form-control" rows="2"><?= $data_anggota['keluhan'];?></textarea>
                 </div>
             </div>
         </div>

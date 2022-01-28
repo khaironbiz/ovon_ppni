@@ -3,9 +3,10 @@ include('site.php');
 date_default_timezone_set("Asia/Jakarta");
 //koneksi ke local
 if($db ==1){
-    $host = mysqli_connect("localhost", "root", "", "ovon");
+    //$host = mysqli_connect("localhost", "root", "", "ovon");
+    $host = mysqli_connect("103.16.133.234", "phpmyadmin", "inifgrup", "khairon");
 }else{
-    $host = mysqli_connect("153.92.7.151", "u487816097_ovon", "@Sql250909#", "u487816097_ovon");
+    $host = mysqli_connect("103.16.133.234", "phpmyadmin", "inifgrup", "khairon");
 }
 
 //koneksi ke hosting
