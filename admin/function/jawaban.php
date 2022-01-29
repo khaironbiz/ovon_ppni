@@ -1,9 +1,14 @@
 <?php
 function master_jawaban($id_master_jawaban){
    include('../auth/koneksi.php');
-   $sql_jawaban      = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_jawaban = '$id_master_jawaban'");
-   $data_jawaban     = mysqli_fetch_array($sql_jawaban);
-   $master_jawaban   = $data_jawaban['master_jawaban'];
+   if($id_master_jawaban>0){
+      $sql_jawaban      = mysqli_query($host,"SELECT * FROM master_jawaban WHERE id_master_jawaban = '$id_master_jawaban'");
+      $data_jawaban     = mysqli_fetch_array($sql_jawaban);
+      $master_jawaban   = $data_jawaban['master_jawaban'];
+   }else{
+      $master_jawaban   = "NULL";
+   }
+   
    return $master_jawaban;
 }
 function count_jawaban($id_master_jawaban){

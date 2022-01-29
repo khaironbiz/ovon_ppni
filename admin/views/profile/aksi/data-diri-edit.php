@@ -3,6 +3,7 @@ if(isset($_POST['edit_biodata'])){
 $nama       = $_POST['nama'];
 $nik        = $_POST['nik'];
 $email      = $_POST['email'];
+$nira       = $_POST['nira'];
 $hp         = $_POST['hp'];
 $hari_ini   = date('Y-m-d H:i:s');
 $sql_nik    = mysqli_query($host,"SELECT * FROM users WHERE nik='$nik'");
@@ -13,6 +14,7 @@ if(!empty($nik)){
                             nik         = '$nik',
                             email       = '$email',
                             updated_at  = '$hari_ini',
+                            nira        = '$nira',
                             hp          = '$hp' WHERE id_user ='$user_check'");
     if($update_data){
         $_SESSION['status']="Data berhasil disimpan";

@@ -42,7 +42,7 @@
                     <div class="form-group row">
                         <label for="inputPassword3" class="col-sm-3 col-form-label">NIRA</label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control" name="hp" value="<?= $data_pengguna['nira']?>">
+                            <input type="number" class="form-control" name="nira" value="<?= $data_pengguna['nira']?>">
                         </div>
                     </div>
                 </div>

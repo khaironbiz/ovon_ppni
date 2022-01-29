@@ -27,6 +27,13 @@ function desa($id_desa){
     $desa       = $data['nama_desa'];
     return $desa;
 }
+function rw($id_rw){
+    include('../auth/koneksi.php');
+    $sql        = mysqli_query($host,"SELECT * FROM rw WHERE id_rw = '$id_rw'");
+    $data       = mysqli_fetch_array($sql);
+    $data_rw    = $data['nama_rw'];
+    return $data_rw;
+}
 // $id_desa   = 1101012001;
 // echo desa($id_desa)
 ?>

@@ -2,6 +2,13 @@
 include("../auth/session.php");
 include("../function/jawaban.php");
 if(isset($_GET['key'])){
+    if(isset($_GET['kunjungan'])){
+        $has_kunjungan_keluarga = $_GET['kunjungan'];
+        $sql_kunjungan          = mysqli_query($host,"SELECT * FROM kunjungan_keluarga WHERE
+                                    has_kunjungan_keluarga   = '$has_kunjungan_keluarga' ");
+        $data_kunjungan         = mysqli_fetch_array($sql_kunjungan);
+        
+    }
     $key            = $_GET['key'];
     $sql_keluarga   = mysqli_query($host,"SELECT * FROM keluarga WHERE key_keluarga='$key'");
     $count_keluarga = mysqli_num_rows($sql_keluarga);

@@ -1,4 +1,12 @@
                         <div class="card">
+                            <div class="card-header row">
+                                <div class="col-6">Data Dasar</div>
+                                <div class="col-6 text-right">
+                                    <?php
+                                    require_once __DIR__ . "./../modal/keluarga/data-dasar.php";
+                                    ?>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-2">Nama</div>
@@ -34,8 +42,13 @@
                         </div>
                         
                         <div class="card">
-                            <div class="card-header">
-                                <div>Rumah</div>
+                            <div class="card-header row">
+                                <div class="col-6">Rumah</div>
+                                <div class="col-6 text-right">
+                                    <?php
+                                    require_once __DIR__ . "./../modal/keluarga/rumah.php";
+                                    ?>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="row">

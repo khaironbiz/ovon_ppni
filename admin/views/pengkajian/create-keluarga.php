@@ -17,9 +17,10 @@
                 ?>
                 <div class="card">
                     <div class="card-header bg-dark">
-                        Pengkajian Keluarga
+                        Pengkajian Keluarga <label><?= $data_kunjungan['tgl_kunjungan']?></label>
                     </div>
                     <div class="card-body">
+                        
                         <?php
                             // include('aksi/keluarga/create.php');
                             include('ekstensi/keluarga.php');
