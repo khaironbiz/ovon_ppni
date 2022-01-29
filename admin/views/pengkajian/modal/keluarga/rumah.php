@@ -329,11 +329,11 @@ if(isset($_POST['edit_keluarga'])){
     if($update_keluarga){
         $_SESSION['status']="Data Sukses Disimpan";
         $_SESSION['status_info']="success";
-        echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&pengkajian=$key_kunjungan\"</script>";
+        echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&kunjungan=$key_kunjungan\"</script>";
     }else{
         $_SESSION['status']="Data Gagal Disimpan";
         $_SESSION['status_info']="danger";
-        echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&pengkajian=$key_kunjungan\"</script>";
+        echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&kunjungan=$key_kunjungan\"</script>";
     }
     
 }
