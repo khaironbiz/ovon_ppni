@@ -1,7 +1,6 @@
 <?php
 include("../auth/session.php");
-include("../function/jawaban.php");
-include("../function/usia.php");
+include("../function/function.php");
 if(isset($_GET['key'])){
     $key            = $_GET['key'];
     $sql_anggota    = mysqli_query($host,"SELECT * FROM keluarga_anggota WHERE has_keluarga_anggota='$key'");
