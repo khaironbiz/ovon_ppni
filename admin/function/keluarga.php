@@ -13,5 +13,12 @@ function nama_keluarga($key_keluarga){
     $master_keluarga   = $data_keluarga['nama_keluarga'];
     return $master_keluarga;
 }
+function kepala_keluarga($nik){
+    include('../auth/koneksi.php');
+    $sql_keluarga      = mysqli_query($host,"SELECT * FROM keluarga_anggota WHERE nik = '$nik'");
+    $data_keluarga     = mysqli_fetch_array($sql_keluarga);
+    $master_keluarga   = $data_keluarga['nama_anggota'];
+    return $master_keluarga;
+}
 
 ?>

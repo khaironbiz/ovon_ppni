@@ -21,7 +21,7 @@
                     <div class="row mb-1">
                         <div class="col-md-5">Luas Rumah</div>
                         <div class="col-md-7">
-                            <input type="hidden" name= "edit_keluarga" class="form-control form-control-sm" value="<?= $_GET['key'];?>">
+                            <input type="hidden" name= "edit_keluarga_rumah" class="form-control form-control-sm" value="<?= $_GET['key'];?>">
                             <input type="hidden" name= "key_kunjungan" class="form-control form-control-sm" value="<?= $_GET['kunjungan'];?>">
                             <div class="input-group">
                                 <input type="text" name= "luas_rumah" class="form-control form-control-sm" value="<?= $data_keluarga['luas_rumah'];?>">
@@ -122,6 +122,85 @@
                         </div>
                     </div>
                     <div class="row  mb-1">
+                        <div class="col-md-5">Sumber Air Minum</div>
+                        <div class="col-md-7">
+                            <?php
+                                $air_minum     = master_jawaban($data_keluarga['air_minum'])
+                            ?>
+                            <select class="form-control form-control-sm" required name="air_minum">
+                                <option value="<?= $data_keluarga['air_minum']?>"><?= $air_minum?></option>
+                                <?php
+                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='23' ");
+                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row  mb-1">
+                        <div class="col-md-5">Sumber Air Bersih</div>
+                        <div class="col-md-7">
+                            <?php
+                                $air_bersih     = master_jawaban($data_keluarga['air_bersih'])
+                            ?>
+                            <select class="form-control form-control-sm" required name="air_bersih">
+                                <option value="<?= $data_keluarga['air_bersih']?>"><?= $air_bersih?></option>
+                                <?php
+                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='24' ");
+                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row  mb-1">
+                        <div class="col-md-5">Pengelolaan Sampah</div>
+                        <div class="col-md-7">
+                            <?php
+                                $pengelolaan_sampah     = master_jawaban($data_keluarga['pengelolaan_sampah'])
+                            ?>
+                            <select class="form-control form-control-sm" required name="pengelolaan_sampah">
+                                <option value="<?= $data_keluarga['pengelolaan_sampah']?>"><?= $pengelolaan_sampah?></option>
+                                <?php
+                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='33' ");
+                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row  mb-1">
+                        <div class="col-md-5">Limbah Air</div>
+                        <div class="col-md-7">
+                            <?php
+                                $limbah_air     = master_jawaban($data_keluarga['limbah_air'])
+                            ?>
+                            <select class="form-control form-control-sm" required name="limbah_air">
+                                <option value="<?= $data_keluarga['limbah_air']?>"><?= $limbah_air?></option>
+                                <?php
+                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='32' ");
+                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row  mb-1">
                         <div class="col-md-5">Kepemilikan Jamban</div>
                         <div class="col-md-7">
                             <?php
@@ -181,89 +260,14 @@
                             
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row  mb-1">
-                        <div class="col-md-5">Sumber Air Minum</div>
-                        <div class="col-md-7">
-                            <?php
-                                $air_minum     = master_jawaban($data_keluarga['air_minum'])
-                            ?>
-                            <select class="form-control form-control-sm" required name="air_minum">
-                                <option value="<?= $data_keluarga['air_minum']?>"><?= $air_minum?></option>
-                                <?php
-                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='23' ");
-                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                                ?>
-                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row  mb-1">
-                        <div class="col-md-5">Sumber Air Bersih</div>
-                        <div class="col-md-7">
-                            <?php
-                                $air_bersih     = master_jawaban($data_keluarga['air_bersih'])
-                            ?>
-                            <select class="form-control form-control-sm" required name="air_bersih">
-                                <option value="<?= $data_keluarga['air_bersih']?>"><?= $air_bersih?></option>
-                                <?php
-                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='24' ");
-                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                                ?>
-                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row  mb-1">
-                        <div class="col-md-5">Pengelolaan Sampah</div>
-                        <div class="col-md-7">
-                            <?php
-                                $pengelolaan_sampah     = master_jawaban($data_keluarga['pengelolaan_sampah'])
-                            ?>
-                            <select class="form-control form-control-sm" required name="pengelolaan_sampah">
-                                <option value="<?= $data_keluarga['pengelolaan_sampah']?>"><?= $pengelolaan_sampah?></option>
-                                <?php
-                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='33' ");
-                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                                ?>
-                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row  mb-1">
-                        <div class="col-md-5">Limbah Air</div>
-                        <div class="col-md-7">
-                            <?php
-                                $limbah_air     = master_jawaban($data_keluarga['limbah_air'])
-                            ?>
-                            <select class="form-control form-control-sm" required name="limbah_air">
-                                <option value="<?= $data_keluarga['limbah_air']?>"><?= $limbah_air?></option>
-                                <?php
-                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='32' ");
-                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                                ?>
-                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
+                    <div class="row mb-1">
+                        <label>Produksi Sampah</label>
                     </div>
                     <div class="row  mb-1">
                         <div class="col-md-5">Sampah Organik</div>
                         <div class="col-md-7">
                             <div class="input-group">
-                                <input type="text" class="form-control form-control-sm" >
+                                <input type="text" class="form-control form-control-sm" name="sampah_basah" value="<?= $data_keluarga['sampah_basah']?>">
                                 <div class="input-group-prepend">
                                     <div class="form-control form-control-sm">Kg/Hari</div>
                                 </div>
@@ -274,7 +278,7 @@
                         <div class="col-md-5">Sampah Plastik</div>
                         <div class="col-md-7">
                             <div class="input-group">
-                                <input type="text" class="form-control form-control-sm" >
+                                <input type="text" class="form-control form-control-sm" name="sampah_plastik" value="<?= $data_keluarga['sampah_plastik']?>">
                                 <div class="input-group-prepend">
                                     <div class="form-control form-control-sm">Kg/Hari</div>
                                 </div>
@@ -293,8 +297,8 @@
     </div>
 </div>
 <?php
-if(isset($_POST['edit_keluarga'])){
-    $key_keluarga       = $_POST['edit_keluarga'];
+if(isset($_POST['edit_keluarga_rumah'])){
+    $key_keluarga       = $_POST['edit_keluarga_rumah'];
     $key_kunjungan      = $_POST['key_kunjungan'];
     $luas_rumah         = $_POST['luas_rumah'];
     $lantai_rumah       = $_POST['lantai_rumah'];
@@ -305,6 +309,7 @@ if(isset($_POST['edit_keluarga'])){
     $air_minum          = $_POST['air_minum'];
     $air_bersih         = $_POST['air_bersih'];
     $pengelolaan_sampah = $_POST['pengelolaan_sampah'];
+    $limbah_air         = $_POST['limbah_air'];
     $sampah_basah       = $_POST['sampah_basah'];
     $sampah_plastik     = $_POST['sampah_plastik'];
     $kepemilikan_jamban = $_POST['kepemilikan_jamban'];
@@ -320,6 +325,7 @@ if(isset($_POST['edit_keluarga'])){
                         air_minum               = '$air_minum',
                         air_bersih              = '$air_bersih',
                         pengelolaan_sampah      = '$pengelolaan_sampah',
+                        limbah_air              = '$limbah_air',
                         sampah_basah            = '$sampah_basah',
                         sampah_plastik          = '$sampah_plastik',
                         kepemilikan_jamban      = '$kepemilikan_jamban',

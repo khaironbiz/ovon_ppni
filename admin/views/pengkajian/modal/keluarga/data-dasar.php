@@ -18,64 +18,30 @@
             <div class="row">
                 <div class="col-md-6">
                     <label>Data Kepala Keluarga</label>
-                    <div class="row mb-1">
-                        <div class="col-md-4">Nama</div>
-                        <div class="col-md-8">
-                            <input type="text" name= "nama_anggota" class="form-control form-control-sm" value="<?= $data_anggota['nama_anggota'];?>">
-                        </div>
-                    </div>
                     <div class="row  mb-1">
-                    <div class="col-md-4">Jenis Kelamin</div>
+                    <div class="col-md-4">Kepala Keluarga</div>
                     <div class="col-md-8">
                             <?php
-                                $jenis_kelamin     = master_jawaban($data_anggota['jenis_kelamin'])
+                                $id_kepala_keluarga     = kepala_keluarga($data_keluarga['id_kepala_keluarga']);
+                                $key_keluarga           = $data_keluarga['key_keluarga']
                             ?>
-                            <select class="form-control form-control-sm" required name="jenis_keluarga">
-                                <option value="<?= $data_anggota['jenis_kelamin']?>"><?= $jenis_kelamin?></option>
+                            <select class="form-control form-control-sm" required name="id_kepala_keluarga">
+                                <option value="<?= $data_keluarga['id_kepala_keluarga']?>"><?= $id_kepala_keluarga?></option>
                                 <?php
-                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='3' ");
-                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                $cari_anggota = mysqli_query($host, "SELECT * FROM keluarga_anggota WHERE key_keluarga='$key_keluarga' ");
+                                while($data_jawaban = mysqli_fetch_array($cari_anggota)){
                                 ?>
-                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <option value="<?= $data_jawaban['nik']?>"><?= $data_jawaban['nama_anggota']?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
+                            <input type="hidden" name= "edit_keluarga" class="form-control form-control-sm" value="<?= $_GET['key'];?>">
+                            <input type="hidden" name= "key_kunjungan" class="form-control form-control-sm" value="<?= $_GET['kunjungan'];?>">
                             
                         </div>
                     </div>
-                    <div class="row  mb-1">
-                    <div class="col-md-4">Tanggal Lahir</div>
-                        <div class="col-md-8">
-                            <input type="date" name= "tgl_lahir" class="form-control form-control-sm" value="<?= $data_anggota['tgl_lahir'];?>">
-                        </div>
-                    </div>
-                    <div class="row  mb-1">
-                    <div class="col-md-4">NIK</div>
-                        <div class="col-md-8">
-                            <input type="text" name= "nik" class="form-control form-control-sm" value="<?= $data_anggota['nik'];?>">
-                        </div>
-                    </div>
-                    <div class="row  mb-1">
-                    <div class="col-md-4">Status KTP</div>
-                        <div class="col-md-8">
-                            <?php
-                                $status_ktp     = master_jawaban($data_anggota['status_ktp'])
-                            ?>
-                            <select class="form-control form-control-sm" required name="jenis_keluarga">
-                                <option value="<?= $data_anggota['status_ktp']?>"><?= $status_ktp?></option>
-                                <?php
-                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='79' ");
-                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
-                                ?>
-                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            
-                        </div>
-                    </div>
+                    
                     <div class="row  mb-1">
                     <div class="col-md-4">Nomor KK</div>
                         <div class="col-md-8">
@@ -89,7 +55,7 @@
                             <?php
                                 $jenis_keluarga     = master_jawaban($data_anggota['id_jenis_keluarga'])
                             ?>
-                                <option value=""><?= $data_keluarga['jenis_keluarga']?></option>
+                                <option value="<?= $data_keluarga['jenis_keluarga']?>"><?= master_jawaban($data_keluarga['jenis_keluarga'])?></option>
                                 <?php
                                 $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='18' ");
                                 while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -100,37 +66,77 @@
                                 ?>
                             </select>
                         </div>
+                        
                     </div>
-                </div>
-                <div class="col-md-6">
                     <label>Ekonomi Keluarga</label>
                     <div class="row  mb-1">
                     <div class="col-md-4">Penghasilan</div>
                         <div class="col-md-8">
-                            <input type="text" name= "penghasilan" class="form-control form-control-sm" value="<?= $data_keluarga['penghasilan'];?>">
+                            <input type="number" name= "penghasilan" class="form-control form-control-sm" value="<?= $data_keluarga['penghasilan'];?>">
                         </div>
                     </div>
                     <div class="row  mb-1">
                     <div class="col-md-4">Pengeluaran</div>
                         <div class="col-md-8">
-                            <input type="text" name= "nama_anggota" class="form-control form-control-sm" value="<?= $data_keluarga['pengeluaran'];?>">
+                            <input type="number" name= "pengeluaran" class="form-control form-control-sm" value="<?= $data_keluarga['pengeluaran'];?>">
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6">
                     <label>Alamat</label>
                     <div class="row  mb-1">
-                    <div class="col-md-4">Jalan</div>
+                        <div class="col-md-4">Jalan</div>
                         <div class="col-md-8">
-                            <input type="text" name= "nama_anggota" class="form-control form-control-sm" value="<?= $data_keluarga['alamat'];?>">
+                            <input type="text" name= "alamat" class="form-control form-control-sm" value="<?= $data_keluarga['alamat'];?>">
                         </div>
                     </div>
                     <div class="row  mb-1">
-                    <div class="col-md-4"></div>
+                        <div class="col-md-4">RT / RW</div>
+                            <?php
+                                $rt     = rt($data_keluarga['rt']);
+                                $rw     = rw($data_keluarga['rw']);
+                            ?>
+                            
+                        <div class="col-md-8">
+                            <input type="text" class="form-control form-control-sm" value="<?= $rt."/".$rw?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row  mb-1">
+                        <div class="col-md-4">Desa</div>
+                            <?php
+                                $desa       = desa($data_keluarga['kelurahan']);
+                            ?>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control form-control-sm" value="<?= $desa ?>" readonly>
+                        </div>
+                        
+                    </div>
+                    <div class="row  mb-1">
+                        <div class="col-md-4">Kecamatan</div>
+                            <?php
+                                $kecamatan       = kecamatan($data_keluarga['kecamatan']);
+                            ?>
+                            
+                        <div class="col-md-8">
+                            <input type="text" class="form-control form-control-sm" value="<?= $kecamatan ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row  mb-1">
+                        <div class="col-md-4">Kota</div>
                         <div class="col-md-8">
                             <?php
-                                $nama_rw    = ($data_keluarga['rw']);
-                                $desa    = ($data_keluarga['kelurahan']);
+                                $kota       = kabupaten($data_keluarga['kabupaten']);
                             ?>
-                            RT : RW : <?= $nama_rw; ?>, <?= $data_pengguna['nama_desa']?>,  <?= $data_pengguna['nama_kecamatan']?>, <?= $data_pengguna['nama_kabupaten']?>, <?= $data_pengguna['nama_provinsi']?>
+                            <input type="text" class="form-control form-control-sm" value="<?= $kota ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row  mb-1">
+                        <div class="col-md-4">Provinsi</div>
+                        <div class="col-md-8">
+                            <?php
+                            $provinsi = provinsi($data_keluarga['provinsi']);
+                            ?>
+                            <input type="text" class="form-control form-control-sm" value="<?= $provinsi;?>" readonly>
                         </div>
                     </div>
                     
@@ -150,7 +156,31 @@
 if(isset($_POST['edit_keluarga'])){
     $key_keluarga       = $_POST['edit_keluarga'];
     $key_kunjungan      = $_POST['key_kunjungan'];
-    
+    $id_kepala_keluarga = $_POST['id_kepala_keluarga'];
+    $no_kk              = $_POST['no_kk'];
+    $jenis_keluarga     = $_POST['jenis_keluarga'];
+    $penghasilan        = $_POST['penghasilan'];
+    $pengeluaran        = $_POST['pengeluaran'];
+    $status_ekonomi     = $penghasilan-$pengeluaran;
+    $alamat             = $_POST['alamat'];
+    $update_data        = mysqli_query($host,"UPDATE keluarga SET 
+                        id_kepala_keluarga  = '$id_kepala_keluarga', 
+                        no_kk               = '$no_kk',
+                        jenis_keluarga      = '$jenis_keluarga',
+                        penghasilan         = '$penghasilan',
+                        pengeluaran         = '$pengeluaran',
+                        status_ekonomi      = '$status_ekonomi',
+                        alamat              = '$alamat' WHERE
+                        key_keluarga        = '$key_keluarga'");
+    if($update_data){
+        $_SESSION['status']="Data Sukses Disimpan";
+        $_SESSION['status_info']="success";
+        echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&kunjungan=$key_kunjungan\"</script>";
+    }else{
+        $_SESSION['status']="Data Gagal Disimpan";
+        $_SESSION['status_info']="danger";
+        echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&kunjungan=$key_kunjungan\"</script>";
+    }
 }
 
 

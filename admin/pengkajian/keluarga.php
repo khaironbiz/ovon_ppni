@@ -1,6 +1,12 @@
 <?php
 include("../auth/session.php");
+include("../function/anggota.php");
 include("../function/jawaban.php");
+include("../function/keluarga.php");
+include("../function/soal.php");
+include("../function/user_level.php");
+include("../function/usia.php");
+include("../function/wilayah.php");
 if(isset($_GET['key'])){
     if(isset($_GET['kunjungan'])){
         $has_kunjungan_keluarga = $_GET['kunjungan'];

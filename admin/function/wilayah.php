@@ -34,6 +34,13 @@ function rw($id_rw){
     $data_rw    = $data['nama_rw'];
     return $data_rw;
 }
+function rt($id_rt){
+    include('../auth/koneksi.php');
+    $sql        = mysqli_query($host,"SELECT * FROM rt WHERE id_rt = '$id_rt'");
+    $data       = mysqli_fetch_array($sql);
+    $data_rt    = $data['nama_rt'];
+    return $data_rt;
+}
 // $id_desa   = 1101012001;
 // echo desa($id_desa)
 ?>
