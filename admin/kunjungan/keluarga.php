@@ -11,14 +11,7 @@ if(isset($_GET['key'])){
         $wrapp          = "../core/wrapp.php";
         $content        = "../views/page/not-found.php";
     }else{
-        $data_keluarga  = mysqli_fetch_array($sql_keluarga);
-        $judul          = "Kunjungan Keluarga ".$data_keluarga['nama_keluarga'];
-        $sql_anggota    = mysqli_query($host,"SELECT * FROM keluarga_anggota WHERE key_keluarga='$key' AND id_struktur_keluarga='285'");
-        $data_anggota   = mysqli_fetch_array($sql_anggota);
-        $tgl_lahir      = $data_anggota['tgl_lahir'];
-        $template       = "../theme/table.php";
-        $wrapp          = "../core/wrapp.php";
-        $content        = "../views/kunjungan/keluarga.php";
+        echo "Koneksi Berhasil";
     }
 }else{
     $judul          = "Page Not Found";
