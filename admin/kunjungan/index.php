@@ -1,6 +1,12 @@
 <?php
 include("../auth/session.php");
-include("../function/function.php");
+include("../function/anggota.php");
+include("../function/jawaban.php");
+include("../function/keluarga.php");
+include("../function/soal.php");
+include("../function/user_level.php");
+include("../function/usia.php");
+include("../function/wilayah.php");
 if(isset($_GET['key'])){
     $key            = $_GET['key'];
     $sql_keluarga   = mysqli_query($host,"SELECT * FROM keluarga WHERE key_keluarga='$key'");
