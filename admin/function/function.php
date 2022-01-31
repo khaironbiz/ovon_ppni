@@ -1,9 +1,10 @@
 <?php
- require_once __DIR__ . './anggota.php';
- require_once __DIR__ . './jawaban.php';
- require_once __DIR__ . './keluarga.php';
- require_once __DIR__ . './soal.php';
- require_once __DIR__ . './user_level.php';
- require_once __DIR__ . './usia.php';
- require_once __DIR__ . './wilayah.php';
+ 
+ include('anggota.php');
+ include('jawaban.php');
+ include('keluarga.php');
+ include('soal.php');
+ include('user_level.php');
+ include('usia.php');
+ include('wilayah.php');
 ?>
