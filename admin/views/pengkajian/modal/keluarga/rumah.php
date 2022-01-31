@@ -285,6 +285,25 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row  mb-1">
+                        <div class="col-md-5">Bahan Bakar Keluarga</div>
+                        <div class="col-md-7">
+                            <?php
+                            $bahan_bakar     = master_jawaban($data_keluarga['bahan_bakar']);
+                            ?>
+                            <select class="form-control form-control-sm" required name="bahan_bakar">
+                                <option value="<?= $data_keluarga['bahan_bakar']?>"><?= $bahan_bakar?></option>
+                                <?php
+                                $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='48' ");
+                                while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                ?>
+                                <option value="<?= $data_jawaban['id_master_jawaban']?>"><?= $data_jawaban['master_jawaban']?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -298,6 +317,13 @@
 </div>
 <?php
 if(isset($_POST['edit_keluarga_rumah'])){
+    $hari_ini           = date('Y-m-d H:i:s');
+    $provinsi           = $data_keluarga['provinsi'];
+    $kabupaten          = $data_keluarga['kabupaten'];
+    $kecamatan          = $data_keluarga['kecamatan'];
+    $desa               = $data_keluarga['kelurahan'];
+    $rt                 = $data_keluarga['rt'];
+    $rw                 = $data_keluarga['rw'];
     $key_keluarga       = $_POST['edit_keluarga_rumah'];
     $key_kunjungan      = $_POST['key_kunjungan'];
     $luas_rumah         = $_POST['luas_rumah'];
@@ -315,6 +341,7 @@ if(isset($_POST['edit_keluarga_rumah'])){
     $kepemilikan_jamban = $_POST['kepemilikan_jamban'];
     $jenis_jamban       = $_POST['jenis_jamban'];
     $lokasi_jamban      = $_POST['lokasi_jamban'];
+    $bahan_bakar        = $_POST['bahan_bakar'];
     $update_keluarga    = mysqli_query($host,"UPDATE keluarga SET 
                         luas_rumah              = '$luas_rumah',
                         lantai_rumah            = '$lantai_rumah',
@@ -330,9 +357,56 @@ if(isset($_POST['edit_keluarga_rumah'])){
                         sampah_plastik          = '$sampah_plastik',
                         kepemilikan_jamban      = '$kepemilikan_jamban',
                         jenis_jamban            = '$jenis_jamban',
-                        lokasi_jamban           = '$lokasi_jamban' WHERE 
+                        lokasi_jamban           = '$lokasi_jamban',
+                        bahan_bakar             = '$bahan_bakar',
+                        updated_at              = '$hari_ini' WHERE 
                         key_keluarga            = '$key_keluarga'");
-    if($update_keluarga){
+    $sql_pengkajian     = mysqli_query($host,"SELECT * FROM pengkajian_keluarga WHERE has_pengkajian_keluarga = '$key_kunjungan'");
+    $count_pengkajian   = mysqli_num_rows($sql_pengkajian);
+    if($count_pengkajian <1){
+        $pengkajian     = mysqli_query($host,"INSERT INTO pengkajian_keluarga SET 
+                        key_keluarga            = '$key_keluarga',
+                        luas_rumah              = '$luas_rumah',
+                        lantai_rumah            = '$lantai_rumah',
+                        atap_rumah              = '$atap_rumah',
+                        dinding_rumah           = '$dinding_rumah',
+                        luas_ventilasi          = '$luas_ventilasi',
+                        arah_ventilasi          = '$arah_ventilasi',
+                        air_minum               = '$air_minum',
+                        air_bersih              = '$air_bersih',
+                        pengelolaan_sampah      = '$pengelolaan_sampah',
+                        limbah_air              = '$limbah_air',
+                        sampah_basah            = '$sampah_basah',
+                        sampah_plastik          = '$sampah_plastik',
+                        kepemilikan_jamban      = '$kepemilikan_jamban',
+                        jenis_jamban            = '$jenis_jamban',
+                        lokasi_jamban           = '$lokasi_jamban',
+                        bahan_bakar             = '$bahan_bakar',
+                        created_by              = '$user_check',
+                        created_at              = '$hari_ini',
+                        has_pengkajian_keluarga = '$key_kunjungan'");
+    }else{
+        $pengkajian     = mysqli_query($host,"UPDATE pengkajian_keluarga SET 
+                        key_keluarga            = '$key_keluarga',
+                        luas_rumah              = '$luas_rumah',
+                        lantai_rumah            = '$lantai_rumah',
+                        atap_rumah              = '$atap_rumah',
+                        dinding_rumah           = '$dinding_rumah',
+                        luas_ventilasi          = '$luas_ventilasi',
+                        arah_ventilasi          = '$arah_ventilasi',
+                        air_minum               = '$air_minum',
+                        air_bersih              = '$air_bersih',
+                        pengelolaan_sampah      = '$pengelolaan_sampah',
+                        limbah_air              = '$limbah_air',
+                        sampah_basah            = '$sampah_basah',
+                        sampah_plastik          = '$sampah_plastik',
+                        kepemilikan_jamban      = '$kepemilikan_jamban',
+                        jenis_jamban            = '$jenis_jamban',
+                        lokasi_jamban           = '$lokasi_jamban',
+                        updated_at              = '$hari_ini' WHERE
+                        has_pengkajian_keluarga = '$key_kunjungan'");
+    }
+    if($update_keluarga && $pengkajian){
         $_SESSION['status']="Data Sukses Disimpan";
         $_SESSION['status_info']="success";
         echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&kunjungan=$key_kunjungan\"</script>";

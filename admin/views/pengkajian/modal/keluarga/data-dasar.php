@@ -154,6 +154,13 @@
 </div>
 <?php
 if(isset($_POST['edit_keluarga'])){
+    $hari_ini           = date('Y-m-d H:i:s');
+    $provinsi           = $data_keluarga['provinsi'];
+    $kabupaten          = $data_keluarga['kabupaten'];
+    $kecamatan          = $data_keluarga['kecamatan'];
+    $desa               = $data_keluarga['kelurahan'];
+    $rt                 = $data_keluarga['rt'];
+    $rw                 = $data_keluarga['rw'];
     $key_keluarga       = $_POST['edit_keluarga'];
     $key_kunjungan      = $_POST['key_kunjungan'];
     $id_kepala_keluarga = $_POST['id_kepala_keluarga'];
@@ -172,7 +179,49 @@ if(isset($_POST['edit_keluarga'])){
                         status_ekonomi      = '$status_ekonomi',
                         alamat              = '$alamat' WHERE
                         key_keluarga        = '$key_keluarga'");
-    if($update_data){
+    $sql_pengkajian     = mysqli_query($host,"SELECT * FROM pengkajian_keluarga WHERE has_pengkajian_keluarga = '$key_kunjungan'");
+    $count_pengkajian   = mysqli_num_rows($sql_pengkajian);
+    if($count_pengkajian <1){
+        $pengkajian     = mysqli_query($host,"INSERT INTO pengkajian_keluarga SET 
+                        id_kepala_keluarga      = '$id_kepala_keluarga', 
+                        key_keluarga            = '$key_keluarga',
+                        no_kk                   = '$no_kk',
+                        jenis_keluarga          = '$jenis_keluarga',
+                        penghasilan             = '$penghasilan',
+                        pengeluaran             = '$pengeluaran',
+                        status_ekonomi          = '$status_ekonomi',
+                        alamat                  = '$alamat',
+                        rt                      = '$rt',
+                        rw                      = '$rw',
+                        kelurahan               = '$desa',
+                        kecamatan               = '$kecamatan',
+                        kabupaten               = '$kabupaten',
+                        provinsi                = '$provinsi',
+                        created_by              = '$user_check',
+                        created_at              = '$hari_ini',
+                        has_pengkajian_keluarga = '$key_kunjungan'");
+    }else{
+        $pengkajian     = mysqli_query($host,"UPDATE pengkajian_keluarga SET 
+                        id_kepala_keluarga      = '$id_kepala_keluarga', 
+                        key_keluarga            = '$key_keluarga',
+                        no_kk                   = '$no_kk',
+                        jenis_keluarga          = '$jenis_keluarga',
+                        penghasilan             = '$penghasilan',
+                        pengeluaran             = '$pengeluaran',
+                        status_ekonomi          = '$status_ekonomi',
+                        alamat                  = '$alamat',
+                        rt                      = '$rt',
+                        rw                      = '$rw',
+                        kelurahan               = '$desa',
+                        kecamatan               = '$kecamatan',
+                        kabupaten               = '$kabupaten',
+                        provinsi                = '$provinsi',
+                        created_by              = '$user_check',
+                        created_at              = '$hari_ini' WHERE
+                        has_pengkajian_keluarga = '$key_kunjungan'");
+    }
+    
+    if($update_data && $pengkajian){
         $_SESSION['status']="Data Sukses Disimpan";
         $_SESSION['status_info']="success";
         echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&kunjungan=$key_kunjungan\"</script>";

@@ -162,7 +162,9 @@
                                         <b>Keberadaan Binatang</b>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <button>Update</button>
+                                        <?php
+                                        require_once __DIR__ . "./../modal/keluarga/binatang.php";
+                                        ?>
                                     </div>
                                 </div>
                                 
