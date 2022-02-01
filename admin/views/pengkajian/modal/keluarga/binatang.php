@@ -23,7 +23,7 @@
                         while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                         ?>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban']?>" name="binatang_peliharaan">  
+                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban']?>" name="binatang_vektor[]">  
                             <label class="form-check-label" >
                                 <?= $data_jawaban['master_jawaban']?>
                             </label>
@@ -40,7 +40,7 @@
                         while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                         ?>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban']?>" name="binatang_peliharaan">  
+                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban']?>" name="binatang_berbahaya[]">  
                             <label class="form-check-label" >
                                 <?= $data_jawaban['master_jawaban']?>
                             </label>
@@ -57,7 +57,24 @@
                         while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                         ?>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban']?>" name="binatang_peliharaan">  
+                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban']?>" name="binatang_peliharaan[]">  
+                            <label class="form-check-label" >
+                                <?= $data_jawaban['master_jawaban']?>
+                            </label>
+                            
+                        </div>
+                        <?php
+                        }
+                        ?>
+                </div>
+                <div class="col-md-6">
+                    <label>Binatang Ternak</label>
+                        <?php
+                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='126' ");
+                        while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                        ?>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="<?= $data_jawaban['id_master_jawaban']?>" name="binatang_ternak[]">  
                             <label class="form-check-label" >
                                 <?= $data_jawaban['master_jawaban']?>
                             </label>
@@ -89,7 +106,31 @@ if(isset($_POST['edit_keluarga_binatang'])){
     $rw                 = $data_keluarga['rw'];
     $key_keluarga       = $_POST['edit_keluarga_binatang'];
     $key_kunjungan      = $_POST['key_kunjungan'];
-    
+    //
+    $binatang_vektor    = $_POST['binatang_vektor'];
+    $N                  = count($binatang_vektor);
+    for($i=0; $i < $N; $i++){
+        $sql_vektor[$i]     = mysqli_query($host, "SELECT *FROM keluarga_binatang where 
+                                id_binatang     = '$binatang_vektor[$i]' AND 
+                                key_keluarga    = '$key_keluarga'");
+        $count_vektor[$i]   = mysqli_num_rows($sql_vektor[$i]);
+        $has_vektor[$i]     = md5(uniqid());
+        $time[$i]           = date('Y-m-d H:i:s');
+        $coba[$i]           = mysqli_query($host,"INSERT INTO jabfung_rencana SET 
+                                id_th               = '$tahun',
+                                id_perawat          = '$user_check',
+                                level               = '$level_ini[$i]',
+                                id_jabfung          = '$id_jabfung[$i]',
+                                kredit              = '$ak_ini[$i]',
+                                id_a                = '$id_a[$i]',
+                                id_b                = '$id_b[$i]',
+                                id_c                = '$id_c[$i]',
+                                id_d                = '$id_d[$i]',
+                                created_at          = '$time[$i]',
+                                has_jabfung_rencana = '$has[$i]'");
+        $cek            = mysqli_query($host, $coba[$i]);
+    }
+    ///
     $update_keluarga    = mysqli_query($host,"UPDATE keluarga SET 
                         
                         updated_at              = '$hari_ini' WHERE 
