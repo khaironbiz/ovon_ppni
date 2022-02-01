@@ -1,18 +1,9 @@
 <?php
-if(isset($_SERVER['PATH_INFO'])){
-    $path = $_SERVER['PATH_INFO'];
+if($_SERVER['SERVER_NAME']=='localhost'){
+    $home_page           = "http://localhost/ovon_ppni/admin/login";
 }else{
-    $path = "login/index";
+    $home_page           = "https://nurse.my.id/admin/login";
 }
-
-$str = $path;
-$data	= explode("/",$str);
-$i=0;
-foreach ($data as $d){
-$i++;
-echo $d[$i]." ----".$i."<br>";
-
-}
-echo count($data)."<br>";
+echo "<script>document.location=\"$home_page\"</script>";
 
 ?>
