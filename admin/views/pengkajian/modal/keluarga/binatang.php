@@ -32,6 +32,8 @@
                         <?php
                         }
                         ?>
+                        <input type="hidden" class="" name="add_binatang" value="<?= $_GET['key']?>">
+                        <input type="hidden" class="" name="key_kunjungan" value="<?= $_GET['kunjungan']?>">
                 </div>
                 <div class="col-md-6">
                     <label>Binatang berbahaya</label>
@@ -96,7 +98,7 @@
     </div>
 </div>
 <?php
-if(isset($_POST['edit_keluarga_binatang'])){
+if(isset($_POST['add_binatang'])){
     $hari_ini           = date('Y-m-d H:i:s');
     $provinsi           = $data_keluarga['provinsi'];
     $kabupaten          = $data_keluarga['kabupaten'];
@@ -104,53 +106,95 @@ if(isset($_POST['edit_keluarga_binatang'])){
     $desa               = $data_keluarga['kelurahan'];
     $rt                 = $data_keluarga['rt'];
     $rw                 = $data_keluarga['rw'];
-    $key_keluarga       = $_POST['edit_keluarga_binatang'];
+    $key_keluarga       = $_POST['add_binatang'];
     $key_kunjungan      = $_POST['key_kunjungan'];
     //
     $binatang_vektor    = $_POST['binatang_vektor'];
     $N                  = count($binatang_vektor);
     for($i=0; $i < $N; $i++){
-        $sql_vektor[$i]     = mysqli_query($host, "SELECT *FROM keluarga_binatang where 
-                                id_binatang     = '$binatang_vektor[$i]' AND 
+        $sql_vektor[$i]             = mysqli_query($host, "SELECT *FROM keluarga_binatang where 
+                                        id_binatang     = '$binatang_vektor[$i]' AND 
+                                        key_keluarga    = '$key_keluarga'");
+        $count_vektor[$i]           = mysqli_num_rows($sql_vektor[$i]);
+        $has_keluarga_binatang[$i]  = md5(uniqid());
+        if($count_vektor[$i] <1){
+            $tamabah_vektor[$i]     = mysqli_query($host,"INSERT INTO keluarga_binatang SET
+                                    key_keluarga    = '$key_keluarga',
+                                    id_binatang     = '$binatang_vektor[$i]',
+                                    jenis_binatang  = '123',
+                                    created_at      = '$hari_ini',
+                                    created_by      = '$user_check',
+                                    has_keluarga_binatang   = '$has_keluarga_binatang[$i]'
+                                    ");
+            
+        }
+    }
+    //
+    $binatang_berbahaya     = $_POST['binatang_berbahaya'];
+    $X                      = count($binatang_berbahaya);
+    for($a=0; $a < $X; $a++){
+        $sql_binatang[$a]   = mysqli_query($host, "SELECT *FROM keluarga_binatang where 
+                                id_binatang     = '$binatang_berbahaya[$a]' AND 
                                 key_keluarga    = '$key_keluarga'");
-        $count_vektor[$i]   = mysqli_num_rows($sql_vektor[$i]);
-        $has_vektor[$i]     = md5(uniqid());
-        $time[$i]           = date('Y-m-d H:i:s');
-        $coba[$i]           = mysqli_query($host,"INSERT INTO jabfung_rencana SET 
-                                id_th               = '$tahun',
-                                id_perawat          = '$user_check',
-                                level               = '$level_ini[$i]',
-                                id_jabfung          = '$id_jabfung[$i]',
-                                kredit              = '$ak_ini[$i]',
-                                id_a                = '$id_a[$i]',
-                                id_b                = '$id_b[$i]',
-                                id_c                = '$id_c[$i]',
-                                id_d                = '$id_d[$i]',
-                                created_at          = '$time[$i]',
-                                has_jabfung_rencana = '$has[$i]'");
-        $cek            = mysqli_query($host, $coba[$i]);
+        $count_binatang[$a] = mysqli_num_rows($sql_binatang[$a]);
+        $has_keluarga_binatang[$a]  = md5(uniqid());
+        if($count_binatang[$a]<1){
+        $add_binatang_bahaya[$a]= mysqli_query($host,"INSERT INTO keluarga_binatang SET
+                                key_keluarga    = '$key_keluarga',
+                                id_binatang     = '$binatang_berbahaya[$a]',
+                                jenis_binatang  = '124',
+                                created_at      = '$hari_ini',
+                                created_by      = '$user_check',
+                                has_keluarga_binatang   = '$has_keluarga_binatang[$a]'
+                                ");
+        }
     }
-    ///
-    $update_keluarga    = mysqli_query($host,"UPDATE keluarga SET 
-                        
-                        updated_at              = '$hari_ini' WHERE 
-                        key_keluarga            = '$key_keluarga'");
-    $sql_pengkajian     = mysqli_query($host,"SELECT * FROM pengkajian_keluarga WHERE has_pengkajian_keluarga = '$key_kunjungan'");
-    $count_pengkajian   = mysqli_num_rows($sql_pengkajian);
-    if($count_pengkajian <1){
-        $pengkajian     = mysqli_query($host,"INSERT INTO pengkajian_keluarga SET 
-                        key_keluarga            = '$key_keluarga',
-                        bahan_bakar             = '$bahan_bakar',
-                        created_by              = '$user_check',
-                        created_at              = '$hari_ini',
-                        has_pengkajian_keluarga = '$key_kunjungan'");
-    }else{
-        $pengkajian     = mysqli_query($host,"UPDATE pengkajian_keluarga SET 
-                        
-                        updated_at              = '$hari_ini' WHERE
-                        has_pengkajian_keluarga = '$key_kunjungan'");
+    $binatang_peliharaan    = $_POST['binatang_peliharaan'];
+    $Y                      = count($binatang_peliharaan);
+    for($b=0; $b < $Y; $b++){
+        $sql_binatang[$b]   = mysqli_query($host, "SELECT *FROM keluarga_binatang where 
+                                id_binatang     = '$binatang_peliharaan[$b]' AND 
+                                key_keluarga    = '$key_keluarga'");
+        $count_binatang[$b] = mysqli_num_rows($sql_binatang[$b]);
+        $has_keluarga_binatang[$b]  = md5(uniqid());
+        if($count_binatang[$b]<1){
+        $add_binatang_pelihara[$b]  = mysqli_query($host,"INSERT INTO keluarga_binatang SET
+                                key_keluarga    = '$key_keluarga',
+                                id_binatang     = '$binatang_peliharaan[$b]',
+                                jenis_binatang  = '125',
+                                created_at      = '$hari_ini',
+                                created_by      = '$user_check',
+                                has_keluarga_binatang   = '$has_keluarga_binatang[$b]'
+                                ");
+        }
     }
-    if($update_keluarga && $pengkajian){
+    $binatang_ternak                = $_POST['binatang_ternak'];
+    $Z                              = count($binatang_ternak);
+    for($c=0; $c < $Z; $c++){
+        $sql_binatang[$c]           = mysqli_query($host, "SELECT *FROM keluarga_binatang where 
+                                    id_binatang     = '$binatang_ternak[$c]' AND 
+                                    key_keluarga    = '$key_keluarga'");
+        $count_binatang[$c]         = mysqli_num_rows($sql_binatang[$c]);
+        $has_keluarga_binatang[$c]  = md5(uniqid());
+        if($count_binatang[$c]<1){
+        $add_binatang_ternak[$c]    = mysqli_query($host,"INSERT INTO keluarga_binatang SET
+                                    key_keluarga    = '$key_keluarga',
+                                    id_binatang     = '$binatang_ternak[$c]',
+                                    jenis_binatang  = '126',
+                                    created_at      = '$hari_ini',
+                                    created_by      = '$user_check',
+                                    has_keluarga_binatang   = '$has_keluarga_binatang[$c]'
+                                    ");
+        }
+    }
+    $update_keluarga        = mysqli_query($host,"UPDATE keluarga SET 
+                                binatang_vektor     = '$N',
+                                binatang_buas       = '$X',
+                                binatang_peliharaan = '$Y',
+                                binatang_ternak     = '$Z' WHERE
+                                key_keluarga        = '$key_keluarga'");
+
+    if($update_keluarga){
         $_SESSION['status']="Data Sukses Disimpan";
         $_SESSION['status_info']="success";
         echo "<script>document.location=\"$site_url/pengkajian/keluarga.php?key=$key_keluarga&kunjungan=$key_kunjungan\"</script>";
