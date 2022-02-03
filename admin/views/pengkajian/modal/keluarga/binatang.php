@@ -108,7 +108,8 @@ if(isset($_POST['add_binatang'])){
     $rw                 = $data_keluarga['rw'];
     $key_keluarga       = $_POST['add_binatang'];
     $key_kunjungan      = $_POST['key_kunjungan'];
-    //
+    //delete data lama
+    $delete_binatang    = mysqli_query($host,"DELETE FROM keluarga_binatang WHERE key_keluarga='$key_keluarga'");
     $binatang_vektor    = $_POST['binatang_vektor'];
     $N                  = count($binatang_vektor);
     for($i=0; $i < $N; $i++){

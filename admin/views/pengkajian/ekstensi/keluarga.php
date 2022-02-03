@@ -171,14 +171,141 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                    <label>Vektor</label>
+                                    <div class="col-lg-3 col-6">
+                                        <label>Hewan Vektor</label>
+                                        <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='123' ");
+                                        while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                            $id_binatang    = $data_jawaban['id_master_jawaban'];
+                                            $sql_binatang   = mysqli_query($host,"SELECT * FROM keluarga_binatang WHERE id_binatang='$id_binatang'");
+                                            $count_binatang = mysqli_num_rows($sql_binatang);
+                                            if($count_binatang>0){
+
+                                            
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked>  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }else{
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }
+                                        }
+                                        ?>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-3 col-6">
                                         <label>Hewan Berbahaya</label>
+                                        <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='124' ");
+                                        while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                            $id_binatang    = $data_jawaban['id_master_jawaban'];
+                                            $sql_binatang   = mysqli_query($host,"SELECT * FROM keluarga_binatang WHERE id_binatang='$id_binatang'");
+                                            $count_binatang = mysqli_num_rows($sql_binatang);
+                                            if($count_binatang>0){
+
+                                            
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked>  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }else{
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }
+                                        }
+                                        ?>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-3 col-6">
                                         <label>Hewan Peliharaan</label>
+                                        <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='125' ");
+                                        while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                            $id_binatang    = $data_jawaban['id_master_jawaban'];
+                                            $sql_binatang   = mysqli_query($host,"SELECT * FROM keluarga_binatang WHERE id_binatang='$id_binatang'");
+                                            $count_binatang = mysqli_num_rows($sql_binatang);
+                                            if($count_binatang>0){
+
+                                            
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked>  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }else{
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <label>Hewan Ternak</label>
+                                        <?php
+                                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='126' ");
+                                        while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
+                                            $id_binatang    = $data_jawaban['id_master_jawaban'];
+                                            $sql_binatang   = mysqli_query($host,"SELECT * FROM keluarga_binatang WHERE id_binatang='$id_binatang'");
+                                            $count_binatang = mysqli_num_rows($sql_binatang);
+                                            if($count_binatang>0){
+
+                                            
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked>  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }else{
+                                        ?>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox">  
+                                            <label class="form-check-label" >
+                                                <?= $data_jawaban['master_jawaban']?>
+                                            </label>
+                                            
+                                        </div>
+                                        <?php
+                                        }
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 
