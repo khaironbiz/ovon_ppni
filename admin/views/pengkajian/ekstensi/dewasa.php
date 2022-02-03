@@ -302,7 +302,7 @@
                 </div>
                 <label>Keluhan Saat Ini</label>
                 <div class="row">
-                    <textarea class="form-control" rows="2"><?= $data_anggota['keluhan'];?></textarea>
+                    <textarea class="form-control" rows="2"><?= $data_anggota['keluhan_kesehatan'];?></textarea>
                 </div>
             </div>
         </div>

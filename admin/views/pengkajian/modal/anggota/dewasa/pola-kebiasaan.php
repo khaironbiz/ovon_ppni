@@ -50,7 +50,7 @@
                         <div class="col-5">Frekwensi</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="makanan_frekwensi">
-                                <option value="">--Durasi--</option>
+                                <option value="<?= $data_anggota['makan_frekwensi']?>"><?= master_jawaban($data_anggota['makan_frekwensi'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='101' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -66,7 +66,7 @@
                         <div class="col-5">Porsi</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="makanan_porsi">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['makan_porsi']?>"><?= master_jawaban($data_anggota['makan_porsi'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='102' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -82,7 +82,7 @@
                         <div class="col-5">Makan Sayur</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="makanan_sayur">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['makanan_sayur']?>"><?= master_jawaban($data_anggota['makanan_sayur'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='103' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -98,7 +98,7 @@
                         <div class="col-5">Makan Buah</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="makanan_buah">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['makanan_buah']?>"><?= master_jawaban($data_anggota['makanan_buah'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='104' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -114,7 +114,7 @@
                         <div class="col-5">Lauk Tersering</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="makanan_lauk">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['makanan_lauk']?>"><?= master_jawaban($data_anggota['makanan_lauk'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='105' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -131,7 +131,7 @@
                         <div class="col-5">Durasi</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="tidur_durasi">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['tidur_durasi']?>"><?= master_jawaban($data_anggota['tidur_durasi'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='106' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -147,7 +147,7 @@
                         <div class="col-5">Kualitas</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="tidur_kualitas">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['tidur_kualitas']?>"><?= master_jawaban($data_anggota['tidur_kualitas'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='107' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -163,7 +163,7 @@
                         <div class="col-5">Gangguan</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="tidur_gangguan">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['tidur_gangguan']?>"><?= master_jawaban($data_anggota['tidur_gangguan'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='108' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -180,7 +180,7 @@
                         <div class="col-5">Kebiasaan Merokok</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="rokok_kebiasaan">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['rokok_kebiasaan']?>"><?= master_jawaban($data_anggota['rokok_kebiasaan'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='98' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -196,7 +196,7 @@
                         <div class="col-5">Jenis Rokok</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="rokok_jenis">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['rokok_jenis']?>"><?= master_jawaban($data_anggota['rokok_jenis'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='99' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -212,7 +212,7 @@
                         <div class="col-5">Minum Alkohol</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="alkohol_kebiasaan">
-                                <option value="">--Porsi yang dihabiskan--</option>
+                                <option value="<?= $data_anggota['alkohol_kebiasaan']?>"><?= master_jawaban($data_anggota['alkohol_kebiasaan'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='100' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -226,7 +226,7 @@
                     </div>
                     <label>Keluhan</label>
                     <div class="row">
-                        <textarea class="form-control" rows="2" name="keluhan"><?= $data_anggota['keluhan'];?></textarea>
+                        <textarea class="form-control" rows="2" name="keluhan_kesehatan"><?= $data_anggota['keluhan_kesehatan'];?></textarea>
                     </div>
                     <label>Penyakit Yang Diderita</label>
                     <div class="row">
@@ -270,6 +270,7 @@ if(isset($_POST['update_kebiasaan_dewasa'])){
     $rokok_kebiasaan        = $_POST['rokok_kebiasaan'];
     $rokok_jenis            = $_POST['rokok_jenis'];
     $alkohol_kebiasaan      = $_POST['alkohol_kebiasaan'];
+    $keluhan_kesehatan      = $_POST['keluhan_kesehatan'];
     ///penyakit diderita
     $id_keluarga_anggota    = $data_anggota['id_keluarga_anggota'];
     $key_keluarga           = $data_anggota['key_keluarga'];
@@ -306,6 +307,7 @@ if(isset($_POST['update_kebiasaan_dewasa'])){
                                 tidur_gangguan              = '$tidur_gangguan',
                                 rokok_kebiasaan             = '$rokok_kebiasaan',
                                 rokok_jenis                 = '$rokok_jenis',
+                                keluhan_kesehatan           = '$keluhan_kesehatan',
                                 alkohol_kebiasaan           = '$alkohol_kebiasaan' WHERE 
                                 has_keluarga_anggota        = '$has_keluarga_anggota'");
 
