@@ -78,7 +78,7 @@
                     <div class="row">
                         <?php
                         $no=1;
-                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
+                        $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' AND blokir='0' ");
                         while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                         
                         ?>

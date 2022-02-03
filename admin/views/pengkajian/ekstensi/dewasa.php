@@ -91,6 +91,9 @@
                     <div class="col-5">Tinggi</div>
                     <div class="col-7">: <?= $data_anggota['tinggi_badan']?> Kg</div>
                 </div>
+                <?php
+                if($data_anggota['tinggi_badan'] >0 && $data_anggota['berat_badan'] >0){
+                ?>
                 <div class="row">
                     <div class="col-5">IMT</div>
                     <?php
@@ -100,6 +103,9 @@
                     ?>
                     <div class="col-7">: <?= round($imt,2) ?> <b>(<?= imt($imt)?>)</b></div>
                 </div>
+                <?php
+                }
+                ?>
                 <div class="row">
                     <div class="col-5">Tekanan Darah</div>
                     <div class="col-7">: <?= $data_anggota['sistolik']?> / <?= $data_anggota['diastolik']?> mmHg</div>
@@ -133,7 +139,7 @@
                 <div class="row">
                     <?php
                     $no=1;
-                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' ");
+                    $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='95' AND blokir ='0'");
                                         while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
                     $id_penyakit    = $data_jawaban['id_master_jawaban'];
                     $id_anggota     = $data_anggota['id_keluarga_anggota'];

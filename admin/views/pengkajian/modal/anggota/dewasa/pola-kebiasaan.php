@@ -16,7 +16,7 @@
                         <div class="col-5">Frekwensi</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="olah_raga_frekwensi">
-                                <option value="">--frekwensi--</option>
+                                <option value="<?= $data_anggota['olah_raga_frekwensi'];?>"><?= master_jawaban($data_anggota['olah_raga_frekwensi'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='96' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
@@ -33,7 +33,7 @@
                         <div class="col-5">Durasi</div>
                         <div class="col-7">
                             <select class="form-control form-control-sm" required name="olah_raga_durasi">
-                                <option value="">--Durasi--</option>
+                                <option value="<?= $data_anggota['olah_raga_durasi']?>"><?= master_jawaban($data_anggota['olah_raga_durasi'])?></option>
                                     <?php
                                         $sql_jawaban = mysqli_query($host, "SELECT * FROM master_jawaban WHERE id_master_soal='97' ");
                                                     while($data_jawaban = mysqli_fetch_array($sql_jawaban)){
